@@ -12,7 +12,7 @@ namespace DiceGame.model
       get => _sides;
       private set
       {
-        if (value < minNrOfSides)
+        if (value < minNrOfSides || value > 12)
         {
           throw new ArgumentException();
         }
