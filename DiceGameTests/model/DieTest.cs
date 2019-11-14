@@ -19,6 +19,12 @@ namespace DiceGameTests
       {
         Assert.Throws<ArgumentException>(() => new Die(0));
       }
+
+      [Fact]
+      public void sidesOfDieExceptionIfMoreThanTwelve()
+      {
+        Assert.Throws<ArgumentException>(() => new Die(12));
+      }
   }
 }
 
