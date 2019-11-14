@@ -9,11 +9,22 @@ namespace DiceGame.model
     public int Sides
     {
       get => _sides;
+      set
+      {
+        if (value == 0)
+        {
+          throw new ArgumentException();
+        }
+
+        this._sides = value;
+      }
     }
 
     public Die(int sides)
     {
-      this._sides = sides;
+      this.Sides = sides;
     }
+
+
   }
 }
