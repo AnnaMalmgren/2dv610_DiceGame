@@ -61,8 +61,10 @@ namespace DiceGameTests
       {
         Die sut = new Die(6, new Random());
         sut.RollDie();
+
         int value = sut.FaceValue;
         int actual = sut.FaceValue;
+        
         Assert.Equal(value, actual);
       }
 
