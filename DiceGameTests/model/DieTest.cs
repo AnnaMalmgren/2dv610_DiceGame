@@ -17,13 +17,13 @@ namespace DiceGameTests
       [Fact]
       public void sidesOfDieExceptionIfLessThanFour()
       {
-        Assert.Throws<ArgumentException>(() => new Die(0));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Die(0));
       }
 
       [Fact]
       public void sidesOfDieExceptionIfMoreThanTwelve()
       {
-        Assert.Throws<ArgumentException>(() => new Die(13));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Die(13));
       }
 
       [Fact]
