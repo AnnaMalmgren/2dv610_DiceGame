@@ -7,7 +7,7 @@ namespace DiceGameTests
   public class DieTest
   {
       [Fact]
-      public void nrOfSidesDie()
+      public void sidesDieShouldBeSix()
       {
         Die sut = new Die(6);
         int actual = sut.Sides;
@@ -24,6 +24,12 @@ namespace DiceGameTests
       public void sidesOfDieExceptionIfMoreThanTwelve()
       {
         Assert.Throws<ArgumentException>(() => new Die(13));
+      }
+
+      [Fact]
+      public void sidesOfDieMustBeEvenValue()
+      {
+        Assert.Throws<ArgumentException>(() => new Die(5));
       }
   }
 }
