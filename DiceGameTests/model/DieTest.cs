@@ -46,10 +46,22 @@ namespace DiceGameTests
       public void getValueShouldReturnSpecificValue()
       {
         var mockRandom = new Mock<Random>();
-        Die sut = new Die(6, mockRandom.Object);
         mockRandom.Setup(m => m.Next(1, 7)).Returns(6);
+        
+        Die sut = new Die(6, mockRandom.Object);
         int actual = sut.GetValue();
+
         Assert.Equal(6, actual);
+      }
+
+      [Fact]
+      public void getValueShouldBeTheSameWhenDieNotRolled()
+      {
+        Die sut = new Die(6, new Random());
+        sut.RollDie();
+        int value = sut.GetValue();
+        int actual = sut.GetValue();
+        Assert.Equal(value, actual);
       }
 
   }

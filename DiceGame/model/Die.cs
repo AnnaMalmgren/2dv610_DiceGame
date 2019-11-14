@@ -38,6 +38,11 @@ namespace DiceGame.model
       return this._random.Next(minValue, maxValue);
     }
 
+    public int RollDie()
+    {
+      return 0;
+    }
+
     private bool ValidateNrOfSides(int value)
     {
       if (!_allowedNrOfSides.Contains(value))
