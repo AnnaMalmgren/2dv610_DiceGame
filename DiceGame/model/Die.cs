@@ -5,13 +5,14 @@ namespace DiceGame.model
 {
   public class Die
   {
+    private const int minNrOfSides = 4;
     private int _sides;
     public int Sides
     {
       get => _sides;
-      set
+      private set
       {
-        if (value == 0)
+        if (value < minNrOfSides)
         {
           throw new ArgumentException();
         }
@@ -24,7 +25,6 @@ namespace DiceGame.model
     {
       this.Sides = sides;
     }
-
 
   }
 }
