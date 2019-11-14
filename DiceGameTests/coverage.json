@@ -1,0 +1,108 @@
+{
+  "DiceGame.dll": {
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\Program.cs": {
+      "DiceGame.Program": {
+        "System.Void DiceGame.Program::Main(System.String[])": {
+          "Lines": {
+            "8": 0,
+            "10": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\Die.cs": {
+      "DiceGame.model.Die": {
+        "System.Int32 DiceGame.model.Die::get_FaceValue()": {
+          "Lines": {
+            "19": 4
+          },
+          "Branches": []
+        },
+        "System.Int32 DiceGame.model.Die::get_Sides()": {
+          "Lines": {
+            "24": 4
+          },
+          "Branches": []
+        },
+        "System.Void DiceGame.model.Die::set_Sides(System.Int32)": {
+          "Lines": {
+            "26": 7,
+            "27": 7,
+            "28": 4,
+            "29": 4,
+            "30": 4,
+            "31": 4
+          },
+          "Branches": [
+            {
+              "Line": 27,
+              "Offset": 10,
+              "EndOffset": 12,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 4
+            },
+            {
+              "Line": 27,
+              "Offset": 10,
+              "EndOffset": 21,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            }
+          ]
+        },
+        "System.Void DiceGame.model.Die::RollDie()": {
+          "Lines": {
+            "41": 3,
+            "42": 3,
+            "43": 3,
+            "45": 3,
+            "46": 3
+          },
+          "Branches": []
+        },
+        "System.Boolean DiceGame.model.Die::ValidateNrOfSides(System.Int32)": {
+          "Lines": {
+            "49": 7,
+            "50": 7,
+            "51": 3,
+            "52": 3,
+            "55": 4,
+            "56": 4
+          },
+          "Branches": [
+            {
+              "Line": 50,
+              "Offset": 18,
+              "EndOffset": 20,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 50,
+              "Offset": 18,
+              "EndOffset": 27,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            }
+          ]
+        },
+        "System.Void DiceGame.model.Die::.ctor(System.Int32,System.Random)": {
+          "Lines": {
+            "9": 7,
+            "34": 7,
+            "35": 7,
+            "36": 7,
+            "37": 4,
+            "38": 4
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}

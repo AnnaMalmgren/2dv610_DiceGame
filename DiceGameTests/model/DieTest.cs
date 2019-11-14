@@ -64,10 +64,9 @@ namespace DiceGameTests
 
         int value = sut.FaceValue;
         int actual = sut.FaceValue;
-        
+
         Assert.Equal(value, actual);
       }
-
   }
 }
 
