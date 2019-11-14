@@ -42,6 +42,14 @@ namespace DiceGameTests
 
       }
 
+      [Fact]
+      public void getValueShouldReturnSpecificValue()
+      {
+        Die sut = new Die(6);
+        int actual = sut.GetValue();
+        Assert.Equal(6, actual);
+      }
+
   }
 }
 
