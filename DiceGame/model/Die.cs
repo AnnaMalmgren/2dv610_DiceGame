@@ -5,7 +5,7 @@ namespace DiceGame.model
 {
   public class Die
   {
-    public int Sides;
+    public int Sides = 6;
 
   }
 }
