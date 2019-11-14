@@ -34,33 +34,35 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void getValueShouldReturnValueInRange()
+      public void faceValueShouldReturnValueInRange()
       {
         Die sut = new Die(8, new Random());
-        int actual = sut.GetValue();
+        sut.RollDie();
+        int actual = sut.FaceValue;
         Assert.InRange<int>(actual, 1, 8);
 
       }
 
       [Fact]
-      public void getValueShouldReturnSpecificValue()
+      public void faceValueShouldReturnSpecificValue()
       {
         var mockRandom = new Mock<Random>();
         mockRandom.Setup(m => m.Next(1, 7)).Returns(6);
         
         Die sut = new Die(6, mockRandom.Object);
-        int actual = sut.GetValue();
+        sut.RollDie();
+        int actual = sut.FaceValue;
 
         Assert.Equal(6, actual);
       }
 
       [Fact]
-      public void getValueShouldBeTheSameWhenDieNotRolled()
+      public void faceValueShouldBeTheSameWhenDieNotRolled()
       {
         Die sut = new Die(6, new Random());
         sut.RollDie();
-        int value = sut.GetValue();
-        int actual = sut.GetValue();
+        int value = sut.FaceValue;
+        int actual = sut.FaceValue;
         Assert.Equal(value, actual);
       }
 

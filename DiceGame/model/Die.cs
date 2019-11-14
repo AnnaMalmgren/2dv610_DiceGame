@@ -10,7 +10,14 @@ namespace DiceGame.model
 
     private Random _random;
 
+    private int _faceValue;
+
     private int _sides;
+
+    public int FaceValue
+    {
+      get => this._faceValue;
+    }
 
     public int Sides
     {
@@ -30,17 +37,12 @@ namespace DiceGame.model
       this._random = rand;
     }
 
-    public int GetValue()
+    public void RollDie()
     {
       int minValue = 1;
       int maxValue = this.Sides + 1;
 
-      return this._random.Next(minValue, maxValue);
-    }
-
-    public int RollDie()
-    {
-      return 0;
+      this._faceValue = this._random.Next(minValue, maxValue);
     }
 
     private bool ValidateNrOfSides(int value)
