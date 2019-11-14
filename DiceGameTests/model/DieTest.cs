@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using Moq;
 using DiceGame.model;
 
 namespace DiceGameTests
@@ -17,13 +18,13 @@ namespace DiceGameTests
       [Fact]
       public void sidesOfDieExceptionIfLessThanFour()
       {
-        Assert.Throws<ArgumentOutOfRangeException>(() => new Die(0));
+        Assert.Throws<ArgumentException>(() => new Die(0));
       }
 
       [Fact]
       public void sidesOfDieExceptionIfMoreThanTwelve()
       {
-        Assert.Throws<ArgumentOutOfRangeException>(() => new Die(13));
+        Assert.Throws<ArgumentException>(() => new Die(13));
       }
 
       [Fact]
@@ -31,6 +32,7 @@ namespace DiceGameTests
       {
         Assert.Throws<ArgumentException>(() => new Die(5));
       }
+
   }
 }
 

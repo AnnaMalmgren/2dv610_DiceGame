@@ -1,35 +1,39 @@
 using System;
+using System.Collections.Generic;
 
 
 namespace DiceGame.model
 {
   public class Die
   {
-    private const int minNrOfSides = 4;
-    private const int maxNrOfSides = 12;
+    private readonly List<int> _allowedNrOfSides = new List<int>() {4, 6, 8, 10, 12};
+
     private int _sides;
     public int Sides
     {
       get => _sides;
       private set
       {
-        if (value < minNrOfSides || value > maxNrOfSides)
+        if (validateNrOfSides(value))
         {
-          throw new ArgumentException();
+          this._sides = value;
         }
-
-        if (value == 5)
-        {
-          throw new ArgumentException();
-        }
-
-        this._sides = value;
       }
     }
 
     public Die(int sides)
     {
       this.Sides = sides;
+    }
+
+    private bool validateNrOfSides(int value)
+    {
+      if (!_allowedNrOfSides.Contains(value))
+        {
+          throw new ArgumentException();
+        }
+
+        return true;
     }
 
   }
