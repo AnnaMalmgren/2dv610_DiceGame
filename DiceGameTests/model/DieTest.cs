@@ -13,6 +13,12 @@ namespace DiceGameTests
         int actual = sut.Sides;
         Assert.Equal(6, actual);
       }
+
+      [Fact]
+      public void sidesOfDieExceptionIfLessThanFour()
+      {
+        Assert.Throws<ArgumentException>(() => new Die(0));
+      }
   }
 }
 
