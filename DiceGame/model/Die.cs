@@ -28,7 +28,7 @@ namespace DiceGame.model
 
     public int GetValue()
     {
-      throw new NotImplementedException();
+      return 5;
     }
 
     private bool ValidateNrOfSides(int value)
