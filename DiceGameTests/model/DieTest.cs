@@ -10,7 +10,7 @@ namespace DiceGameTests
       [Fact]
       public void sidesDieShouldBeSix()
       {
-        Die sut = new Die(6);
+        Die sut = new Die(6, new Random());
         int actual = sut.Sides;
         Assert.Equal(6, actual);
       }
@@ -18,25 +18,25 @@ namespace DiceGameTests
       [Fact]
       public void sidesOfDieExceptionIfLessThanFour()
       {
-        Assert.Throws<ArgumentException>(() => new Die(0));
+        Assert.Throws<ArgumentException>(() => new Die(0, new Random()));
       }
 
       [Fact]
       public void sidesOfDieExceptionIfMoreThanTwelve()
       {
-        Assert.Throws<ArgumentException>(() => new Die(13));
+        Assert.Throws<ArgumentException>(() => new Die(13, new Random()));
       }
 
       [Fact]
       public void sidesOfDieMustBeEvenValue()
       {
-        Assert.Throws<ArgumentException>(() => new Die(5));
+        Assert.Throws<ArgumentException>(() => new Die(5, new Random()));
       }
 
       [Fact]
       public void getValueShouldReturnValueInRange()
       {
-        Die sut = new Die(8);
+        Die sut = new Die(8, new Random());
         int actual = sut.GetValue();
         Assert.InRange<int>(actual, 1, 8);
 
@@ -45,7 +45,9 @@ namespace DiceGameTests
       [Fact]
       public void getValueShouldReturnSpecificValue()
       {
-        Die sut = new Die(6);
+        var mockRandom = new Mock<Random>();
+        Die sut = new Die(6, mockRandom.Object);
+        mockRandom.Setup(m => m.Next(1, 7)).Returns(6);
         int actual = sut.GetValue();
         Assert.Equal(6, actual);
       }

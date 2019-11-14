@@ -24,18 +24,18 @@ namespace DiceGame.model
       }
     }
 
-    public Die(int sides)
+    public Die(int sides, Random rand)
     {
       this.Sides = sides;
-      this._random = new Random();
+      this._random = rand;
     }
 
     public int GetValue()
     {
       int minValue = 1;
       int maxValue = this.Sides + 1;
-      
-      return _random.Next(minValue, maxValue);
+
+      return this._random.Next(minValue, maxValue);
     }
 
     private bool ValidateNrOfSides(int value)
