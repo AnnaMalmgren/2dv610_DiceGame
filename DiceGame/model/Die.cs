@@ -18,6 +18,11 @@ namespace DiceGame.model
           throw new ArgumentException();
         }
 
+        if (value == 5)
+        {
+          throw new ArgumentException();
+        }
+
         this._sides = value;
       }
     }
