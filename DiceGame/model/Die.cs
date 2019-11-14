@@ -14,7 +14,7 @@ namespace DiceGame.model
       get => _sides;
       private set
       {
-        if (validateNrOfSides(value))
+        if (ValidateNrOfSides(value))
         {
           this._sides = value;
         }
@@ -26,7 +26,12 @@ namespace DiceGame.model
       this.Sides = sides;
     }
 
-    private bool validateNrOfSides(int value)
+    public int GetValue()
+    {
+      throw new NotImplementedException();
+    }
+
+    private bool ValidateNrOfSides(int value)
     {
       if (!_allowedNrOfSides.Contains(value))
         {

@@ -33,6 +33,15 @@ namespace DiceGameTests
         Assert.Throws<ArgumentException>(() => new Die(5));
       }
 
+      [Fact]
+      public void getValueShouldReturnValueInRange()
+      {
+        Die sut = new Die(8);
+        int actual = sut.GetValue();
+        Assert.InRange<int>(actual, 1, 8);
+
+      }
+
   }
 }
 
