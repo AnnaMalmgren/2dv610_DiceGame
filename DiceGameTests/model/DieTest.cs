@@ -9,7 +9,7 @@ namespace DiceGameTests
       [Fact]
       public void nrOfSidesDie()
       {
-        Die sut = new Die();
+        Die sut = new Die(6);
         int actual = sut.Sides;
         Assert.Equal(6, actual);
       }

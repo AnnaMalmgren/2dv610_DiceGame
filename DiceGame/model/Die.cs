@@ -5,7 +5,15 @@ namespace DiceGame.model
 {
   public class Die
   {
-    public int Sides = 6;
+    private int _sides;
+    public int Sides
+    {
+      get => _sides;
+    }
 
+    public Die(int sides)
+    {
+      this._sides = sides;
+    }
   }
 }
