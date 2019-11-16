@@ -31,7 +31,7 @@ namespace DiceGame.model
       }
     }
 
-    public Die(int sides, Random rand)
+    public Die(Random rand, int sides = 6)
     {
       this.Sides = sides;
       this._random = rand;
