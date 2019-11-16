@@ -8,10 +8,10 @@ namespace DiceGameTests
   public class DiceCupTest
   {
       [Fact]
-      public void shouldReturnDieWithChosenFaceValue()
+      public void setDiceShouldReturnChosenNrOfDice()
       {
         DiceCup sut = new DiceCup();
-        sut.SetDice();
+        sut.SetDice(2);
         int actual = sut.Dice.Count;
         Assert.Equal(2, actual);
           

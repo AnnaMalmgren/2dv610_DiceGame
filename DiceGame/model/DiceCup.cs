@@ -6,17 +6,27 @@ namespace DiceGame.model
 {
   public class DiceCup
   {
-    public List<Die> Dice; 
+
+    private List<Die> _dice;
+
+    public IReadOnlyList<Die> Dice => this._dice.AsReadOnly();
     
     public DiceCup()
     {
-      this.Dice = new List<Die>();
+      this._dice = new List<Die>();
     }
 
-    public void SetDice()
+    public void SetDice(int nrOfDice, int nrOfSides = 6)
     {
-      this.Dice.Add(new Die(new Random()));
-      this.Dice.Add(new Die(new Random()));
+      for (int i = 0; i < nrOfDice; i++)
+      {
+        this._dice.Add(this.createDie(nrOfSides));
+      }
+    }
+
+    private Die createDie(int nrOfSides)
+    {
+      return new Die(new Random(), nrOfSides);
     }
    
   }
