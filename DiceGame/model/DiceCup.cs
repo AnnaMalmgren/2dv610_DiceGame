@@ -9,6 +9,8 @@ namespace DiceGame.model
 
     private List<Die> _dice;
 
+    private DiceFactory _factory = new DiceFactory();
+
     public IReadOnlyList<Die> Dice => this._dice.AsReadOnly();
     
     public DiceCup()
@@ -20,13 +22,13 @@ namespace DiceGame.model
     {
       for (int i = 0; i < nrOfDice; i++)
       {
-        this._dice.Add(this.createDie(nrOfSides));
+        this._dice.Add(this._factory.getDie(nrOfSides));
       }
     }
 
-    private Die createDie(int nrOfSides)
+    public void RollDice()
     {
-      return new Die(new Random(), nrOfSides);
+      return;
     }
    
   }
