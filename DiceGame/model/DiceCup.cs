@@ -15,7 +15,8 @@ namespace DiceGame.model
 
     public void SetDice()
     {
-      return; 
+      this.Dice.Add(new Die(new Random()));
+      this.Dice.Add(new Die(new Random()));
     }
    
   }
