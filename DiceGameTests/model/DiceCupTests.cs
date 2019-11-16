@@ -10,6 +10,10 @@ namespace DiceGameTests
       [Fact]
       public void shouldReturnDieWithChosenFaceValue()
       {
+        DiceCup sut = new DiceCup();
+        sut.SetDice();
+        int actual = sut.Dice.Count;
+        Assert.Equal(2, actual);
           
       }
   }
