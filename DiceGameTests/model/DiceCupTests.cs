@@ -19,6 +19,19 @@ namespace DiceGameTests
         factoryMock.Verify(mock => mock.getDie(), Times.Exactly(3));
       }
 
+      [Fact]
+      public void rollDieShoulbBeCalledForAllDice()
+      {
+        var factoryMock = new Mock<DiceFactory>();
+        var dieMock = new Mock<IDie>();
+        dieMock.Setup(mock => mock.RollDie());
+        factoryMock.Setup(mock => mock.getDie()).Returns(dieMock.Object);
+        DiceCup sut = new DiceCup(factoryMock.Object);
+        sut.SetDice(3);
+        sut.RollDice();
+        dieMock.Verify(mock => mock.RollDie(), Times.Exactly(3));
+      }
+
 
   }
 }
