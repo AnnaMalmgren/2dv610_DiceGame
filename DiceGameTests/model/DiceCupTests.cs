@@ -8,14 +8,17 @@ namespace DiceGameTests
 {
   public class DiceCupTest
   {
+
       [Fact]
-      public void setDiceShouldReturnChosenNrOfDice()
+      public void factoryGetDieShoulbBeCalledForAllDice()
       {
-        DiceCup sut = new DiceCup();
-        sut.SetDice(2);
-        int actual = sut.Dice.Count;
-        Assert.Equal(2, actual);
+        var factoryMock = new Mock<DiceFactory>();
+        factoryMock.Setup(mock => mock.getDie()).Returns(new Mock<IDie>().Object);
+        DiceCup sut = new DiceCup(factoryMock.Object);
+        sut.SetDice(3);
+        factoryMock.Verify(mock => mock.getDie(), Times.Exactly(3));
       }
+
 
   }
 }

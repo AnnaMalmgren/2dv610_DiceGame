@@ -2,11 +2,11 @@ using System;
 
 namespace DiceGame.model
 {
-    class DiceFactory
+    public class DiceFactory
     {
-        public Die getDie(int nrSides = 6)
+        public virtual IDie getDie()
         {
-            return new Die(new Random(), nrSides);
+            return new Die(new Random());
         }
 
     }

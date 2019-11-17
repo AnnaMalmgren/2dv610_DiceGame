@@ -7,22 +7,23 @@ namespace DiceGame.model
   public class DiceCup
   {
 
-    private List<Die> _dice;
+    private List<IDie> _dice;
 
-    private DiceFactory _factory = new DiceFactory();
+    private DiceFactory _factory;
 
-    public IReadOnlyList<Die> Dice => this._dice.AsReadOnly();
+    public IReadOnlyList<IDie> Dice => this._dice.AsReadOnly();
     
-    public DiceCup()
+    public DiceCup(DiceFactory factory)
     {
-      this._dice = new List<Die>();
+      this._dice = new List<IDie>();
+      this._factory = factory;
     }
 
-    public void SetDice(int nrOfDice, int nrOfSides = 6)
+    public void SetDice(int nrOfDice)
     {
       for (int i = 0; i < nrOfDice; i++)
       {
-        this._dice.Add(this._factory.getDie(nrOfSides));
+        this._dice.Add(this._factory.getDie());
       }
     }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DiceGame.model
 {
-  public class Die
+  public class Die : IDie
   {
     private readonly List<int> _allowedNrOfSides = new List<int>() {4, 6, 8, 10, 12};
 
@@ -13,11 +13,6 @@ namespace DiceGame.model
     private int _faceValue;
 
     private int _sides;
-
-    public int FaceValue
-    {
-      get => this._faceValue;
-    }
 
     public int Sides
     {
@@ -45,7 +40,12 @@ namespace DiceGame.model
       this._faceValue = this._random.Next(minValue, maxValue);
     }
 
-    private bool ValidateNrOfSides(int value)
+    public int GetFaceValue()
+    {
+      return this._faceValue;
+    }
+
+    public bool ValidateNrOfSides(int value)
     {
       if (!_allowedNrOfSides.Contains(value))
         {

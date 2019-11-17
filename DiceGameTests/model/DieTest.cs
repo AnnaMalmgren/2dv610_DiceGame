@@ -46,7 +46,7 @@ namespace DiceGameTests
       {
         Die sut = new Die(new Random());
         sut.RollDie();
-        int actual = sut.FaceValue;
+        int actual = sut.GetFaceValue();
         Assert.InRange<int>(actual, 1, 6);
 
       }
@@ -59,7 +59,7 @@ namespace DiceGameTests
         
         Die sut = new Die(mockRandom.Object);
         sut.RollDie();
-        int actual = sut.FaceValue;
+        int actual = sut.GetFaceValue();
 
         Assert.Equal(6, actual);
       }
@@ -67,13 +67,15 @@ namespace DiceGameTests
       [Fact]
       public void faceValueShouldBeTheSameWhenDieNotRolled()
       {
-        Die sut = new Die(new Random());
+        var mockRandom = new Mock<Random>();
+        mockRandom.Setup(m => m.Next(1, 7)).Returns(5);
+        Die sut = new Die(mockRandom.Object);
         sut.RollDie();
 
-        int value = sut.FaceValue;
-        int actual = sut.FaceValue;
+        int value1 = sut.GetFaceValue();
+        int value2 = sut.GetFaceValue();
 
-        Assert.Equal(value, actual);
+        Assert.Equal(value1, value2);
       }
   }
 }
