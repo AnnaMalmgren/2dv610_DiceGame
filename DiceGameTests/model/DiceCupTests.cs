@@ -8,28 +8,40 @@ namespace DiceGameTests
 {
   public class DiceCupTest
   {
+    private Mock<DiceFactory> factoryMock;
+    private Mock<IDie> dieMock;
 
-      [Fact]
-      public void factoryGetDieShoulbBeCalledForAllDice()
+    public DiceCupTest()
+    {
+      this.factoryMock = new Mock<DiceFactory>();
+      this.dieMock = new Mock<IDie>();
+
+      this.factoryMock.Setup(mock => mock.getDie()).Returns(new Mock<IDie>().Object);
+      this.dieMock.Setup(mock => mock.RollDie());
+    }
+
+      [Theory]
+      [InlineData(0)]
+      [InlineData(1)]
+      [InlineData(5)]
+      public void factoryGetDieShoulbBeCalledForAllDice(int nrOfDice)
       {
-        var factoryMock = new Mock<DiceFactory>();
-        factoryMock.Setup(mock => mock.getDie()).Returns(new Mock<IDie>().Object);
-        DiceCup sut = new DiceCup(factoryMock.Object);
-        sut.SetDice(3);
-        factoryMock.Verify(mock => mock.getDie(), Times.Exactly(3));
+        DiceCup sut = new DiceCup(this.factoryMock.Object);
+        sut.SetDice(nrOfDice);
+        this.factoryMock.Verify(mock => mock.getDie(), Times.Exactly(nrOfDice));
       }
 
-      [Fact]
-      public void rollDieShoulbBeCalledForAllDice()
+      [Theory]
+      [InlineData(0)]
+      [InlineData(3)]
+      [InlineData(5)]
+      public void rollDieShoulbBeCalledForAllDice(int nrOfDice)
       {
-        var factoryMock = new Mock<DiceFactory>();
-        var dieMock = new Mock<IDie>();
-        dieMock.Setup(mock => mock.RollDie());
-        factoryMock.Setup(mock => mock.getDie()).Returns(dieMock.Object);
-        DiceCup sut = new DiceCup(factoryMock.Object);
-        sut.SetDice(3);
+        this.factoryMock.Setup(mock => mock.getDie()).Returns(dieMock.Object);
+        DiceCup sut = new DiceCup(this.factoryMock.Object);
+        sut.SetDice(nrOfDice);
         sut.RollDice();
-        dieMock.Verify(mock => mock.RollDie(), Times.Exactly(3));
+        this.dieMock.Verify(mock => mock.RollDie(), Times.Exactly(nrOfDice));
       }
 
 
