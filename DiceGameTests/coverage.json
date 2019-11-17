@@ -11,66 +11,177 @@
         }
       }
     },
-    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\Die.cs": {
-      "DiceGame.model.Die": {
-        "System.Int32 DiceGame.model.Die::get_FaceValue()": {
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceCup.cs": {
+      "DiceGame.model.DiceCup": {
+        "System.Void DiceGame.model.DiceCup::SetDice(System.Int32)": {
           "Lines": {
-            "19": 4
+            "22": 8,
+            "23": 56,
+            "24": 20,
+            "25": 20,
+            "26": 20,
+            "27": 8
+          },
+          "Branches": [
+            {
+              "Line": 23,
+              "Offset": 40,
+              "EndOffset": 5,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 20
+            },
+            {
+              "Line": 23,
+              "Offset": 40,
+              "EndOffset": 42,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 8
+            }
+          ]
+        },
+        "System.Void DiceGame.model.DiceCup::RollDice()": {
+          "Lines": {
+            "30": 5,
+            "31": 19,
+            "32": 5
+          },
+          "Branches": [
+            {
+              "Line": 31,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 31,
+              "Offset": 13,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 5
+            }
+          ]
+        },
+        "System.Int32 DiceGame.model.DiceCup::GetScore()": {
+          "Lines": {
+            "35": 2,
+            "36": 2,
+            "38": 18,
+            "39": 6,
+            "40": 6,
+            "41": 6,
+            "43": 2,
+            "45": 2
+          },
+          "Branches": [
+            {
+              "Line": 38,
+              "Offset": 44,
+              "EndOffset": 18,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            },
+            {
+              "Line": 38,
+              "Offset": 44,
+              "EndOffset": 46,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Void DiceGame.model.DiceCup::.ctor(DiceGame.model.DiceFactory)": {
+          "Lines": {
+            "15": 8,
+            "16": 8,
+            "17": 8,
+            "18": 8,
+            "19": 8
           },
           "Branches": []
-        },
+        }
+      }
+    },
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceFactory.cs": {
+      "DiceGame.model.DiceFactory": {
+        "DiceGame.model.IDie DiceGame.model.DiceFactory::GetDie()": {
+          "Lines": {
+            "8": 1,
+            "9": 1,
+            "10": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\Die.cs": {
+      "DiceGame.model.Die": {
         "System.Int32 DiceGame.model.Die::get_Sides()": {
           "Lines": {
-            "24": 4
+            "19": 5
           },
           "Branches": []
         },
         "System.Void DiceGame.model.Die::set_Sides(System.Int32)": {
           "Lines": {
-            "26": 7,
-            "27": 7,
-            "28": 4,
-            "29": 4,
-            "30": 4,
-            "31": 4
+            "21": 9,
+            "22": 9,
+            "23": 6,
+            "24": 6,
+            "25": 6,
+            "26": 6
           },
           "Branches": [
             {
-              "Line": 27,
+              "Line": 22,
               "Offset": 10,
               "EndOffset": 12,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 4
+              "Hits": 6
             },
             {
-              "Line": 27,
+              "Line": 22,
               "Offset": 10,
               "EndOffset": 21,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 4
+              "Hits": 6
             }
           ]
         },
         "System.Void DiceGame.model.Die::RollDie()": {
           "Lines": {
-            "41": 3,
-            "42": 3,
-            "43": 3,
-            "45": 3,
-            "46": 3
+            "36": 3,
+            "37": 3,
+            "38": 3,
+            "40": 3,
+            "41": 3
+          },
+          "Branches": []
+        },
+        "System.Int32 DiceGame.model.Die::GetFaceValue()": {
+          "Lines": {
+            "44": 4,
+            "45": 4,
+            "46": 4
           },
           "Branches": []
         },
         "System.Boolean DiceGame.model.Die::ValidateNrOfSides(System.Int32)": {
           "Lines": {
-            "49": 7,
-            "50": 7,
+            "49": 9,
+            "50": 9,
             "51": 3,
             "52": 3,
-            "55": 4,
-            "56": 4
+            "55": 6,
+            "56": 6
           },
           "Branches": [
             {
@@ -87,18 +198,18 @@
               "EndOffset": 27,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 4
+              "Hits": 6
             }
           ]
         },
-        "System.Void DiceGame.model.Die::.ctor(System.Int32,System.Random)": {
+        "System.Void DiceGame.model.Die::.ctor(System.Random,System.Int32)": {
           "Lines": {
-            "9": 7,
-            "34": 7,
-            "35": 7,
-            "36": 7,
-            "37": 4,
-            "38": 4
+            "9": 9,
+            "29": 9,
+            "30": 9,
+            "31": 9,
+            "32": 6,
+            "33": 6
           },
           "Branches": []
         }

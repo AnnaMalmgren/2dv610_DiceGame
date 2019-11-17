@@ -4,7 +4,7 @@ namespace DiceGame.model
 {
     public class DiceFactory
     {
-        public virtual IDie getDie()
+        public virtual IDie GetDie()
         {
             return new Die(new Random());
         }

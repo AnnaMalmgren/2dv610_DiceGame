@@ -19,7 +19,7 @@ namespace DiceGameTests
       this.dieMock = new Mock<IDie>();
       this.sut = new DiceCup(this.factoryMock.Object);
 
-      this.factoryMock.Setup(mock => mock.getDie()).Returns(this.dieMock.Object);
+      this.factoryMock.Setup(mock => mock.GetDie()).Returns(this.dieMock.Object);
       this.dieMock.Setup(mock => mock.RollDie());
       this.dieMock.Setup(mock => mock.GetFaceValue()).Returns(5);
     }
@@ -31,7 +31,7 @@ namespace DiceGameTests
       public void factoryGetDieShoulbBeCalledForAllDice(int nrOfDice)
       {
         this.sut.SetDice(nrOfDice);
-        this.factoryMock.Verify(mock => mock.getDie(), Times.Exactly(nrOfDice));
+        this.factoryMock.Verify(mock => mock.GetDie(), Times.Exactly(nrOfDice));
       }
 
       [Theory]
