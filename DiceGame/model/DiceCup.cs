@@ -29,7 +29,7 @@ namespace DiceGame.model
 
     public void RollDice()
     {
-      return;
+      this._dice.ForEach(die => die.RollDie());
     }
    
   }
