@@ -34,7 +34,15 @@ namespace DiceGame.model
 
     public int GetScore()
     {
-      return 0;
+      int score = 0;
+
+      foreach (IDie die in this._dice)
+      {
+        score += die.GetFaceValue();
+      }
+
+      return score;
+     
     }
 
   }
