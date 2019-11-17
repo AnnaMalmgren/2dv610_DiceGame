@@ -21,6 +21,7 @@ namespace DiceGameTests
 
       this.factoryMock.Setup(mock => mock.getDie()).Returns(this.dieMock.Object);
       this.dieMock.Setup(mock => mock.RollDie());
+      this.dieMock.Setup(mock => mock.GetFaceValue()).Returns(5);
     }
 
       [Theory]
@@ -49,10 +50,20 @@ namespace DiceGameTests
       {
         this.sut.SetDice(1);
         this.sut.RollDice();
-        this.dieMock.Setup(mock => mock.GetFaceValue()).Returns(5);
         int actual = this.sut.GetScore();
 
         Assert.Equal(5, actual);
+
+      }
+
+      [Fact]
+      public void getScoreShouldReturnFaceValuesOfAllDice()
+      {
+        this.sut.SetDice(5);
+        this.sut.RollDice();
+        int actual = this.sut.GetScore();
+
+        Assert.Equal(25, actual);
 
       }
 
