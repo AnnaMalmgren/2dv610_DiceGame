@@ -31,6 +31,11 @@ namespace DiceGame.model
     {
       this._dice.ForEach(die => die.RollDie());
     }
-   
+
+    public int GetScore()
+    {
+      return 0;
+    }
+
   }
 }
