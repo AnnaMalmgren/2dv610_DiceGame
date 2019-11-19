@@ -44,6 +44,15 @@ namespace DiceGameTests
 
         Assert.Equal(2, actual);
       }
+
+      [Fact]
+      public void getNrOfDicesShouldThrowExceptionWhenNotAInt()
+      {
+        this.mockConsole.Setup(mock => mock.ReadLine()).Returns("Hello");
+
+        Assert.Throws<ArgumentException>(() => this.sut.GetNrOfDices());
+
+      }
   
   }
 }
