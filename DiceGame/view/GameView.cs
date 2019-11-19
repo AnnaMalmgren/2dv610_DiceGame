@@ -24,6 +24,11 @@ namespace DiceGame.view
       return this._console.ReadKey();
     }
 
+    public void PrintDie()
+    {
+      return;
+    }
+
     public int GetNrOfDices()
     {
       string input = this._console.ReadLine();

@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using Moq;
 using DiceGame.view;
+using DiceGame.model;
 using System.Collections.Generic;
 
 namespace DiceGameTests
@@ -52,6 +53,16 @@ namespace DiceGameTests
 
         Assert.Throws<ArgumentException>(() => this.sut.GetNrOfDices());
 
+      }
+
+      [Fact]
+      public void printDieShould()
+      {
+        Mock<Die> dieMock = new Mock<Die>(new Random());
+        dieMock.Setup(mock => mock.GetFaceValue()).Returns(4);
+        this.sut.PrintDie();
+
+        this.mockConsole.Verify(mock => mock.WriteLine("Facevalue: 4"));
       }
   
   }
