@@ -32,9 +32,14 @@ namespace DiceGame.view
 
     private int ConvertToInt(string input)
     {
-      int.TryParse(input, out int num);
-      
-      return num;
+      if (int.TryParse(input, out int num))
+      {
+        return num;
+      }
+      else
+      {
+        throw new ArgumentException();
+      }
     }
 
   }
