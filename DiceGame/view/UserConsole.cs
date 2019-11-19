@@ -19,7 +19,7 @@ namespace DiceGame.view
 
       public string ReadLine()
       {
-          return "Test";
+          return Console.ReadLine();
       }
 
   }
