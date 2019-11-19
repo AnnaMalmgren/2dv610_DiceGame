@@ -42,5 +42,18 @@ namespace DiceGameTests
 
     }
 
+    [Fact]
+    public void readLineShouldReturnEnteredString()
+    {
+        string expected = "Test";
+        StringReader input = new StringReader(expected);
+        Console.SetIn(input);
+
+        string actual = this.sut.ReadLine();
+
+        Assert.Equal(expected, actual);
+
+    }
+
   }
 }

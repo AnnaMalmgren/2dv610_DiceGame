@@ -1,6 +1,6 @@
 {
   "DiceGame.dll": {
-    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\Program.cs": {
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\Program.cs": {
       "DiceGame.Program": {
         "System.Void DiceGame.Program::Main(System.String[])": {
           "Lines": {
@@ -11,7 +11,7 @@
         }
       }
     },
-    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\view\\GameView.cs": {
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\view\\GameView.cs": {
       "DiceGame.view.GameView": {
         "System.Void DiceGame.view.GameView::DisplayWelcomeMsg()": {
           "Lines": {
@@ -40,27 +40,28 @@
         }
       }
     },
-    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\view\\UserConsole.cs": {
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\view\\UserConsole.cs": {
       "DiceGame.view.UserConsole": {
         "System.Void DiceGame.view.UserConsole::WriteLine(System.String)": {
           "Lines": {
-            "10": 0,
-            "11": 0,
-            "12": 0
+            "10": 1,
+            "11": 1,
+            "12": 1
           },
           "Branches": []
         },
         "System.Char DiceGame.view.UserConsole::ReadKey()": {
           "Lines": {
-            "15": 0,
-            "16": 0,
-            "17": 0
+            "15": 1,
+            "16": 1,
+            "17": 1,
+            "18": 1
           },
           "Branches": []
         }
       }
     },
-    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceCup.cs": {
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceCup.cs": {
       "DiceGame.model.DiceCup": {
         "System.Void DiceGame.model.DiceCup::SetDice(System.Int32)": {
           "Lines": {
@@ -157,7 +158,7 @@
         }
       }
     },
-    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceFactory.cs": {
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceFactory.cs": {
       "DiceGame.model.DiceFactory": {
         "DiceGame.model.IDie DiceGame.model.DiceFactory::GetDie()": {
           "Lines": {
@@ -169,7 +170,7 @@
         }
       }
     },
-    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\Die.cs": {
+    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\Die.cs": {
       "DiceGame.model.Die": {
         "System.Int32 DiceGame.model.Die::get_Sides()": {
           "Lines": {
