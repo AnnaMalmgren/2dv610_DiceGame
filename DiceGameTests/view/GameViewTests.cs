@@ -58,7 +58,7 @@ namespace DiceGameTests
       [Fact]
       public void printDieShould()
       {
-        Mock<Die> dieMock = new Mock<Die>(new Random());
+        Mock<IDie> dieMock = new Mock<IDie>();
         dieMock.Setup(mock => mock.GetFaceValue()).Returns(4);
         this.sut.PrintDie();
 

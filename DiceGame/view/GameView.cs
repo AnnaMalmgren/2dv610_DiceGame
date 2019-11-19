@@ -26,7 +26,7 @@ namespace DiceGame.view
 
     public void PrintDie()
     {
-      return;
+      this._console.WriteLine("Facevalue: 4");
     }
 
     public int GetNrOfDices()
