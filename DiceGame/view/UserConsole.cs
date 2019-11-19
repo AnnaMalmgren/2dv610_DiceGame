@@ -6,9 +6,9 @@ namespace DiceGame.view
 {
   public class UserConsole : IUserConsole
   {
-      public void WriteLine(string Message)
+      public void WriteLine(string message)
       {
-          return;
+          Console.WriteLine(message);
       }
 
       public char ReadKey()

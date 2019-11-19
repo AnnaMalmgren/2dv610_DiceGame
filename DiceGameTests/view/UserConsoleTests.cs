@@ -23,8 +23,9 @@ namespace DiceGameTests
     public void writeLineShouldWriteToConsole()
     {
         Console.SetOut(this.sw);
-        string expected = "Test input string";
-        sut.WriteLine(expected);
+        sut.WriteLine("Test input string");
+
+        string expected = $"Test input string{Environment.NewLine}";
 
         Assert.Equal(expected, sw.ToString());
     }
