@@ -21,7 +21,7 @@ namespace DiceGame.view
 
     public char GetUserInput()
     {
-      return ' ';
+      return this._console.ReadKey();
     }
 
   }
