@@ -13,7 +13,7 @@ namespace DiceGame.view
 
       public string ReadKey()
       {
-          return "";
+          return Console.ReadLine();
       }
 
   }
