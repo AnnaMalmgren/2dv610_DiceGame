@@ -55,14 +55,25 @@ namespace DiceGameTests
 
       }
 
-      [Fact]
-      public void printDieShould()
+      [Theory]
+      [InlineData(4)]
+      [InlineData(2)]
+      public void printDieShouldPrintFaceValueOfDie(int faceValue)
       {
         Mock<IDie> dieMock = new Mock<IDie>();
-        dieMock.Setup(mock => mock.GetFaceValue()).Returns(4);
+        dieMock.Setup(mock => mock.GetFaceValue()).Returns(faceValue);
         this.sut.PrintDie(dieMock.Object);
 
-        this.mockConsole.Verify(mock => mock.WriteLine($"Facevalue: 4"));
+        this.mockConsole.Verify(mock => mock.WriteLine($"Facevalue: {faceValue}"));
+      }
+
+      [Fact]
+      public void printDiceResultShouldPrintValueForAllDice()
+      {
+        this.sut.PrintDiceResult();
+        
+        string expected = "Die 1 FaceValue: 2\nTotal Score: 2";
+        this.mockConsole.Verify(mock => mock.WriteLine(expected));
       }
   
   }
