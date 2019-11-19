@@ -1,6 +1,6 @@
 {
   "DiceGame.dll": {
-    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\Program.cs": {
+    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\Program.cs": {
       "DiceGame.Program": {
         "System.Void DiceGame.Program::Main(System.String[])": {
           "Lines": {
@@ -11,20 +11,69 @@
         }
       }
     },
-    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceCup.cs": {
+    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\view\\GameView.cs": {
+      "DiceGame.view.GameView": {
+        "System.Void DiceGame.view.GameView::DisplayWelcomeMsg()": {
+          "Lines": {
+            "18": 1,
+            "19": 1,
+            "20": 1
+          },
+          "Branches": []
+        },
+        "System.Char DiceGame.view.GameView::GetUserInput()": {
+          "Lines": {
+            "23": 1,
+            "24": 1,
+            "25": 1
+          },
+          "Branches": []
+        },
+        "System.Void DiceGame.view.GameView::.ctor(DiceGame.view.IUserConsole)": {
+          "Lines": {
+            "12": 2,
+            "13": 2,
+            "14": 2,
+            "15": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\view\\UserConsole.cs": {
+      "DiceGame.view.UserConsole": {
+        "System.Void DiceGame.view.UserConsole::WriteLine(System.String)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Char DiceGame.view.UserConsole::ReadKey()": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceCup.cs": {
       "DiceGame.model.DiceCup": {
         "System.Void DiceGame.model.DiceCup::SetDice(System.Int32)": {
           "Lines": {
-            "22": 8,
-            "23": 56,
+            "20": 8,
+            "21": 56,
+            "22": 20,
+            "23": 20,
             "24": 20,
-            "25": 20,
-            "26": 20,
-            "27": 8
+            "25": 8
           },
           "Branches": [
             {
-              "Line": 23,
+              "Line": 21,
               "Offset": 40,
               "EndOffset": 5,
               "Path": 1,
@@ -32,7 +81,7 @@
               "Hits": 20
             },
             {
-              "Line": 23,
+              "Line": 21,
               "Offset": 40,
               "EndOffset": 42,
               "Path": 0,
@@ -43,13 +92,13 @@
         },
         "System.Void DiceGame.model.DiceCup::RollDice()": {
           "Lines": {
-            "30": 5,
-            "31": 19,
-            "32": 5
+            "28": 5,
+            "29": 19,
+            "30": 5
           },
           "Branches": [
             {
-              "Line": 31,
+              "Line": 29,
               "Offset": 13,
               "EndOffset": 15,
               "Path": 0,
@@ -57,7 +106,7 @@
               "Hits": 1
             },
             {
-              "Line": 31,
+              "Line": 29,
               "Offset": 13,
               "EndOffset": 38,
               "Path": 1,
@@ -68,18 +117,18 @@
         },
         "System.Int32 DiceGame.model.DiceCup::GetScore()": {
           "Lines": {
-            "35": 2,
-            "36": 2,
-            "38": 18,
+            "33": 2,
+            "34": 2,
+            "36": 18,
+            "37": 6,
+            "38": 6,
             "39": 6,
-            "40": 6,
-            "41": 6,
-            "43": 2,
-            "45": 2
+            "41": 2,
+            "43": 2
           },
           "Branches": [
             {
-              "Line": 38,
+              "Line": 36,
               "Offset": 44,
               "EndOffset": 18,
               "Path": 1,
@@ -87,7 +136,7 @@
               "Hits": 6
             },
             {
-              "Line": 38,
+              "Line": 36,
               "Offset": 44,
               "EndOffset": 46,
               "Path": 0,
@@ -98,17 +147,17 @@
         },
         "System.Void DiceGame.model.DiceCup::.ctor(DiceGame.model.DiceFactory)": {
           "Lines": {
+            "13": 8,
+            "14": 8,
             "15": 8,
             "16": 8,
-            "17": 8,
-            "18": 8,
-            "19": 8
+            "17": 8
           },
           "Branches": []
         }
       }
     },
-    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceFactory.cs": {
+    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\DiceFactory.cs": {
       "DiceGame.model.DiceFactory": {
         "DiceGame.model.IDie DiceGame.model.DiceFactory::GetDie()": {
           "Lines": {
@@ -120,7 +169,7 @@
         }
       }
     },
-    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\Die.cs": {
+    "c:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\model\\Die.cs": {
       "DiceGame.model.Die": {
         "System.Int32 DiceGame.model.Die::get_Sides()": {
           "Lines": {
