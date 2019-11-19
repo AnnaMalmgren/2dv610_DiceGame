@@ -10,5 +10,7 @@ namespace DiceGame.view
 
       char ReadKey();
 
+      string ReadLine();
+
   }
 }

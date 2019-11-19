@@ -24,5 +24,10 @@ namespace DiceGame.view
       return this._console.ReadKey();
     }
 
+    public int GetNrOfDices()
+    {
+      throw new NotImplementedException();
+    }
+
   }
 }

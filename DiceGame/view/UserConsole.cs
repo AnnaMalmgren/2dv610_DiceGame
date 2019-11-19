@@ -17,5 +17,10 @@ namespace DiceGame.view
           return Convert.ToChar(input);
       }
 
+      public string ReadLine()
+      {
+          return "Test";
+      }
+
   }
 }
