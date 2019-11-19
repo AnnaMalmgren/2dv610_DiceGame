@@ -60,9 +60,9 @@ namespace DiceGameTests
       {
         Mock<IDie> dieMock = new Mock<IDie>();
         dieMock.Setup(mock => mock.GetFaceValue()).Returns(4);
-        this.sut.PrintDie();
+        this.sut.PrintDie(dieMock.Object);
 
-        this.mockConsole.Verify(mock => mock.WriteLine("Facevalue: 4"));
+        this.mockConsole.Verify(mock => mock.WriteLine($"Facevalue: 4"));
       }
   
   }

@@ -24,9 +24,9 @@ namespace DiceGame.view
       return this._console.ReadKey();
     }
 
-    public void PrintDie()
+    public void PrintDie(model.IDie die)
     {
-      this._console.WriteLine("Facevalue: 4");
+      this._console.WriteLine($"Facevalue: {die.GetFaceValue()}");
     }
 
     public int GetNrOfDices()
