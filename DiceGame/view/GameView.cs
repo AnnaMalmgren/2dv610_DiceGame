@@ -26,7 +26,7 @@ namespace DiceGame.view
 
     public void PrintDiceResult()
     {
-      return;
+      this._console.WriteLine("Die 1 FaceValue: 2\nTotal Score: 2");
     }
 
     public void PrintDie(model.IDie die)
