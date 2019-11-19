@@ -13,7 +13,7 @@ namespace DiceGame.view
 
     public void DisplayMainMenu()
     {
-      return;
+      this._console.WriteLine("Main Menu");
     }
 
   }
