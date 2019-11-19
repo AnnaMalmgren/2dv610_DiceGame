@@ -19,5 +19,10 @@ namespace DiceGame.view
       this._console.WriteLine($"Welcome to DiceGame. Press any Key to play, or { _exitKey } to Quit");
     }
 
+    public char GetUserInput()
+    {
+      return ' ';
+    }
+
   }
 }

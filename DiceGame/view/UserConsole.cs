@@ -11,5 +11,10 @@ namespace DiceGame.view
           return;
       }
 
+      public char ReadKey()
+      {
+          return Console.ReadKey().KeyChar;
+      }
+
   }
 }
