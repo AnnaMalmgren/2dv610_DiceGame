@@ -8,16 +8,29 @@ namespace DiceGameTests
 {
   public class GameViewTests
   {
+    private Mock<IUserConsole> mockConsole;
+    private GameView sut;
+
+
+    public GameViewTests()
+    {
+      this.mockConsole = new Mock<IUserConsole>();
+      this.sut = new GameView(this.mockConsole.Object);
+
+    }
       [Fact]
       public void displayWelcomeMsgShouldWriteToConsole()
       {
-        var mockConsole = new Mock<IUserConsole>();
-        GameView sut = new GameView(mockConsole.Object);
+        this.sut.DisplayWelcomeMsg();
+        string input = "Welcome to DiceGame. Press any Key to play, or q to Quit";
 
-        sut.DisplayWelcomeMsg();
-        string input = "Welcome Msg";
+        this.mockConsole.Verify(mock => mock.WriteLine(input), Times.Once());
+      }
 
-        mockConsole.Verify(mock => mock.WriteLine(input), Times.Once());
+      [Fact]
+      public void getUserInputShouldReturnInputChar()
+      {
+
       }
   
   }
