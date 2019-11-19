@@ -27,7 +27,14 @@ namespace DiceGame.view
     public int GetNrOfDices()
     {
       string input = this._console.ReadLine();
-      return Int32.Parse(input);
+      return this.ConvertToInt(input);
+    }
+
+    private int ConvertToInt(string input)
+    {
+      int.TryParse(input, out int num);
+      
+      return num;
     }
 
   }
