@@ -11,25 +11,35 @@ namespace DiceGameTests
   {
     private UserConsole sut;
 
-    private StringWriter sw;
 
     public UserConsoleTests()
     {
         this.sut = new UserConsole();
-        this.sw = new StringWriter();
     }
 
     [Fact]
     public void writeLineShouldWriteToConsole()
     {
-        Console.SetOut(this.sw);
-        sut.WriteLine("Test input string");
-
+        StringWriter sw = new StringWriter();
+        Console.SetOut(sw);
+        this.sut.WriteLine("Test input string");
         string expected = $"Test input string{Environment.NewLine}";
-
-        Assert.Equal(expected, sw.ToString());
+            
+        Assert.Equal(expected, sw.ToString());       
+        
     }
 
+    [Fact]
+    public void readKeyShouldReturnEnteredChar()
+    {
+        string expected = "Test";
+        StringReader input = new StringReader(expected);
+        Console.SetIn(input);
+
+        string actual = this.sut.ReadKey();
+
+        Assert.Equal(expected, actual);
+    }
 
   }
 }
