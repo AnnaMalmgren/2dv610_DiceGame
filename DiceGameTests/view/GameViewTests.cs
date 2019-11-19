@@ -30,19 +30,19 @@ namespace DiceGameTests
       [Fact]
       public void getUserInputShouldReturnInputChar()
       {
-        this.sut.GetNrOfDices();
-
-        this.mockConsole.Setup(mock => mock.ReadKey()).Returns('2');
+        this.sut.GetUserInput();
 
         this.mockConsole.Verify(mock => mock.ReadKey(), Times.Once());
 
       }
 
-     
+      [Fact]
       public void getNrOfDicesShouldReturnNrOfDicesEntered()
       {
-        
+        this.mockConsole.Setup(mock => mock.ReadLine()).Returns("2");
+        int actual = this.sut.GetNrOfDices();
 
+        Assert.Equal(2, actual);
       }
   
   }
