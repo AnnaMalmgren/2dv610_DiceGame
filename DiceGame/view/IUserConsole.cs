@@ -8,7 +8,7 @@ namespace DiceGame.view
   {
       void WriteLine(string Message);
 
-      string ReadKey();
+      char ReadKey();
 
   }
 }

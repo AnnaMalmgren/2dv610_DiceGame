@@ -11,9 +11,10 @@ namespace DiceGame.view
           Console.WriteLine(message);
       }
 
-      public string ReadKey()
+      public char ReadKey()
       {
-          return Console.ReadLine();
+          int input = Console.Read();
+          return Convert.ToChar(input);
       }
 
   }

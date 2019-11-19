@@ -32,13 +32,14 @@ namespace DiceGameTests
     [Fact]
     public void readKeyShouldReturnEnteredChar()
     {
-        string expected = "Test";
-        StringReader input = new StringReader(expected);
+        char expected = 'a';
+        StringReader input = new StringReader(Char.ToString('a'));
         Console.SetIn(input);
 
-        string actual = this.sut.ReadKey();
+        char actual = this.sut.ReadKey();
 
         Assert.Equal(expected, actual);
+
     }
 
   }
