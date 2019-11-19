@@ -26,7 +26,8 @@ namespace DiceGame.view
 
     public int GetNrOfDices()
     {
-      throw new NotImplementedException();
+      string input = this._console.ReadLine();
+      return Int32.Parse(input);
     }
 
   }
