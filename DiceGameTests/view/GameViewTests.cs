@@ -9,15 +9,15 @@ namespace DiceGameTests
   public class GameViewTests
   {
       [Fact]
-      public void displayMainMenuShouldWriteMainMenuToConsole()
+      public void displayWelcomeMsgShouldWriteToConsole()
       {
         var mockConsole = new Mock<IUserConsole>();
         GameView sut = new GameView(mockConsole.Object);
 
-        sut.DisplayMainMenu();
-        string menu = "Main Menu";
+        sut.DisplayWelcomeMsg();
+        string input = "Welcome Msg";
 
-        mockConsole.Verify(mock => mock.WriteLine(menu), Times.Once());
+        mockConsole.Verify(mock => mock.WriteLine(input), Times.Once());
       }
   
   }
