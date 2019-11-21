@@ -83,13 +83,23 @@ namespace DiceGameTests
 
       [Theory]
       [InlineData('q')]
-       [InlineData('Q')]
+      [InlineData('Q')]
       public void userWantsToPlayShouldReturnFalseWithInputQ(char input)
       {
         this.mockConsole.Setup(mock => mock.ReadKey()).Returns(input);
         bool actual = this.sut.UserWantsToPlay();
 
         Assert.False(actual);
+      }
+
+      [Fact]
+      public void userWantsToPlayShouldReturnTrueWhitNonQInput()
+      {
+        this.mockConsole.Setup(mock => mock.ReadKey()).Returns('q');
+        bool actual = this.sut.UserWantsToPlay();
+
+        Assert.True(actual);
+
       }
   
   }

@@ -44,6 +44,11 @@ namespace DiceGame.view
       this._console.WriteLine($"Facevalue: {die.GetFaceValue()}");
     }
 
+    public void PrintGameResult()
+    {
+
+    }
+
     public int GetNrOfDices()
     {
       string input = this._console.ReadLine();
