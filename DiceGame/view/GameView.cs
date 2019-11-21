@@ -19,7 +19,7 @@ namespace DiceGame.view
       this._console = console;
     }
 
-    public void DisplayWelcomeMsg()
+    public virtual void DisplayWelcomeMsg()
     {
       this._console.WriteLine($"Welcome to DiceGame. Press any Key to play, or { _exitKey } to Quit");
     }

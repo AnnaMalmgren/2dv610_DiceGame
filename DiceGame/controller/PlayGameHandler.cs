@@ -6,9 +6,9 @@ namespace DiceGame.controller
 {
   public class PlayGameHandler
   {
-    public void PlayGame(model.DiceCup cup, view.GameView view)
+    public void PlayGame(view.GameView view)
     {
-        
+        view.DisplayWelcomeMsg();
     }
 
   }
