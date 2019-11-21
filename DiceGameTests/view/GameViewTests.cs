@@ -82,6 +82,23 @@ namespace DiceGameTests
         this.mockConsole.Verify(mock => mock.WriteLine(expectedScore));
       }
 
+      [Fact]
+      public void printDiceResultShouldPrintValueForMultipleDice()
+      {
+        Mock<IDie> dieMock = new Mock<IDie>();
+        Mock<IDie> dieMock2 = new Mock<IDie>();
+        Mock<IDie> dieMock3 = new Mock<IDie>();
+        dieMock.Setup(mock => mock.GetFaceValue()).Returns(2);
+        dieMock2.Setup(mock => mock.GetFaceValue()).Returns(4);
+        dieMock3.Setup(mock => mock.GetFaceValue()).Returns(4);
+        List<IDie> diceCup = new List<IDie>(){dieMock.Object, dieMock2.Object, dieMock3.Object};
+        
+        this.sut.PrintDiceResult(diceCup, 10);
+        
+        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Once());
+  
+      }
+
       [Theory]
       [InlineData('q')]
       [InlineData('Q')]
