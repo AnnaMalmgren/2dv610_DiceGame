@@ -15,8 +15,15 @@ namespace DiceGame.controller
       public void PlayGame()
       {
           this._view.DisplayWelcomeMsg();
-
-          this._view.GetNrOfDices();
+          
+          try 
+          {
+              this._view.GetNrOfDices();
+          }
+          catch (ArgumentException)
+          {
+              this._view.GetNrOfDices();
+          }
       }
     
 

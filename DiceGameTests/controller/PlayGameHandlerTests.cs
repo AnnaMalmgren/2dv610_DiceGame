@@ -39,7 +39,11 @@ namespace DiceGameTests
        [Fact]
       public void playGameShouldCallGetNrOfDicesAgainIfArgumentExceptionThrown()
       {
-          this.viewMock.Setup(mock =>mock.GetNrOfDices()).Throws(new ArgumentException());
+          this.viewMock.SetupSequence(mock =>mock.GetNrOfDices())
+          .Throws<ArgumentException>()
+          .Returns(2);
+
+          this.sut.PlayGame();
 
           this.viewMock.Verify(mock => mock.GetNrOfDices(), Times.Exactly(2));
       }
