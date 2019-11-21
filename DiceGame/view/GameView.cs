@@ -49,7 +49,8 @@ namespace DiceGame.view
 
     public int GetScoreGuess()
     {
-      return 0;  
+      this._console.WriteLine(">Enter the score you think will be rolled: ");
+      return this.GetInputAndParseToInt();
     }
 
     private int GetInputAndParseToInt()
@@ -65,6 +66,5 @@ namespace DiceGame.view
 
     }
 
-    
   }
 }
