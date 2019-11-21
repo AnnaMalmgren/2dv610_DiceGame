@@ -21,7 +21,7 @@ namespace DiceGame.controller
 
       public void PlayGame(int numOfDices, model.DiceCup cup)
       {
-
+          cup.SetDice(numOfDices);
       }
   }
 }
