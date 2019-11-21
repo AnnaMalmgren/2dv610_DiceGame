@@ -23,19 +23,21 @@ namespace DiceGame.controller
           this._view.DisplayWelcomeMsg();
           
           int dices = this._view.GetNrOfDices();
+
+          this._guessedScore = this._view.GetScoreGuess();
       }
 
       public void PlayGame(int numOfDices)
       {
           this._diceCupe.SetDice(numOfDices);
           this._diceCupe.RollDice();
-          this._guessedScore = this._diceCupe.GetScore();
+          this._diceCupe.GetScore();
       }
 
 
       public bool GetWinner(int score)
       {
-          return true;
+          return this._guessedScore == score;
       }
 
   }
