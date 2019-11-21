@@ -47,7 +47,7 @@ namespace DiceGame.view
 
     public bool UserWantsToPlay()
     {
-      return false;
+      return this.GetUserInput() == _exitKey;
     }
 
     private int ConvertToInt(string input)
