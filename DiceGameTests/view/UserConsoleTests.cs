@@ -54,6 +54,5 @@ namespace DiceGameTests
         Assert.Equal(expected, actual);
 
     }
-
   }
 }

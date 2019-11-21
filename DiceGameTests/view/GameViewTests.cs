@@ -95,6 +95,18 @@ namespace DiceGameTests
         this.mockConsole.Verify(mock => mock.WriteLine("Sorry you lost!"));
 
       }
+
+      [Fact]
+      public void getScoreGuessShouldReturnEnteredInt()
+      {
+        this.mockConsole.Setup(mock => mock.ReadLine()).Returns("10");
+
+        this.sut.GetScoreGuess();
+
+        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Once());
+        this.mockConsole.Verify(mock => mock.ReadLine(), Times.Once());
+
+      }
   
   }
 }

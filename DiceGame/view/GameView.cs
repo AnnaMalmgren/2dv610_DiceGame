@@ -47,6 +47,11 @@ namespace DiceGame.view
       return this.GetInputAndParseToInt();
     }
 
+    public int GetScoreGuess()
+    {
+      return 0;  
+    }
+
     private int GetInputAndParseToInt()
     {
       do
