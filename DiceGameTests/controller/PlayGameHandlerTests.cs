@@ -46,11 +46,16 @@ namespace DiceGameTests
           this.sut.PlayGame(numDices);
 
           diceCupMock.Verify(mock => mock.SetDice(numDices), Times.Once());
-
       }
 
-   
-   
+    [Fact]
+      public void playGameShouldRollDice()
+      {
+          int numDices = 3;
+          this.sut.PlayGame(numDices);
+
+          diceCupMock.Verify(mock => mock.RollDice(), Times.Once());
+      }
   
   }
 }
