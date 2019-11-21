@@ -34,21 +34,6 @@ namespace DiceGame.view
       return Char.ToLower(this._console.ReadKey());
     }
 
-    public void PrintDiceResult(List<model.IDie> diceCup, int score)
-    {
-       foreach (model.IDie die in diceCup)
-       {
-         this.PrintDie(die);
-       }
-
-      this._console.WriteLine($"Total Score: {score}");
-    }
-
-    public void PrintDie(model.IDie die)
-    {
-      this._console.WriteLine($"Facevalue: {die.GetFaceValue()}");
-    }
-
     public void PrintGameResult(bool isWinner)
     {
       string msg = isWinner ? _winMsg : _lostMsg;
