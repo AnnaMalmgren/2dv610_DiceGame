@@ -95,7 +95,7 @@ namespace DiceGameTests
         
         this.sut.PrintDiceResult(diceCup, 10);
         
-        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Once());
+        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Exactly(4));
   
       }
 
