@@ -9,6 +9,8 @@ namespace DiceGame.view
 
       char GetUserInput();
 
+      int GetNrOfDices();
+
       void PrintGameResult(bool isWinner);
 
   }

@@ -26,7 +26,14 @@ namespace DiceGameTests
           this.sut.PlayGame();
 
           this.viewMock.Verify(mock => mock.DisplayWelcomeMsg(), Times.Once());
+      }
 
+      [Fact]
+      public void playGameShouldGetCallGetNrOfDices()
+      {
+          this.sut.PlayGame();
+
+          this.viewMock.Verify(mock => mock.GetNrOfDices(), Times.Once());
       }
    
   
