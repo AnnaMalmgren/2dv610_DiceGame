@@ -30,5 +30,11 @@ namespace DiceGame.controller
           this._diceCupe.GetScore();
       }
 
+
+      public bool GetWinner(int score)
+      {
+          return false;
+      }
+
   }
 }

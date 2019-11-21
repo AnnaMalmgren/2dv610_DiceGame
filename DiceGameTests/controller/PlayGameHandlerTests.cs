@@ -65,6 +65,14 @@ namespace DiceGameTests
 
           diceCupMock.Verify(mock => mock.GetScore(), Times.Once());
       }
-  
+
+      [Fact]
+      public void GetWinnerShouldReturnTrueIfUserWins()
+      {
+          this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
+
+          Assert.True(this.sut.GetWinner(10));
+
+      }  
   }
 }
