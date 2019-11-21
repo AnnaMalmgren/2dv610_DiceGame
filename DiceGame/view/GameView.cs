@@ -50,7 +50,14 @@ namespace DiceGame.view
 
     public void PrintGameResult(bool isWinner)
     {
-      this._console.WriteLine(_winMsg);
+      if (isWinner)
+      {
+        this._console.WriteLine(_winMsg);
+      }
+      else
+      {
+        this._console.WriteLine("Sorry you lost!");
+      }
     }
 
     public int GetNrOfDices()
