@@ -19,6 +19,11 @@ namespace DiceGame.view
       this._console.WriteLine($"Welcome to DiceGame. Press any Key to play, or { _exitKey } to Quit");
     }
 
+    public bool UserWantsToPlay()
+    {
+      return this.GetUserInput() != _exitKey;
+    }
+
     public char GetUserInput()
     {
       return this._console.ReadKey();
@@ -43,11 +48,6 @@ namespace DiceGame.view
     {
       string input = this._console.ReadLine();
       return this.ConvertToInt(input);
-    }
-
-    public bool UserWantsToPlay()
-    {
-      return this.GetUserInput() == _exitKey;
     }
 
     private int ConvertToInt(string input)
