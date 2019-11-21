@@ -1,27 +1,8 @@
 {
   "DiceGame.dll": {
-    "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\Program.cs": {
-      "DiceGame.Program": {
-        "System.Void DiceGame.Program::Main(System.String[])": {
-          "Lines": {
-            "8": 0,
-            "10": 0
-          },
-          "Branches": []
-        }
-      }
-    },
     "C:\\Users\\Anna\\2dv610_DiceGame\\DiceGame\\view\\GameView.cs": {
       "DiceGame.view.GameView": {
         "System.Void DiceGame.view.GameView::DisplayWelcomeMsg()": {
-          "Lines": {
-            "18": 1,
-            "19": 1,
-            "20": 1
-          },
-          "Branches": []
-        },
-        "System.Char DiceGame.view.GameView::GetUserInput()": {
           "Lines": {
             "23": 1,
             "24": 1,
@@ -29,12 +10,129 @@
           },
           "Branches": []
         },
+        "System.Boolean DiceGame.view.GameView::UserWantsToPlay()": {
+          "Lines": {
+            "28": 3,
+            "29": 3,
+            "30": 3
+          },
+          "Branches": []
+        },
+        "System.Char DiceGame.view.GameView::GetUserInput()": {
+          "Lines": {
+            "33": 4,
+            "34": 4,
+            "35": 4
+          },
+          "Branches": []
+        },
+        "System.Void DiceGame.view.GameView::PrintDiceResult(System.Collections.Generic.List`1<DiceGame.model.IDie>,System.Int32)": {
+          "Lines": {
+            "38": 1,
+            "39": 5,
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "44": 1,
+            "45": 1
+          },
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 36,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 39,
+              "Offset": 36,
+              "EndOffset": 38,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void DiceGame.view.GameView::PrintDie(DiceGame.model.IDie)": {
+          "Lines": {
+            "48": 3,
+            "49": 3,
+            "50": 3
+          },
+          "Branches": []
+        },
+        "System.Void DiceGame.view.GameView::PrintGameResult(System.Boolean)": {
+          "Lines": {
+            "53": 2,
+            "54": 2,
+            "55": 2,
+            "56": 2
+          },
+          "Branches": [
+            {
+              "Line": 54,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 54,
+              "Offset": 2,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Int32 DiceGame.view.GameView::GetNrOfDices()": {
+          "Lines": {
+            "59": 2,
+            "60": 2,
+            "61": 2,
+            "62": 1
+          },
+          "Branches": []
+        },
+        "System.Int32 DiceGame.view.GameView::ConvertToInt(System.String)": {
+          "Lines": {
+            "65": 2,
+            "66": 2,
+            "67": 1,
+            "68": 1,
+            "71": 1,
+            "72": 1,
+            "74": 1
+          },
+          "Branches": [
+            {
+              "Line": 66,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 66,
+              "Offset": 11,
+              "EndOffset": 18,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
         "System.Void DiceGame.view.GameView::.ctor(DiceGame.view.IUserConsole)": {
           "Lines": {
-            "12": 2,
-            "13": 2,
-            "14": 2,
-            "15": 2
+            "17": 12,
+            "18": 12,
+            "19": 12,
+            "20": 12
           },
           "Branches": []
         }
@@ -56,6 +154,14 @@
             "16": 1,
             "17": 1,
             "18": 1
+          },
+          "Branches": []
+        },
+        "System.String DiceGame.view.UserConsole::ReadLine()": {
+          "Lines": {
+            "21": 1,
+            "22": 1,
+            "23": 1
           },
           "Branches": []
         }

@@ -10,6 +10,7 @@ namespace DiceGame.view
     private const char _exitKey = 'q';
 
     private const string _winMsg = "Congratualtions you win!";
+    private const string _lostMsg = "Sorry you lost!";
 
     
 
@@ -35,10 +36,10 @@ namespace DiceGame.view
 
     public void PrintDiceResult(List<model.IDie> diceCup, int score)
     {
-      foreach (model.IDie die in diceCup)
-      {
-        this.PrintDie(die);
-      }
+       foreach (model.IDie die in diceCup)
+       {
+         this.PrintDie(die);
+       }
 
       this._console.WriteLine($"Total Score: {score}");
     }
@@ -50,14 +51,8 @@ namespace DiceGame.view
 
     public void PrintGameResult(bool isWinner)
     {
-      if (isWinner)
-      {
-        this._console.WriteLine(_winMsg);
-      }
-      else
-      {
-        this._console.WriteLine("Sorry you lost!");
-      }
+      string msg = isWinner ? _winMsg : _lostMsg;
+      this._console.WriteLine(msg);
     }
 
     public int GetNrOfDices()
