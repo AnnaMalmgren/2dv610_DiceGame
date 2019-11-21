@@ -9,6 +9,10 @@ namespace DiceGame.view
 
     private const char _exitKey = 'q';
 
+    private const string _winMsg = "Congratualtions you win!";
+
+    
+
     public GameView(IUserConsole console)
     {
       this._console = console;
@@ -46,7 +50,7 @@ namespace DiceGame.view
 
     public void PrintGameResult(bool isWinner)
     {
-      this._console.WriteLine("Congratualtions you win!");
+      this._console.WriteLine(_winMsg);
     }
 
     public int GetNrOfDices()
