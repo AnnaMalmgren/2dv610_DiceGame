@@ -46,7 +46,7 @@ namespace DiceGame.view
 
     public void PrintGameResult(bool isWinner)
     {
-
+      this._console.WriteLine("Congratualtions you win!");
     }
 
     public int GetNrOfDices()
