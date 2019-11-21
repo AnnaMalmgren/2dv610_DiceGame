@@ -29,7 +29,7 @@ namespace DiceGame.model
       this._dice.ForEach(die => die.RollDie());
     }
 
-    public int GetScore()
+    public virtual int GetScore()
     {
       int score = 0;
 
