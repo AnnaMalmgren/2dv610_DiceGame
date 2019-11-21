@@ -75,7 +75,17 @@ namespace DiceGameTests
           this.sut.StartGame();
 
           Assert.True(this.sut.GetWinner(score));
+      }
 
-      }  
+      [Fact]
+      public void GetWinnerShouldReturnFalseIfUserLost()
+      {
+          this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(12);
+          this.sut.StartGame();
+
+          Assert.False(this.sut.GetWinner(12));
+      }
+
+
   }
 }
