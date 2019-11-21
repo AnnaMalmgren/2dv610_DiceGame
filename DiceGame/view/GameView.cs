@@ -26,7 +26,7 @@ namespace DiceGame.view
 
     public char GetUserInput()
     {
-      return this._console.ReadKey();
+      return Char.ToLower(this._console.ReadKey());
     }
 
     public void PrintDiceResult(List<model.IDie> diceCup, int score)
