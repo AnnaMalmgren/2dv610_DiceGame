@@ -45,11 +45,15 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void getNrOfDicesShouldThrowExceptionWhenNotAInt()
+      public void getNrOfDicesShouldBeCalledAgainIfNotAnInt()
       {
-        this.mockConsole.Setup(mock => mock.ReadLine()).Returns("Hello");
+        this.mockConsole.SetupSequence(mock => mock.ReadLine())
+        .Returns("Hello")
+        .Returns("4");
 
-        Assert.Throws<ArgumentException>(() => this.sut.GetNrOfDices());
+        this.sut.GetNrOfDices();
+
+        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Exactly(2));
 
       }
 

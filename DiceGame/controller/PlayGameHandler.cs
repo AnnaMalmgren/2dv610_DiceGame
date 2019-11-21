@@ -25,6 +25,11 @@ namespace DiceGame.controller
               this._view.GetNrOfDices();
           }
       }
+
+      private int GetDiceNumber()
+      {  
+        return this._view.GetNrOfDices();
+      }
     
 
   }
