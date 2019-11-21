@@ -16,7 +16,7 @@ namespace DiceGame.model
       this._factory = factory;
     }
 
-    public void SetDice(int nrOfDice)
+    public virtual void SetDice(int nrOfDice)
     {
       for (int i = 0; i < nrOfDice; i++)
       {

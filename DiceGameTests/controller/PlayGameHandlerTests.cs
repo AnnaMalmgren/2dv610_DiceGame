@@ -21,19 +21,30 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void playGameShouldGetWelcomeMessage()
+      public void startGameShouldGetWelcomeMessage()
       {
-          this.sut.PlayGame();
+          this.sut.StartGame();
 
           this.viewMock.Verify(mock => mock.DisplayWelcomeMsg(), Times.Once());
       }
 
       [Fact]
-      public void playGameShouldCallGetNrOfDices()
+      public void startGameShouldCallGetNrOfDices()
       {
-          this.sut.PlayGame();
+          this.sut.StartGame();
 
           this.viewMock.Verify(mock => mock.GetNrOfDices(), Times.Once());
+      }
+
+      [Fact]
+      public void playGameShouldSetNumDicesInDiceCup()
+      {
+          int numDices = 3;
+          var diceCupMock = new Mock<DiceCup>(new Mock<DiceFactory>().Object);
+          this.sut.PlayGame(numDices, diceCupMock.Object);
+
+          diceCupMock.Verify(mock => mock.SetDice(numDices), Times.Once());
+
       }
 
    

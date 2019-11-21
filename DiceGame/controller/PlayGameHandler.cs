@@ -12,25 +12,16 @@ namespace DiceGame.controller
           this._view = view;
       }
 
-      public void PlayGame()
+      public void StartGame()
       {
           this._view.DisplayWelcomeMsg();
           
-          try 
-          {
-              this._view.GetNrOfDices();
-          }
-          catch (ArgumentException)
-          {
-              this._view.GetNrOfDices();
-          }
+          int dices = this._view.GetNrOfDices();
       }
 
-      private int GetDiceNumber()
-      {  
-        return this._view.GetNrOfDices();
-      }
-    
+      public void PlayGame(int numOfDices, model.DiceCup cup)
+      {
 
+      }
   }
 }
