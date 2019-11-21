@@ -12,11 +12,14 @@ namespace DiceGameTests
     private Mock<IUserConsole> mockConsole;
     private GameView sut;
 
+    private List<IDie> diceCup; 
+
 
     public GameViewTests()
     {
       this.mockConsole = new Mock<IUserConsole>();
       this.sut = new GameView(this.mockConsole.Object);
+      this.diceCup = new List<IDie>();
 
     }
       [Fact]
@@ -72,7 +75,7 @@ namespace DiceGameTests
       {
         Mock<IDie> dieMock = new Mock<IDie>();
         dieMock.Setup(mock => mock.GetFaceValue()).Returns(2);
-        List<IDie> diceCup = new List<IDie>(){dieMock.Object};
+        this.diceCup.Add(dieMock.Object);
         
         this.sut.PrintDiceResult(diceCup, 2);
         
@@ -85,13 +88,9 @@ namespace DiceGameTests
       [Fact]
       public void printDiceResultShouldPrintValueForMultipleDice()
       {
-        Mock<IDie> dieMock = new Mock<IDie>();
-        Mock<IDie> dieMock2 = new Mock<IDie>();
-        Mock<IDie> dieMock3 = new Mock<IDie>();
-        dieMock.Setup(mock => mock.GetFaceValue()).Returns(2);
-        dieMock2.Setup(mock => mock.GetFaceValue()).Returns(4);
-        dieMock3.Setup(mock => mock.GetFaceValue()).Returns(4);
-        List<IDie> diceCup = new List<IDie>(){dieMock.Object, dieMock2.Object, dieMock3.Object};
+        this.diceCup.Add(new Mock<IDie>().Object);
+        this.diceCup.Add(new Mock<IDie>().Object);
+        this.diceCup.Add(new Mock<IDie>().Object);
         
         this.sut.PrintDiceResult(diceCup, 10);
         
