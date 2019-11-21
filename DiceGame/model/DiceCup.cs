@@ -24,7 +24,7 @@ namespace DiceGame.model
       }
     }
 
-    public void RollDice()
+    public virtual void RollDice()
     {
       this._dice.ForEach(die => die.RollDie());
     }

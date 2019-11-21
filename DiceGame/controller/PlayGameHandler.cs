@@ -26,6 +26,7 @@ namespace DiceGame.controller
       public void PlayGame(int numOfDices)
       {
           this._diceCupe.SetDice(numOfDices);
+          this._diceCupe.RollDice();
       }
   }
 }
