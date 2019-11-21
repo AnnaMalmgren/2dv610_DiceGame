@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DiceGame.view
 {
-  public class GameView
+  public class GameView : IMainGameView
   {
     private IUserConsole _console;
 
@@ -19,7 +19,7 @@ namespace DiceGame.view
       this._console = console;
     }
 
-    public virtual void DisplayWelcomeMsg()
+    public void DisplayWelcomeMsg()
     {
       this._console.WriteLine($"Welcome to DiceGame. Press any Key to play, or { _exitKey } to Quit");
     }

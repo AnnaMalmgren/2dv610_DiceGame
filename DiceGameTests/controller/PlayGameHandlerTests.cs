@@ -4,7 +4,7 @@ using Moq;
 using DiceGame.view;
 using DiceGame.model;
 using DiceGame.controller;
-using System.Collections.Generic;
+
 
 namespace DiceGameTests
 {
@@ -12,20 +12,20 @@ namespace DiceGameTests
   {
       private PlayGameHandler sut;
 
+      private Mock<IMainGameView> viewMock;
+
       public PlayGameHandlerTests()
       {
-          this.sut = new PlayGameHandler();
+          this.viewMock = new Mock<IMainGameView>();
+          this.sut = new PlayGameHandler(viewMock.Object);
       }
 
       [Fact]
       public void playGameShouldGetWelcomeMessage()
       {
+          this.sut.PlayGame();
 
-          var view = new Mock<GameView>(new UserConsole());
-
-          this.sut.PlayGame(view.Object);
-
-          view.Verify(v => v.DisplayWelcomeMsg(), Times.Once());
+          this.viewMock.Verify(mock => mock.DisplayWelcomeMsg(), Times.Once());
 
       }
    

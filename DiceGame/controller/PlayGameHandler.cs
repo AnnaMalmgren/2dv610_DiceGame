@@ -6,10 +6,17 @@ namespace DiceGame.controller
 {
   public class PlayGameHandler
   {
-    public void PlayGame(view.GameView view)
-    {
-        view.DisplayWelcomeMsg();
-    }
+      private view.IMainGameView _view;
+      public PlayGameHandler(view.IMainGameView view)
+      {
+          this._view = view;
+      }
+
+      public void PlayGame()
+      {
+          this._view.DisplayWelcomeMsg();
+      }
+    
 
   }
 }
