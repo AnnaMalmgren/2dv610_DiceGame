@@ -47,7 +47,7 @@ namespace DiceGame.view
 
     public bool UserWantsToPlay()
     {
-      throw new NotImplementedException();
+      return false;
     }
 
     private int ConvertToInt(string input)
