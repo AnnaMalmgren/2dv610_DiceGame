@@ -29,12 +29,21 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void playGameShouldGetCallGetNrOfDices()
+      public void playGameShouldCallGetNrOfDices()
       {
           this.sut.PlayGame();
 
           this.viewMock.Verify(mock => mock.GetNrOfDices(), Times.Once());
       }
+
+       [Fact]
+      public void playGameShouldCallGetNrOfDicesAgainIfArgumentExceptionThrown()
+      {
+          this.viewMock.Setup(mock =>mock.GetNrOfDices()).Throws(new ArgumentException());
+
+          this.viewMock.Verify(mock => mock.GetNrOfDices(), Times.Exactly(2));
+      }
+   
    
   
   }
