@@ -95,7 +95,7 @@ namespace DiceGameTests
       [Fact]
       public void userWantsToPlayShouldReturnTrueWhitNonQInput()
       {
-        this.mockConsole.Setup(mock => mock.ReadKey()).Returns('q');
+        this.mockConsole.Setup(mock => mock.ReadKey()).Returns('f');
         bool actual = this.sut.UserWantsToPlay();
 
         Assert.True(actual);
