@@ -49,12 +49,13 @@ namespace DiceGameTests
       {
         this.mockConsole.SetupSequence(mock => mock.ReadLine())
         .Returns("Hello")
+        .Returns("Test")
         .Returns("4");
 
         this.sut.GetNrOfDices();
 
-        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Exactly(2));
-        this.mockConsole.Verify(mock => mock.ReadLine(), Times.Exactly(2));
+        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Exactly(3));
+        this.mockConsole.Verify(mock => mock.ReadLine(), Times.Exactly(3));
       }
 
       [Theory]
