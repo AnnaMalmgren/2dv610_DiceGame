@@ -27,6 +27,7 @@ namespace DiceGame.controller
       {
           this._diceCupe.SetDice(numOfDices);
           this._diceCupe.RollDice();
+          this._diceCupe.GetScore();
       }
   }
 }
