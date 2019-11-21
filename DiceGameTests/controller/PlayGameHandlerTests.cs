@@ -14,10 +14,13 @@ namespace DiceGameTests
 
       private Mock<IMainGameView> viewMock;
 
+      private Mock<DiceCup> diceCupMock;
+
       public PlayGameHandlerTests()
       {
           this.viewMock = new Mock<IMainGameView>();
-          this.sut = new PlayGameHandler(viewMock.Object);
+          this.diceCupMock = new Mock<DiceCup>(new Mock<DiceFactory>().Object);
+          this.sut = new PlayGameHandler(viewMock.Object, diceCupMock.Object);
       }
 
       [Fact]
@@ -40,8 +43,7 @@ namespace DiceGameTests
       public void playGameShouldSetNumDicesInDiceCup()
       {
           int numDices = 3;
-          var diceCupMock = new Mock<DiceCup>(new Mock<DiceFactory>().Object);
-          this.sut.PlayGame(numDices, diceCupMock.Object);
+          this.sut.PlayGame(numDices);
 
           diceCupMock.Verify(mock => mock.SetDice(numDices), Times.Once());
 

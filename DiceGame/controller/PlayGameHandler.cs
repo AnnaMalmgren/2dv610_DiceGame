@@ -7,9 +7,13 @@ namespace DiceGame.controller
   public class PlayGameHandler
   {
       private view.IMainGameView _view;
-      public PlayGameHandler(view.IMainGameView view)
+
+      private model.DiceCup _diceCupe;
+
+      public PlayGameHandler(view.IMainGameView view, model.DiceCup cup)
       {
           this._view = view;
+          this._diceCupe = cup;
       }
 
       public void StartGame()
@@ -19,9 +23,9 @@ namespace DiceGame.controller
           int dices = this._view.GetNrOfDices();
       }
 
-      public void PlayGame(int numOfDices, model.DiceCup cup)
+      public void PlayGame(int numOfDices)
       {
-          cup.SetDice(numOfDices);
+          this._diceCupe.SetDice(numOfDices);
       }
   }
 }
