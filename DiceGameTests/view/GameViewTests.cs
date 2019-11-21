@@ -110,6 +110,15 @@ namespace DiceGameTests
         this.mockConsole.Verify(mock => mock.WriteLine("Congratualtions you win!"));
 
       }
+
+      [Fact]
+      public void printGameResultShouldPresentGameAsLost()
+      {
+        this.sut.PrintGameResult(false);
+
+        this.mockConsole.Verify(mock => mock.WriteLine("Sorry you lost!"));
+
+      }
   
   }
 }
