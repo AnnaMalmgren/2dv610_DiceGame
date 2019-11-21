@@ -54,7 +54,6 @@ namespace DiceGameTests
 
         this.sut.GetNrOfDices();
 
-        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Exactly(3));
         this.mockConsole.Verify(mock => mock.ReadLine(), Times.Exactly(3));
       }
 

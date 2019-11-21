@@ -42,16 +42,22 @@ namespace DiceGame.view
 
     public int GetNrOfDices()
     {
+      this._console.WriteLine(">Enter number of dices you want in the game: ");
+
+      return this.GetInputAndParseToInt();
+    }
+
+    private int GetInputAndParseToInt()
+    {
       do
       {
-        this._console.WriteLine(">Enter number of dices you want in the game: ");
-
         if (int.TryParse(this._console.ReadLine(), out int numOfDices))
         {
           return numOfDices;
         }
 
       } while(true);
+
     }
 
     

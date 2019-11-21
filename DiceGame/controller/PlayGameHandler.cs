@@ -29,5 +29,6 @@ namespace DiceGame.controller
           this._diceCupe.RollDice();
           this._diceCupe.GetScore();
       }
+
   }
 }
