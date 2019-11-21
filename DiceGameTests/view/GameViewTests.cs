@@ -68,12 +68,26 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void printDiceResultShouldPrintValueForAllDice()
+      public void printDiceResultShouldPrintValueForOneDie()
       {
-        this.sut.PrintDiceResult();
+        Mock<IDie> dieMock = new Mock<IDie>();
+        dieMock.Setup(mock => mock.GetFaceValue()).Returns(2);
+        List<IDie> diceCup = new List<IDie>(){dieMock.Object};
+           
+        this.sut.PrintDiceResult(diceCup, 2);
         
-        string expected = "Die 1 FaceValue: 2\nTotal Score: 2";
+        string expected = $"FaceValue: 2{Environment.NewLine}Total Score: 2";
         this.mockConsole.Verify(mock => mock.WriteLine(expected));
+      
+      }
+
+      [Fact]
+      public void userWantsToPlayShouldReturnFalseWithInputQ()
+      {
+        this.mockConsole.Setup(mock => mock.ReadLine()).Returns("q");
+        bool actual = this.sut.UserWantsToPlay();
+
+        Assert.False(actual);
       }
   
   }

@@ -24,9 +24,14 @@ namespace DiceGame.view
       return this._console.ReadKey();
     }
 
-    public void PrintDiceResult()
+    public void PrintDiceResult(List<model.IDie> diceCup, int score)
     {
-      this._console.WriteLine("Die 1 FaceValue: 2\nTotal Score: 2");
+      foreach (model.IDie die in diceCup)
+      {
+        this.PrintDie(die);
+      }
+
+      this._console.WriteLine($"Total Score: {score}");
     }
 
     public void PrintDie(model.IDie die)
@@ -38,6 +43,11 @@ namespace DiceGame.view
     {
       string input = this._console.ReadLine();
       return this.ConvertToInt(input);
+    }
+
+    public bool UserWantsToPlay()
+    {
+      throw new NotImplementedException();
     }
 
     private int ConvertToInt(string input)
