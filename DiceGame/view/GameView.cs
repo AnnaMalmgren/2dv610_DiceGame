@@ -44,7 +44,7 @@ namespace DiceGame.view
       this._console.WriteLine($"Facevalue: {die.GetFaceValue()}");
     }
 
-    public void PrintGameResult()
+    public void PrintGameResult(bool isWinner)
     {
 
     }

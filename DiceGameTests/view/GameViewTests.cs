@@ -101,6 +101,15 @@ namespace DiceGameTests
         Assert.True(actual);
 
       }
+
+      [Fact]
+      public void printGameResultShouldPresentUserAsWinner()
+      {
+        this.sut.PrintGameResult(true);
+
+        this.mockConsole.Verify(mock => mock.WriteLine("Congratualtions you win!"));
+
+      }
   
   }
 }
