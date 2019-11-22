@@ -8,18 +8,16 @@ namespace DiceGame.controller
   {
       private view.IMainGameView _view;
 
-      private view.DiceView _diceView;
 
       private model.DiceCup _diceCupe;
 
       private int _guessedScore;
 
-      public PlayGameHandler(view.IMainGameView view, view.DiceView diceView, model.DiceCup cup)
+      public PlayGameHandler(view.IMainGameView view, model.DiceCup cup)
       {
           this._view = view;
           this._diceCupe = cup;
           this._diceCupe.AddSubscriber(this);
-          this._diceView = diceView;
       }
 
       public void PlayGame()
@@ -45,9 +43,9 @@ namespace DiceGame.controller
           this._diceCupe.RollDice();
       }
 
-      public void DieRolled()
+      public void DieRolled(int faceValue)
       {
-          this._diceView.PrintDiceResult(_diceCupe.Dice);
+          this._view.PrintDie(faceValue);
       }
 
       public bool GetWinner()

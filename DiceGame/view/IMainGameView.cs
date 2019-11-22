@@ -11,6 +11,8 @@ namespace DiceGame.view
 
       int GetNrOfDices();
 
+      void PrintDie(int dieFaceValue);
+
       int GetScoreGuess();
 
       void PrintGameResult(bool isWinner);

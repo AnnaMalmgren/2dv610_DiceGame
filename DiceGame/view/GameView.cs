@@ -34,6 +34,12 @@ namespace DiceGame.view
       return Char.ToLower(this._console.ReadKey());
     }
 
+    
+    public  virtual void PrintDie(int faceValue)
+    {
+      this._console.WriteLine($"Facevalue: {faceValue}");
+    }
+
     public void PrintGameResult(bool isWinner)
     {
       string msg = isWinner ? _winMsg : _lostMsg;

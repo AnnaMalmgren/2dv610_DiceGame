@@ -16,14 +16,13 @@ namespace DiceGameTests
 
       private Mock<DiceCup> diceCupMock;
 
-      private Mock<DiceView> diceViewMock;
+
 
       public PlayGameHandlerTests()
       {
           this.viewMock = new Mock<IMainGameView>();
-          this.diceViewMock = new Mock<DiceView>(new UserConsole());
           this.diceCupMock = new Mock<DiceCup>(new Mock<DiceFactory>().Object);
-          this.sut = new PlayGameHandler(viewMock.Object, diceViewMock.Object, diceCupMock.Object);
+          this.sut = new PlayGameHandler(viewMock.Object, diceCupMock.Object);
       }
 
       [Fact]
@@ -122,7 +121,7 @@ namespace DiceGameTests
       {
           int diceFaceValue = 4;
           this.sut.DieRolled(diceFaceValue);
-          this.diceViewMock.Verify(mock => mock.PrintDie(It.IsAny<int>()));
+          this.viewMock.Verify(mock => mock.PrintDie(It.IsAny<int>()));
       }
 
       [Fact]

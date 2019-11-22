@@ -36,7 +36,7 @@ namespace DiceGame.model
       foreach (IDie die in this._dice)
       {
         die.RollDie();
-        this._subscribers.ForEach(sub => sub.DieRolled());
+        this.NotifySubscribers(die.GetFaceValue());
       }
     }
 
@@ -57,9 +57,9 @@ namespace DiceGame.model
       this._subscribers.Add(subscriber);
     }
 
-    public void NotifySubscribers()
+    public void NotifySubscribers(int faceValue)
     {
-      this._subscribers.ForEach(subscriber => subscriber.DieRolled());
+      this._subscribers.ForEach(subscriber => subscriber.DieRolled(faceValue));
     }
 
   }

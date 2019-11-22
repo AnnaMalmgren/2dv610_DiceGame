@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using Moq;
 using DiceGame.view;
+using DiceGame.model;
 
 namespace DiceGameTests
 {
@@ -33,6 +34,16 @@ namespace DiceGameTests
 
         this.mockConsole.Verify(mock => mock.ReadKey(), Times.Once());
 
+      }
+
+      [Fact]
+      public void printDieShouldPrintFaceValueOfDie()
+      {
+        Mock<IDie> dieMock = new Mock<IDie>();
+        dieMock.Setup(mock => mock.GetFaceValue()).Returns(5);
+        this.sut.PrintDie(dieMock.Object.GetFaceValue());
+
+        this.mockConsole.Verify(mock => mock.WriteLine($"Facevalue: 5"));
       }
 
       [Fact]

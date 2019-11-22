@@ -14,10 +14,9 @@ namespace DiceGame
         {
             IUserConsole console = new UserConsole();
             GameView gView = new GameView(console);
-            DiceView dView = new DiceView(console);
             DiceFactory factory = new DiceFactory();
             DiceCup dices = new DiceCup(factory);
-            PlayGameHandler game = new PlayGameHandler(gView, dView, dices);
+            PlayGameHandler game = new PlayGameHandler(gView, dices);
             game.StartGame();
             game.PlayGame();
         }
