@@ -38,7 +38,7 @@ namespace DiceGameTests
           this.viewMock.Setup(mock => mock.UserWantsToPlay()).Returns(false);
           bool actual = this.sut.StartGame();
 
-          Assert.True(actual);
+          Assert.False(actual);
       }
 
       [Fact]
