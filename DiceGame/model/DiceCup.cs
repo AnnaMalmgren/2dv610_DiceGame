@@ -52,7 +52,7 @@ namespace DiceGame.model
       return score;
     }
 
-    public void AddSubscriber(IRollDieObserver subscriber)
+    public virtual void AddSubscriber(IRollDieObserver subscriber)
     {
       this._subscribers.Add(subscriber);
     }

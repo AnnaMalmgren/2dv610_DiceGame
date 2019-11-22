@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DiceGame.controller
 {
-  public class PlayGameHandler
+  public class PlayGameHandler : model.IRollDieObserver
   {
       private view.IMainGameView _view;
 
