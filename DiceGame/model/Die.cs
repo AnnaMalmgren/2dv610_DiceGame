@@ -62,6 +62,7 @@ namespace DiceGame.model
 
     public void AddSubscriber(IRollDieObserver subscriber)
     {
+      this._subscribers.Add(subscriber);
     }
 
   }
