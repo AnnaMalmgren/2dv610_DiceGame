@@ -12,7 +12,7 @@ namespace DiceGame.view
             this._console = console;
         }
 
-        public void PrintDiceResult(List<model.IDie> diceCup, int score)
+        public virtual void PrintDiceResult(List<model.IDie> diceCup, int score)
         {
             foreach (model.IDie die in diceCup)
             {

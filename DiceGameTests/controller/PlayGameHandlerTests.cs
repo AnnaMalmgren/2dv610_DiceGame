@@ -21,9 +21,9 @@ namespace DiceGameTests
       public PlayGameHandlerTests()
       {
           this.viewMock = new Mock<IMainGameView>();
-          this.diceViewMock = new Mock<DiceView>();
+          this.diceViewMock = new Mock<DiceView>(new UserConsole());
           this.diceCupMock = new Mock<DiceCup>(new Mock<DiceFactory>().Object);
-          this.sut = new PlayGameHandler(viewMock.Object, diceCupMock.Object);
+          this.sut = new PlayGameHandler(viewMock.Object, diceViewMock.Object, diceCupMock.Object);
       }
 
       [Fact]

@@ -9,6 +9,8 @@ namespace DiceGame.model
 
     private DiceFactory _factory;
 
+    public IReadOnlyList<IDie> Dice => _dice.AsReadOnly();
+
     
     public DiceCup(DiceFactory factory)
     {
