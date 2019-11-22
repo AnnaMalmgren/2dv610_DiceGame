@@ -33,6 +33,15 @@ namespace DiceGameTests
       }
 
       [Fact]
+      public void startGameShouldReturnFalseIfUserWantsToPlay()
+      {
+          this.viewMock.Setup(mock => mock.UserWantsToPlay()).Returns(false);
+          bool actual = this.sut.StartGame();
+
+          Assert.True(actual);
+      }
+
+      [Fact]
       public void startGameShouldGetWelcomeMessage()
       {
           this.viewMock.Setup(mock => mock.UserWantsToPlay()).Returns(true);
