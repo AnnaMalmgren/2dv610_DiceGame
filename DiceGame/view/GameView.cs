@@ -48,6 +48,7 @@ namespace DiceGame.view
 
     public void PrintTotalScore(int score)
     {
+      this._console.WriteLine($"Your total score is: {score}");
     }
 
     public int GetNrOfDices()
