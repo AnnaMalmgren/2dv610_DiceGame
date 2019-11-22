@@ -9,12 +9,17 @@ namespace DiceGame.model
 
     private DiceFactory _factory;
 
+    private List<IRollDieObserver> _subscribers;
+
+    public IReadOnlyList<IRollDieObserver> Subscribers => this._subscribers.AsReadOnly();
+
     public IReadOnlyList<IDie> Dice => _dice.AsReadOnly();
 
     
     public DiceCup(DiceFactory factory)
     {
       this._dice = new List<IDie>();
+      this._subscribers = new List<IRollDieObserver>();
       this._factory = factory;
     }
 
@@ -41,7 +46,11 @@ namespace DiceGame.model
       }
 
       return score;
-     
+    }
+
+    public void AddSubscriber(IRollDieObserver subscriber)
+    {
+
     }
 
   }

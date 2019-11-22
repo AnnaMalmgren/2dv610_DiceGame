@@ -64,7 +64,15 @@ namespace DiceGameTests
         int actual = this.sut.GetScore();
 
         Assert.Equal(25, actual);
+      }
 
+       [Fact]
+      public void addSubscribersShouldAddOneSubscriberToList()
+      {
+        Mock<IRollDieObserver> subscriberMock = new Mock<IRollDieObserver>();
+        this.sut.AddSubscriber(subscriberMock.Object);
+
+        Assert.Equal(1, this.sut.Subscribers.Count);
       }
 
 
