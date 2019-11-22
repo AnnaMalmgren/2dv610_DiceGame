@@ -95,7 +95,6 @@ namespace DiceGameTests
          
      
           subscriberMock.Verify(mock => mock.DieRolled(), Times.Exactly(2));
-        
       }
   }
 }

@@ -75,6 +75,18 @@ namespace DiceGameTests
         Assert.Equal(1, this.sut.Subscribers.Count);
       }
 
+      [Fact]
+      public void notifySubscribersShouldCallDieRolledOnSubscribers()
+      {
+         Mock<IRollDieObserver> subscriberMock = new Mock<IRollDieObserver>();
+         this.sut.AddSubscriber(subscriberMock.Object);
+         this.sut.AddSubscriber(subscriberMock.Object);
+
+         this.sut.NotifySubscribers();
+         
+         subscriberMock.Verify(mock => mock.DieRolled(), Times.Exactly(2));
+      }
+
 
   }
 }

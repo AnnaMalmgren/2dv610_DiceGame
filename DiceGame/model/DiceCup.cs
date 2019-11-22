@@ -53,5 +53,10 @@ namespace DiceGame.model
       this._subscribers.Add(subscriber);
     }
 
+    public void NotifySubscribers()
+    {
+      
+    }
+
   }
 }
