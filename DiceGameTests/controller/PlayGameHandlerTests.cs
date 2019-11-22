@@ -120,7 +120,8 @@ namespace DiceGameTests
       [Fact]
       public void dieRolledShouldPrintDieFaceValue()
       {
-          this.sut.DieRolled();
+          int diceFaceValue = 4;
+          this.sut.DieRolled(diceFaceValue);
           this.diceViewMock.Verify(mock => mock.PrintDie(It.IsAny<int>()));
       }
 

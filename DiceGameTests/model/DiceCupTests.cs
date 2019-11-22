@@ -55,7 +55,7 @@ namespace DiceGameTests
          this.sut.SetDice(3);
          this.sut.RollDice();
 
-         subscriberMock.Verify(mock => mock.DieRolled(), Times.Exactly(3));
+         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(3));
 
       }
       
@@ -92,10 +92,10 @@ namespace DiceGameTests
       {
          this.sut.AddSubscriber(this.subscriberMock.Object);
          this.sut.AddSubscriber(this.subscriberMock.Object);
-
-         this.sut.NotifySubscribers();
+         int input = 5;
+         this.sut.NotifySubscribers(input);
          
-         subscriberMock.Verify(mock => mock.DieRolled(), Times.Exactly(2));
+         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(2));
       }
 
 
