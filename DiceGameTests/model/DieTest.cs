@@ -98,9 +98,12 @@ namespace DiceGameTests
       {
          Mock<IRollDieObserver> subscriberMock = new Mock<IRollDieObserver>();
          this.sut.AddSubscriber(subscriberMock.Object);
-         this.sut.NotifySubscribers();
+         this.sut.AddSubscriber(subscriberMock.Object);
 
-         subscriberMock.Verify(mock => mock.DieRolled());
+         this.sut.NotifySubscribers();
+         
+     
+          subscriberMock.Verify(mock => mock.DieRolled(), Times.Exactly(2));
         
       }
   }
