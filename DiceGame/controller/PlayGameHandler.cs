@@ -25,13 +25,15 @@ namespace DiceGame.controller
 
       public bool StartGame()
       {
+          this._view.DisplayWelcomeMsg();
+
           this._view.UserWantsToPlay();
 
           int dices = this._view.GetNrOfDices();
 
           this._guessedScore = this._view.GetScoreGuess();
 
-          return false;
+          return true;
       }
 
       public void PlayOneRound(int numOfDices)
