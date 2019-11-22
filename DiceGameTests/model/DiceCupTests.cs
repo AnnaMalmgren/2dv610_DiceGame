@@ -2,7 +2,6 @@ using System;
 using Xunit;
 using Moq;
 using DiceGame.model;
-using System.Collections.Generic;
 
 namespace DiceGameTests
 {
@@ -11,12 +10,15 @@ namespace DiceGameTests
     private Mock<DiceFactory> factoryMock;
     private Mock<IDie> dieMock;
 
+    private Mock<IRollDieObserver> subscriberMock;
+
     private DiceCup sut;
 
     public DiceCupTest()
     {
       this.factoryMock = new Mock<DiceFactory>();
       this.dieMock = new Mock<IDie>();
+      this.subscriberMock = new Mock<IRollDieObserver>();
       this.sut = new DiceCup(this.factoryMock.Object);
 
       this.factoryMock.Setup(mock => mock.GetDie()).Returns(this.dieMock.Object);
@@ -80,8 +82,7 @@ namespace DiceGameTests
        [Fact]
       public void addSubscribersShouldAddOneSubscriberToList()
       {
-        Mock<IRollDieObserver> subscriberMock = new Mock<IRollDieObserver>();
-        this.sut.AddSubscriber(subscriberMock.Object);
+        this.sut.AddSubscriber(this.subscriberMock.Object);
 
         Assert.Equal(1, this.sut.Subscribers.Count);
       }
@@ -89,9 +90,8 @@ namespace DiceGameTests
       [Fact]
       public void notifySubscribersShouldCallDieRolledOnSubscribers()
       {
-         Mock<IRollDieObserver> subscriberMock = new Mock<IRollDieObserver>();
-         this.sut.AddSubscriber(subscriberMock.Object);
-         this.sut.AddSubscriber(subscriberMock.Object);
+         this.sut.AddSubscriber(this.subscriberMock.Object);
+         this.sut.AddSubscriber(this.subscriberMock.Object);
 
          this.sut.NotifySubscribers();
          
