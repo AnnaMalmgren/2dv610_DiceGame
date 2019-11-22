@@ -77,6 +77,17 @@ namespace DiceGameTests
 
         Assert.Equal(value1, value2);
       }
+
+      [Fact]
+      public void addSubscribersShouldAddOneSubscriberToList()
+      {
+        var mockRandom = new Mock<Random>();
+        Die sut = new Die(mockRandom.Object);
+        Mock<IRollDieObserver> subscriber = new Mock<IRollDieObserver>();
+        sut.AddSubscriber(subscriber.Object);
+
+        Assert.Equal(1, sut.Subscribers.Count);
+      }
   }
 }
 

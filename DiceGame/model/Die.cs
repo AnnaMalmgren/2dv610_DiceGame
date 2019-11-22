@@ -8,6 +8,10 @@ namespace DiceGame.model
   {
     private readonly List<int> _allowedNrOfSides = new List<int>() {4, 6, 8, 10, 12};
 
+    private List<IRollDieObserver> _subscribers;
+
+    public IReadOnlyList<IRollDieObserver> Subscribers => this._subscribers;
+
     private Random _random;
 
     private int _faceValue;
@@ -30,6 +34,7 @@ namespace DiceGame.model
     {
       this.Sides = sides;
       this._random = rand;
+      this._subscribers = new List<IRollDieObserver>();
     }
 
     public void RollDie()
@@ -53,6 +58,10 @@ namespace DiceGame.model
         }
 
         return true;
+    }
+
+    public void AddSubscriber(IRollDieObserver subscriber)
+    {
     }
 
   }

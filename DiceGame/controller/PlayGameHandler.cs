@@ -46,7 +46,7 @@ namespace DiceGame.controller
 
       public void DieRolled()
       {
-          this._diceView.PrintDiceResult(new List<model.IDie>(), this._diceCupe.GetScore());
+          this._diceView.PrintDiceResult(_diceCupe.Dice);
       }
 
       public bool GetWinner()

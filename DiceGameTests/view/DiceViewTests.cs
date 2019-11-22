@@ -15,6 +15,8 @@ namespace DiceGameTests
 
       private List<IDie> diceCup;
 
+      private IReadOnlyList<IDie> DiceCup => this.diceCup.AsReadOnly();
+
 
       public DiceViewTests()
       {
@@ -42,12 +44,10 @@ namespace DiceGameTests
         dieMock.Setup(mock => mock.GetFaceValue()).Returns(2);
         this.diceCup.Add(dieMock.Object);
         
-        this.sut.PrintDiceResult(diceCup, 2);
+        this.sut.PrintDiceResult(DiceCup);
         
         string expectedDie = "Facevalue: 2";
-        string expectedScore = $"Total Score: 2";
-        this.mockConsole.Verify(mock => mock.WriteLine(expectedDie));
-        this.mockConsole.Verify(mock => mock.WriteLine(expectedScore));
+        this.mockConsole.Verify(mock => mock.WriteLine(expectedDie), Times.Once());
       }
 
       [Fact]
@@ -57,12 +57,10 @@ namespace DiceGameTests
         this.diceCup.Add(new Mock<IDie>().Object);
         this.diceCup.Add(new Mock<IDie>().Object);
         
-        this.sut.PrintDiceResult(diceCup, 10);
+        this.sut.PrintDiceResult(DiceCup);
         
-        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Exactly(4));
+        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Exactly(3));
   
       }
-
-
   }
 }

@@ -12,14 +12,13 @@ namespace DiceGame.view
             this._console = console;
         }
 
-        public virtual void PrintDiceResult(List<model.IDie> diceCup, int score)
+        public virtual void PrintDiceResult(IReadOnlyList<model.IDie> diceCup)
         {
             foreach (model.IDie die in diceCup)
             {
                 this.PrintDie(die);
             }
             
-            this._console.WriteLine($"Total Score: {score}");
         }
 
         public void PrintDie(model.IDie die)
