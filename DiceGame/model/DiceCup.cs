@@ -33,7 +33,11 @@ namespace DiceGame.model
 
     public virtual void RollDice()
     {
-      this._dice.ForEach(die => die.RollDie());
+      foreach (IDie die in this._dice)
+      {
+        die.RollDie();
+        this._subscribers.ForEach(sub => sub.DieRolled());
+      }
     }
 
     public virtual int GetScore()
