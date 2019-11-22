@@ -44,20 +44,11 @@ namespace DiceGameTests
       [Fact]
       public void startGameShouldGetWelcomeMessage()
       {
-          this.viewMock.Setup(mock => mock.UserWantsToPlay()).Returns(true);
           this.sut.StartGame();
 
           this.viewMock.Verify(mock => mock.DisplayWelcomeMsg(), Times.Once());
       }
 
-      [Fact]
-      public void startGameShouldCallGetNrOfDices()
-      {
-          this.viewMock.Setup(mock => mock.UserWantsToPlay()).Returns(true);
-          this.sut.StartGame();
-
-          this.viewMock.Verify(mock => mock.GetNrOfDices(), Times.Once());
-      }
 
       [Fact]
       public void playOneRoundShouldSetNumDicesInDiceCup()
@@ -86,16 +77,12 @@ namespace DiceGameTests
           diceCupMock.Verify(mock => mock.GetScore(), Times.Once());
       }
 
-      [Theory]
-      [InlineData(10)]
-      [InlineData(4)]
-      public void getWinnerShouldReturnTrueIfUserWins(int score)
+      [Fact]
+      public void getWinnerShouldReturnTrueIfUserWins()
       {
-          this.viewMock.Setup(mock => mock.UserWantsToPlay()).Returns(true);
-          this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(score);
           this.sut.StartGame();
 
-          Assert.True(this.sut.GetWinner(score));
+          Assert.True(this.sut.GetWinner(10));
       }
 
       [Fact]
