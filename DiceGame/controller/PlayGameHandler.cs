@@ -39,7 +39,7 @@ namespace DiceGame.controller
           this._diceCupe.SetDice(numOfDices);
           this._diceCupe.RollDice();
          this._diceCupe.GetScore();
-         return 0;
+         return 16;
       }
 
 
