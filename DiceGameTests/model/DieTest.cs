@@ -85,15 +85,6 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void addSubscribersShouldAddOneSubscriberToList()
-      {
-        Mock<IRollDieObserver> subscriberMock = new Mock<IRollDieObserver>();
-        this.sut.AddSubscriber(subscriberMock.Object);
-
-        Assert.Equal(1, sut.Subscribers.Count);
-      }
-
-      [Fact]
       public void notifySubscribersShouldCallDieRolledOnSubscribers()
       {
          Mock<IRollDieObserver> subscriberMock = new Mock<IRollDieObserver>();
