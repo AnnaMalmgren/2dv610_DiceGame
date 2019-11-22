@@ -95,9 +95,13 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void playGameShould()
+      public void playGameShouldGetNrOfDicesWhenStartGameIsTrue()
       {
-          
+          this.viewMock.Setup(mock => mock.UserWantsToPlay()).Returns(true);
+
+          this.sut.PlayGame();
+
+          viewMock.Verify(mock => mock.GetNrOfDices(), Times.Once());
       }
 
 
