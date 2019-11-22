@@ -27,13 +27,14 @@ namespace DiceGame.controller
       {
           this._view.DisplayWelcomeMsg();
 
-          this._view.UserWantsToPlay();
+          if (this._view.UserWantsToPlay())
+          {
+               int dices = this._view.GetNrOfDices();
+               this._guessedScore = this._view.GetScoreGuess();
 
-          int dices = this._view.GetNrOfDices();
-
-          this._guessedScore = this._view.GetScoreGuess();
-
-          return true;
+               return true;
+          }
+              return false;
       }
 
       public void PlayOneRound(int numOfDices)
