@@ -114,5 +114,15 @@ namespace DiceGameTests
           viewMock.Verify(mock => mock.GetScoreGuess(), Times.Once());
       }
 
+      [Fact]
+      public void playGameShouldCallPrintGameResult()
+      {
+          this.sut.PlayGame();
+
+          viewMock.Verify(mock => mock.PrintGameResult(It.IsAny<bool>()), Times.Once());
+      }
+
+
+   
   }
 }
