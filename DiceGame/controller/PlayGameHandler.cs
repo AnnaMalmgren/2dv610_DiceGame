@@ -26,7 +26,6 @@ namespace DiceGame.controller
         this.PlayOneRound(dices);
 
         this._view.PrintGameResult(this.GetWinner());
-  
       }
 
       public bool StartGame()
@@ -42,6 +41,10 @@ namespace DiceGame.controller
           this._diceCupe.RollDice();
       }
 
+      public void DieRolled()
+      {
+
+      }
 
       public bool GetWinner()
       {

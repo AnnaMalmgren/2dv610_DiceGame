@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using Xunit;
 using Moq;
 using DiceGame.view;
@@ -16,9 +16,12 @@ namespace DiceGameTests
 
       private Mock<DiceCup> diceCupMock;
 
+      private Mock<DiceView> diceViewMock;
+
       public PlayGameHandlerTests()
       {
           this.viewMock = new Mock<IMainGameView>();
+          this.diceViewMock = new Mock<DiceView>();
           this.diceCupMock = new Mock<DiceCup>(new Mock<DiceFactory>().Object);
           this.sut = new PlayGameHandler(viewMock.Object, diceCupMock.Object);
       }
@@ -112,6 +115,13 @@ namespace DiceGameTests
           this.sut.PlayGame();
 
           viewMock.Verify(mock => mock.PrintGameResult(It.IsAny<bool>()), Times.Once());
+      }
+
+      [Fact]
+      public void dieRolledShouldPrintDieFaceValue()
+      {
+          this.sut.DieRolled();
+          this.diceViewMock.Verify(mock => mock.PrintDiceResult(It.IsAny<List<IDie>>(), It.IsAny<int>()));
       }
 
 

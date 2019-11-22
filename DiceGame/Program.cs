@@ -9,7 +9,6 @@ namespace DiceGame
         [ExcludeFromCodeCoverage]
         static void Main(string[] args)
         {
-            
         }
     }
 }
