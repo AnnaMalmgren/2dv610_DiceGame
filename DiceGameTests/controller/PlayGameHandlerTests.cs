@@ -69,33 +69,25 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void playOneRoundShouldReturnScore()
-      {
-          int numDices = 3;
-          diceCupMock.Setup(mock => mock.GetScore()).Returns(16);
-          int actual = this.sut.PlayOneRound(numDices);
-
-          Assert.Equal(16, actual);
-
-      }
-
-      [Fact]
       public void getWinnerShouldReturnTrueIfUserWins()
       {
           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
-          this.sut.PlayGame();
+          this.diceCupMock.Setup(mock => mock.GetScore()).Returns(10);
           this.sut.StartGame();
+          this.sut.PlayGame();
 
-          Assert.True(this.sut.GetWinner(10));
+          Assert.True(this.sut.GetWinner());
       }
 
       [Fact]
       public void getWinnerShouldReturnFalseIfUserLost()
       {
           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
+          this.diceCupMock.Setup(mock => mock.GetScore()).Returns(12);
+          this.sut.StartGame();
           this.sut.PlayGame();
 
-          Assert.False(this.sut.GetWinner(12));
+          Assert.False(this.sut.GetWinner());
       }
 
       [Fact]
