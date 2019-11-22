@@ -93,6 +93,14 @@ namespace DiceGameTests
       }
 
       [Fact]
+      public void getWinnerShouldCallPrintTotalScore()
+      {
+          this.diceCupMock.Setup(mock => mock.GetScore()).Returns(12);
+          this.sut.PlayGame();
+          this.viewMock.Verify(mock => mock.PrintTotalScore(12));
+      }
+
+      [Fact]
       public void playGameShouldGetNrOfDices()
       {
           this.sut.PlayGame();
