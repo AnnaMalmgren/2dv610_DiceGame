@@ -127,9 +127,7 @@ namespace DiceGameTests
       [Fact]
       public void diceCupShouldAddPlayGameHandlerAsSubscriber()
       {
-          PlayGameHandler sut = new PlayGameHandler(viewMock.Object, diceViewMock.Object, diceCupMock.Object);
-          Mock <IRollDieObserver> observerMock = new Mock<IRollDieObserver>();
-          diceCupMock.Verify(mock => mock.AddSubscriber(observerMock.Object), Times.Once());
+          diceCupMock.Verify(mock => mock.AddSubscriber(It.IsAny<IRollDieObserver>()), Times.Once());
       }
 
 

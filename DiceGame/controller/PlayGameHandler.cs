@@ -18,6 +18,7 @@ namespace DiceGame.controller
       {
           this._view = view;
           this._diceCupe = cup;
+          this._diceCupe.AddSubscriber(this);
           this._diceView = diceView;
       }
 
