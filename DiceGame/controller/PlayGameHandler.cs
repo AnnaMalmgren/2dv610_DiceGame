@@ -21,6 +21,7 @@ namespace DiceGame.controller
       public void PlayGame()
       {
         int dices = this._view.GetNrOfDices();
+        this._view.GetScoreGuess();
   
       }
 
