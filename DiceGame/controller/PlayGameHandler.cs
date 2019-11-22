@@ -23,7 +23,8 @@ namespace DiceGame.controller
         int dices = this._view.GetNrOfDices();
         this._guessedScore = this._view.GetScoreGuess();
 
-        this.PlayOneRound(dices);
+        this._view.PrintGameResult(this.GetWinner(10));
+
   
       }
 
