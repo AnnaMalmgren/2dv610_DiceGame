@@ -46,6 +46,18 @@ namespace DiceGameTests
       }
       
       [Fact]
+      public void rollDieShouldNotifySubscribers()
+      {
+         Mock<IRollDieObserver> subscriberMock = new Mock<IRollDieObserver>();
+         this.sut.AddSubscriber(subscriberMock.Object);
+         this.sut.SetDice(3);
+         this.sut.RollDice();
+
+         subscriberMock.Verify(mock => mock.DieRolled(), Times.Exactly(3));
+
+      }
+      
+      [Fact]
       public void getScoreShouldReturnFaceValueOfDie()
       {
         this.sut.SetDice(1);
@@ -53,7 +65,6 @@ namespace DiceGameTests
         int actual = this.sut.GetScore();
 
         Assert.Equal(5, actual);
-
       }
 
       [Fact]
