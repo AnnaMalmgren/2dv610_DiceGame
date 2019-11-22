@@ -60,15 +60,5 @@ namespace DiceGame.model
         return true;
     }
 
-    public void AddSubscriber(IRollDieObserver subscriber)
-    {
-      this._subscribers.Add(subscriber);
-    }
-
-    public void NotifySubscribers()
-    {
-      this._subscribers.ForEach(subscriber => subscriber.DieRolled());
-    }
-
   }
 }

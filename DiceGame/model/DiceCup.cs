@@ -55,7 +55,7 @@ namespace DiceGame.model
 
     public void NotifySubscribers()
     {
-      
+      this._subscribers.ForEach(subscriber => subscriber.DieRolled());
     }
 
   }
