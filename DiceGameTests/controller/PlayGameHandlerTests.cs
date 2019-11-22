@@ -24,6 +24,13 @@ namespace DiceGameTests
       }
 
       [Fact]
+      public void startGameShouldReturnTrueIfUserWantsToPlay()
+      {
+          this.viewMock.Setup(mock => mock.UserWantsToPlay()).Returns(true);
+          bool actual = this.sut.StartGame();
+      }
+
+      [Fact]
       public void startGameShouldGetWelcomeMessage()
       {
           this.sut.StartGame();
@@ -40,28 +47,28 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void playGameShouldSetNumDicesInDiceCup()
+      public void playOneRoundShouldSetNumDicesInDiceCup()
       {
           int numDices = 3;
-          this.sut.PlayGame(numDices);
+          this.sut.PlayOneRound(numDices);
 
           diceCupMock.Verify(mock => mock.SetDice(numDices), Times.Once());
       }
 
     [Fact]
-      public void playGameShouldRollDice()
+      public void playOneRoundShouldRollDice()
       {
           int numDices = 3;
-          this.sut.PlayGame(numDices);
+          this.sut.PlayOneRound(numDices);
 
           diceCupMock.Verify(mock => mock.RollDice(), Times.Once());
       }
 
       [Fact]
-      public void playGameShouldGetScore()
+      public void playOneRoundShouldGetScore()
       {
           int numDices = 3;
-          this.sut.PlayGame(numDices);
+          this.sut.PlayOneRound(numDices);
 
           diceCupMock.Verify(mock => mock.GetScore(), Times.Once());
       }
@@ -84,6 +91,12 @@ namespace DiceGameTests
           this.sut.StartGame();
 
           Assert.False(this.sut.GetWinner(12));
+      }
+
+      [Fact]
+      public void playGameShould()
+      {
+          
       }
 
 

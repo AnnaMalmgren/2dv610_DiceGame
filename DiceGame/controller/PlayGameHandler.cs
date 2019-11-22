@@ -18,16 +18,23 @@ namespace DiceGame.controller
           this._diceCupe = cup;
       }
 
-      public void StartGame()
+      public void PlayGame()
       {
-          this._view.DisplayWelcomeMsg();
-          
+  
+      }
+
+      public bool StartGame()
+      {
+          this._view.UserWantsToPlay();
+
           int dices = this._view.GetNrOfDices();
 
           this._guessedScore = this._view.GetScoreGuess();
+
+          return false;
       }
 
-      public void PlayGame(int numOfDices)
+      public void PlayOneRound(int numOfDices)
       {
           this._diceCupe.SetDice(numOfDices);
           this._diceCupe.RollDice();
