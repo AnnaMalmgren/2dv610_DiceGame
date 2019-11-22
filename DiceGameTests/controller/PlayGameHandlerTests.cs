@@ -80,6 +80,8 @@ namespace DiceGameTests
       [Fact]
       public void getWinnerShouldReturnTrueIfUserWins()
       {
+          this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
+          this.sut.PlayGame();
           this.sut.StartGame();
 
           Assert.True(this.sut.GetWinner(10));
@@ -89,7 +91,7 @@ namespace DiceGameTests
       public void getWinnerShouldReturnFalseIfUserLost()
       {
           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
-          this.sut.StartGame();
+          this.sut.PlayGame();
 
           Assert.False(this.sut.GetWinner(12));
       }

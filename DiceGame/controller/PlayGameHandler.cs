@@ -10,7 +10,7 @@ namespace DiceGame.controller
 
       private model.DiceCup _diceCupe;
 
-      private int _guessedScore = 10;
+      private int _guessedScore;
 
       public PlayGameHandler(view.IMainGameView view, model.DiceCup cup)
       {
@@ -21,7 +21,7 @@ namespace DiceGame.controller
       public void PlayGame()
       {
         int dices = this._view.GetNrOfDices();
-        this._view.GetScoreGuess();
+        this._guessedScore = this._view.GetScoreGuess();
   
       }
 
