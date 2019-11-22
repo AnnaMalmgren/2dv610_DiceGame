@@ -103,8 +103,17 @@ namespace DiceGameTests
       {
         this.sut.PrintGameResult(false);
 
-        this.mockConsole.Verify(mock => mock.WriteLine("Sorry you lost!"));
+        this.mockConsole.Verify(mock => mock.WriteLine("Sorry you lost!"), Times.Once());
+      }
 
+      [Fact]
+
+      public void printTotalScoreShouldPrintGivenScore()
+      {
+        int input = 12;
+        this.sut.PrintTotalScore(input);
+
+        this.mockConsole.Verify(mock => mock.WriteLine($"Your total score is: {input}"), Times.Once());
       }
 
       [Fact]

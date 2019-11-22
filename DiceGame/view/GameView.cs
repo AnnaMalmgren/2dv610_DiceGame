@@ -46,6 +46,10 @@ namespace DiceGame.view
       this._console.WriteLine(msg);
     }
 
+    public void PrintTotalScore(int score)
+    {
+    }
+
     public int GetNrOfDices()
     {
       this._console.WriteLine(">Enter number of dices you want in the game: ");
