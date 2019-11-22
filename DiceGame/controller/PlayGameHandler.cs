@@ -20,7 +20,7 @@ namespace DiceGame.controller
 
       public void PlayGame()
       {
-          this._view.GetNrOfDices();
+        int dices = this._view.GetNrOfDices();
   
       }
 
