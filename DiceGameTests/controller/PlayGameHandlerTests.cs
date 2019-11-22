@@ -121,7 +121,7 @@ namespace DiceGameTests
       public void dieRolledShouldPrintDieFaceValue()
       {
           this.sut.DieRolled();
-          this.diceViewMock.Verify(mock => mock.PrintDiceResult(It.IsAny<IReadOnlyList<IDie>>()));
+          this.diceViewMock.Verify(mock => mock.PrintDie(It.IsAny<int>()));
       }
 
       [Fact]

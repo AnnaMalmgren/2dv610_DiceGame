@@ -21,6 +21,11 @@ namespace DiceGame.view
             
         }
 
+         public  virtual void PrintDie(int faceValue)
+        {
+            this._console.WriteLine($"Facevalue: {faceValue}");
+        }
+
         public void PrintDie(model.IDie die)
         {
             this._console.WriteLine($"Facevalue: {die.GetFaceValue()}");
