@@ -20,6 +20,13 @@ namespace DiceGame.controller
           this._diceCupe.AddSubscriber(this);
       }
 
+      public bool StartGame()
+      {
+        this._view.DisplayWelcomeMsg();
+        return this._view.UserWantsToPlay();
+      }
+
+
       public void PlayGame()
       {  
         this.PlayOneRound();
@@ -35,30 +42,23 @@ namespace DiceGame.controller
         this._view.PrintGameResult(this.GetWinner());
       }
 
-      public bool StartGame()
-      {
-          this._view.DisplayWelcomeMsg();
-
-          return this._view.UserWantsToPlay();
-      }
-
       public void PlayOneRound()
       {
-          int dices = this._view.GetNrOfDices();
-          this._guessedScore = this._view.GetScoreGuess();
-          this._diceCupe.SetDice(dices);
-          this._diceCupe.RollDice();
+        int dices = this._view.GetNrOfDices();
+        this._guessedScore = this._view.GetScoreGuess();
+        this._diceCupe.SetDice(dices);
+        this._diceCupe.RollDice();
       }
 
       public void DieRolled(int faceValue)
       {
-          this._view.PrintDie(faceValue);
+        this._view.PrintDie(faceValue);
       }
 
       public bool GetWinner()
       {
-          int score = this._diceCupe.GetScore();
-          return this._guessedScore == score;
+        int score = this._diceCupe.GetScore();
+        return this._guessedScore == score;
       }
 
   }

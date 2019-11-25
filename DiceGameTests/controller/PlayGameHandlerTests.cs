@@ -120,12 +120,25 @@ namespace DiceGameTests
           viewMock.Verify(mock => mock.PrintGameResult(It.IsAny<bool>()), Times.Once());
       }
 
-       [Fact]
+      [Fact]
       public void playGameShouldCallDiceCupReset()
       {
           this.sut.PlayGame();
 
           diceCupMock.Verify(mock => mock.Reset(), Times.Once());
+      }
+
+      [Fact]
+      public void playGameShouldContinueWhileStartGameReturnsTrue()
+      {
+          this.viewMock.SetupSequence(mock => mock.UserWantsToPlay())
+          .Returns(true)
+          .Returns(true)
+          .Returns(false);
+
+          this.sut.PlayGame();
+
+          viewMock.Verify(mock => mock.PrintGameResult(It.IsAny<bool>()), Times.Exactly(2));
       }
 
       [Fact]
