@@ -29,11 +29,14 @@ namespace DiceGame.controller
 
       public void PlayGame()
       {  
-        this.PlayOneRound();
+        while(this.StartGame())
+        {
+          this.PlayOneRound();
 
-        this.DisplayScoreAndGameResult();
+          this.DisplayScoreAndGameResult();
 
-        this._diceCupe.Reset();
+          this._diceCupe.Reset();
+        }
       }
 
       private void DisplayScoreAndGameResult()
