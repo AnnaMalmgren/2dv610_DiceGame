@@ -12,7 +12,7 @@
             "program": "${workspaceFolder}/DiceGame/bin/Debug/netcoreapp2.2/DiceGame.dll",
             "args": [],
             "cwd": "${workspaceFolder}/DiceGame",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopAtEntry": false
         },
         {
