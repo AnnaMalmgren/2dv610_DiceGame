@@ -79,6 +79,17 @@ namespace DiceGameTests
         Assert.Equal(25, actual);
       }
 
+      [Fact]
+      public void resetShouldEmptyDiceList()
+      {
+        this.sut.SetDice(5);
+        this.sut.Reset();
+
+        int actual = this.sut.Dice.Count;
+
+        Assert.Equal(0, actual);
+      }
+
        [Fact]
       public void addSubscribersShouldAddOneSubscriberToList()
       {

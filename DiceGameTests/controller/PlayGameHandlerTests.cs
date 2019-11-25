@@ -35,7 +35,7 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void startGameShouldReturnFalseIfUserWantsToPlay()
+      public void startGameShouldReturnFalseIfUserDontWantToPlay()
       {
           this.viewMock.Setup(mock => mock.UserWantsToPlay()).Returns(false);
           bool actual = this.sut.StartGame();
@@ -133,13 +133,12 @@ namespace DiceGameTests
           this.viewMock.Verify(mock => mock.PrintDie(It.IsAny<int>()));
       }
 
+
       [Fact]
       public void diceCupShouldAddPlayGameHandlerAsSubscriber()
       {
           diceCupMock.Verify(mock => mock.AddSubscriber(It.IsAny<IRollDieObserver>()), Times.Once());
       }
-
-
    
   }
 }
