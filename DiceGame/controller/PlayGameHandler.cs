@@ -22,10 +22,9 @@ namespace DiceGame.controller
 
       public void PlayGame()
       {
-        int dices = this._view.GetNrOfDices();
         this._guessedScore = this._view.GetScoreGuess();
-
-        this.PlayOneRound(dices);
+        
+        this.PlayOneRound();
 
         this.DisplayScoreAndGameResult();
 
@@ -45,10 +44,10 @@ namespace DiceGame.controller
           return this._view.UserWantsToPlay();
       }
 
-      public void PlayOneRound(int numOfDices)
+      public void PlayOneRound()
       {
-          this._view.GetNrOfDices();
-          this._diceCupe.SetDice(numOfDices);
+          int dices = this._view.GetNrOfDices();
+          this._diceCupe.SetDice(dices);
           this._diceCupe.RollDice();
       }
 
