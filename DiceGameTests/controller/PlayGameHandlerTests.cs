@@ -138,7 +138,7 @@ namespace DiceGameTests
 
           this.sut.PlayGame();
 
-          viewMock.Verify(mock => mock.PrintGameResult(It.IsAny<bool>()), Times.Exactly(2));
+          diceCupMock.Verify(mock => mock.Reset(), Times.Exactly(2));
       }
 
       [Fact]
