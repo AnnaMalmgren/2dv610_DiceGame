@@ -16,8 +16,6 @@ namespace DiceGameTests
 
       private Mock<DiceCup> diceCupMock;
 
-
-
       public PlayGameHandlerTests()
       {
           this.viewMock = new Mock<IMainGameView>();
@@ -50,6 +48,16 @@ namespace DiceGameTests
 
           this.viewMock.Verify(mock => mock.DisplayWelcomeMsg(), Times.Once());
       }
+
+      [Fact]
+      public void playOneRoundShouldGetNrOfDices()
+      {
+          int numDices = 3;
+          this.sut.PlayOneRound(numDices);
+
+          viewMock.Verify(mock => mock.GetNrOfDices(), Times.Once());
+      }
+
 
 
       [Fact]
@@ -92,14 +100,7 @@ namespace DiceGameTests
           Assert.False(this.sut.GetWinner());
       }
 
-      [Fact]
-      public void playGameShouldGetNrOfDices()
-      {
-          this.sut.PlayGame();
-
-          viewMock.Verify(mock => mock.GetNrOfDices(), Times.Once());
-      }
-
+      
       [Fact]
       public void playGameShouldGetScoreGuess()
       {
