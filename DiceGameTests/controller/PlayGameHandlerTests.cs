@@ -21,6 +21,10 @@ namespace DiceGameTests
           this.viewMock = new Mock<IMainGameView>();
           this.diceCupMock = new Mock<DiceCup>(new Mock<DiceFactory>().Object);
           this.sut = new PlayGameHandler(viewMock.Object, diceCupMock.Object);
+
+          this.viewMock.SetupSequence(mock => mock.UserWantsToPlay())
+          .Returns(true)
+          .Returns(false);
       }
 
       [Fact]
@@ -87,8 +91,7 @@ namespace DiceGameTests
       {
           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
           this.diceCupMock.Setup(mock => mock.GetScore()).Returns(10);
-          this.sut.StartGame();
-          this.sut.PlayGame();
+          this.sut.PlayOneRound();
 
           Assert.True(this.sut.GetWinner());
       }
@@ -98,8 +101,7 @@ namespace DiceGameTests
       {
           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
           this.diceCupMock.Setup(mock => mock.GetScore()).Returns(12);
-          this.sut.StartGame();
-          this.sut.PlayGame();
+          this.sut.PlayOneRound();
 
           Assert.False(this.sut.GetWinner());
       }

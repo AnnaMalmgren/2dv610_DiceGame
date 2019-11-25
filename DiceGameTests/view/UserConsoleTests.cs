@@ -52,7 +52,7 @@ namespace DiceGameTests
         string actual = this.sut.ReadLine();
 
         Assert.Equal(expected, actual);
-
     }
+
   }
 }
