@@ -47,6 +47,7 @@ namespace DiceGame.controller
       public void PlayOneRound()
       {
           int dices = this._view.GetNrOfDices();
+          this._guessedScore = this._view.GetScoreGuess();
           this._diceCupe.SetDice(dices);
           this._diceCupe.RollDice();
       }
