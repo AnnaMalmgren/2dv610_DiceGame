@@ -54,6 +54,7 @@ namespace DiceGame.model
 
     public void Reset()
     {
+      this._dice.Clear();
 
     }
 
