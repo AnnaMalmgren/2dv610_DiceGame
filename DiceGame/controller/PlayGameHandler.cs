@@ -21,9 +21,7 @@ namespace DiceGame.controller
       }
 
       public void PlayGame()
-      {
-        this._guessedScore = this._view.GetScoreGuess();
-        
+      {  
         this.PlayOneRound();
 
         this.DisplayScoreAndGameResult();
