@@ -52,7 +52,7 @@ namespace DiceGame.model
       return score;
     }
 
-    public void Reset()
+    virtual public void Reset()
     {
       this._dice.Clear();
 

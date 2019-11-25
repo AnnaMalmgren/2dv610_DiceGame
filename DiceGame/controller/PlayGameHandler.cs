@@ -29,6 +29,8 @@ namespace DiceGame.controller
 
         this._view.PrintTotalScore(this._diceCupe.GetScore());
         this._view.PrintGameResult(this.GetWinner());
+
+        this._diceCupe.Reset();
       }
 
       public bool StartGame()
