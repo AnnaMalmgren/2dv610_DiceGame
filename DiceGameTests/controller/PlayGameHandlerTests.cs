@@ -140,7 +140,6 @@ namespace DiceGameTests
           this.viewMock.Verify(mock => mock.PrintDie(It.IsAny<int>()));
       }
 
-
       [Fact]
       public void diceCupShouldAddPlayGameHandlerAsSubscriber()
       {

@@ -27,10 +27,15 @@ namespace DiceGame.controller
 
         this.PlayOneRound(dices);
 
-        this._view.PrintTotalScore(this._diceCupe.GetScore());
-        this._view.PrintGameResult(this.GetWinner());
+        this.DisplayScoreAndGameResult();
 
         this._diceCupe.Reset();
+      }
+
+      private void DisplayScoreAndGameResult()
+      {
+        this._view.PrintTotalScore(this._diceCupe.GetScore());
+        this._view.PrintGameResult(this.GetWinner());
       }
 
       public bool StartGame()
