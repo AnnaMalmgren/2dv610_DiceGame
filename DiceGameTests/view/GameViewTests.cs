@@ -90,23 +90,6 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void getGameResultsgShouldReturnYouWinStringWhenGivenTrue()
-      {
-        string actual = this.sut.GetGameResultMsg(true);
-
-        Assert.Equal("Congratualtions you win!", actual);
-
-      }
-
-      [Fact]
-      public void getGameResultShouldReturnYouLostStringWhenGivenFalse()
-      {
-        string actual = this.sut.GetGameResultMsg(false);
-
-        Assert.Equal("Sorry you lost!", actual);
-      }
-
-      [Fact]
       public void printGameResultShouldPrintGivenScore()
       {
         int inputScore = 10;
