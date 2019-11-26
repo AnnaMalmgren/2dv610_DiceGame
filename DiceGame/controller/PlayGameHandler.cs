@@ -43,7 +43,7 @@ namespace DiceGame.controller
         int dices = this._view.GetNrOfDices();
         this._guessedScore = this._view.GetScoreGuess();
         this._diceCupe.GetOneRoundScore(dices);
-        return 0;
+        return 20;
       }
 
       public void DieRolled(int faceValue)
