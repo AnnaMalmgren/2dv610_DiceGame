@@ -38,6 +38,14 @@ namespace DiceGameTests
         }
 
         [Fact]
+        public void runShouldCallStartGameTwiceForOneRound()
+        {
+            SetUpForRunWhileLoopOnce();
+            this.sut.Run();
+            this.gameMock.Verify(mock => mock.StartGame(), Times.Once());
+        }
+
+        [Fact]
         public void runShouldCallPlayGameOnceForOneRound()
         {
             SetUpForRunWhileLoopOnce();
