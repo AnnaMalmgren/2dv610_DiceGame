@@ -43,6 +43,7 @@ namespace DiceGame.view
     public void PrintGameResult(int score, bool isWinner)
     {
       this.PrintTotalScore(score);
+      this._console.WriteLine("Congratualtions you win!");
     }
 
     public string GetGameResultMsg(bool isWinner)
