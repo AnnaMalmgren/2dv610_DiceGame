@@ -22,7 +22,6 @@ namespace DiceGameTests
         this.sut = new DiceCup(this.factoryMock.Object);
 
         this.factoryMock.Setup(mock => mock.GetDie()).Returns(this.dieMock.Object);
-        this.dieMock.Setup(mock => mock.RollDie());
         this.dieMock.Setup(mock => mock.GetFaceValue()).Returns(5);
       }
 
@@ -73,7 +72,6 @@ namespace DiceGameTests
       public void getScoreShouldReturnFaceValueOfDieWhenOnlyOneDie()
       {
         this.sut.SetDice(1);
-        this.sut.RollDice();
         int actual = this.sut.GetScore();
 
         Assert.Equal(5, actual);
@@ -83,7 +81,6 @@ namespace DiceGameTests
       public void getScoreShouldReturnSumOfFaceValuesOfAllDice()
       {
         this.sut.SetDice(5);
-        this.sut.RollDice();
         int actual = this.sut.GetScore();
 
         Assert.Equal(25, actual);
