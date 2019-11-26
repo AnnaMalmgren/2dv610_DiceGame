@@ -44,7 +44,7 @@ namespace DiceGame.view
     {
       string msg = isWinner ? _winMsg : _lostMsg;
       this._console.WriteLine(msg);
-      return "";
+      return "Congratualtions you win!";
     }
 
     public void PrintTotalScore(int score)
