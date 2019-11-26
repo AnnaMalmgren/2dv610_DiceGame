@@ -23,9 +23,11 @@ namespace DiceGame.model
       this._factory = factory;
     }
 
-    public int GetOneRoundScore(int numDice)
+    public virtual int GetOneRoundScore(int numDice)
     {
-      return 25;
+      this.SetDice(numDice);
+      this.RollDice();
+      return this.GetScore();
     }
 
     public virtual void SetDice(int numDice)

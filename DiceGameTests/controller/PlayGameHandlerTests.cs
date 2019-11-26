@@ -78,6 +78,14 @@ namespace DiceGameTests
           diceCupMock.Verify(mock => mock.SetDice(numDices), Times.Once());
       }
 
+      [Fact]
+      public void playOneRoundShouldCallDiceCupGetOneRoundScore()
+      {
+          int numDices = 3;
+          this.sut.PlayOneRound();
+          diceCupMock.Verify(mock => mock.GetOneRoundScore(numDices), Times.Once());
+      }
+
     [Fact]
       public void playOneRoundShouldRollDice()
       {
