@@ -74,7 +74,7 @@ namespace DiceGameTests
       public void getWinnerShouldReturnTrueIfUserWins()
       {
           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
-          this.diceCupMock.Setup(mock => mock.GetScore()).Returns(10);
+          this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(10);
           this.sut.PlayOneRound();
 
           Assert.True(this.sut.GetWinner());
@@ -84,7 +84,7 @@ namespace DiceGameTests
       public void getWinnerShouldReturnFalseIfUserLost()
       {
           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
-          this.diceCupMock.Setup(mock => mock.GetScore()).Returns(12);
+           this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(12);
           this.sut.PlayOneRound();
 
           Assert.False(this.sut.GetWinner());
