@@ -13,7 +13,7 @@ namespace DiceGame.model
 
     public IReadOnlyList<IRollDieObserver> Subscribers => this._subscribers.AsReadOnly();
 
-    public IReadOnlyList<IDie> Dice => _dice.AsReadOnly();
+    public IReadOnlyList<IDie> Dice => this._dice.AsReadOnly();
 
     
     public DiceCup(DiceFactory factory)
@@ -23,9 +23,14 @@ namespace DiceGame.model
       this._factory = factory;
     }
 
-    public virtual void SetDice(int nrOfDice)
+    public int GetOneRoundScore(int numDice)
     {
-      for (int i = 0; i < nrOfDice; i++)
+      return 0;
+    }
+
+    public virtual void SetDice(int numDice)
+    {
+      for (int i = 0; i < numDice; i++)
       {
         this._dice.Add(this._factory.GetDie());
       }

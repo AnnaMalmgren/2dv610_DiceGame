@@ -26,7 +26,6 @@ namespace DiceGame.controller
         return this._view.UserWantsToPlay();
       }
 
-
       public void PlayGame()
       {  
         while(this.StartGame())
@@ -37,11 +36,6 @@ namespace DiceGame.controller
 
           this._diceCupe.Reset();
         }
-      }
-
-      public void GetResult()
-      {
-        
       }
 
       public void PlayOneRound()

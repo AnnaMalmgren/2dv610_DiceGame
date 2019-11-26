@@ -99,6 +99,14 @@ namespace DiceGameTests
       }
 
       [Fact]
+      public void getOneRoundScoreShouldReturnScore()
+      {
+        int actual = this.sut.GetOneRoundScore(5);
+        
+        Assert.Equal(25, actual);
+      }
+
+      [Fact]
       public void resetShouldEmptyDiceList()
       {
         this.sut.SetDice(5);
