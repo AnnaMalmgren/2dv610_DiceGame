@@ -12,8 +12,10 @@ namespace DiceGame
 
         public void Run()
         {
-            this._game.StartGame();
-            this._game.PlayGame();
+            while(this._game.StartGame())
+            {
+                this._game.PlayGame();
+            }
         }
 
     }
