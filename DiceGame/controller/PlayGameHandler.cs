@@ -38,11 +38,12 @@ namespace DiceGame.controller
         }
       }
 
-      public void PlayOneRound()
+      public int PlayOneRound()
       {
         int dices = this._view.GetNrOfDices();
         this._guessedScore = this._view.GetScoreGuess();
         this._diceCupe.GetOneRoundScore(dices);
+        return 0;
       }
 
       public void DieRolled(int faceValue)

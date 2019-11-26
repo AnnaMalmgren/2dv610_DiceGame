@@ -54,13 +54,6 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void playOneRoundShouldGetNrOfDices()
-      {
-          this.sut.PlayOneRound();
-          viewMock.Verify(mock => mock.GetNrOfDices(), Times.Once());
-      }
-
-      [Fact]
       public void playOneRoundShouldGetScoreGuess()
       {
           this.sut.PlayOneRound();
@@ -76,6 +69,17 @@ namespace DiceGameTests
           this.sut.PlayOneRound();
           diceCupMock.Verify(mock => mock.GetOneRoundScore(numDices), Times.Once());
       }
+
+       [Fact]
+      public void playOneRoundShouldReturnTotalScore()
+      {
+          int numDices = 4;
+          this.viewMock.Setup(mock => mock.GetNrOfDices()).Returns(numDices);
+          int actual = this.sut.PlayOneRound();
+          
+          Assert.Equal(20, actual);
+      }
+
 
    
       [Fact]
