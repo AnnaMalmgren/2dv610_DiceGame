@@ -90,7 +90,7 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void getGameResultsgShouldReturnYouWinString()
+      public void getGameResultsgShouldReturnYouWinStringWhenGivenTrue()
       {
         string actual = this.sut.GetGameResultMsg(true);
 
@@ -99,11 +99,11 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void printGameResultShouldPresentGameAsLost()
+      public void getGameResultShouldReturnYouLostStringWhenGivenFalse()
       {
-        this.sut.GetGameResultMsg(true);
+        string actual = this.sut.GetGameResultMsg(false);
 
-        this.mockConsole.Verify(mock => mock.WriteLine("Sorry you lost!"), Times.Once());
+        Assert.Equal("Sorry you lost!", actual);
       }
 
       [Fact]
