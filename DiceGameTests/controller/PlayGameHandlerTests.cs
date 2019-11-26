@@ -25,6 +25,8 @@ namespace DiceGameTests
           this.viewMock.SetupSequence(mock => mock.UserWantsToPlay())
           .Returns(true)
           .Returns(false);
+
+          this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
       }
 
       [Fact]
@@ -74,32 +76,24 @@ namespace DiceGameTests
       [Fact]
       public void displayGameResultShouldCallPrintGameResultTrue()
       {
-           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
-           this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(10);
+           int totalScore = 10;
+           this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(totalScore);
            this.sut.PlayOneRound();
            this.sut.DisplayGameResult();
 
-          this.viewMock.Verify(mock => mock.PrintGameResult(10, true), Times.Once());
+          this.viewMock.Verify(mock => mock.PrintGameResult(totalScore, true), Times.Once());
       }
 
       [Fact]
       public void displayGameResultShouldCallPrintGameResultFalse()
       {
-           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
-           this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(12);
+           int totalScore = 12;
+           this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(totalScore);
            this.sut.PlayOneRound();
            this.sut.DisplayGameResult();
 
-          this.viewMock.Verify(mock => mock.PrintGameResult(12, false), Times.Once());
+          this.viewMock.Verify(mock => mock.PrintGameResult(totalScore, false), Times.Once());
       }
-
-      [Fact]
-      public void playGameShouldCallPrintGameResult()
-      {
-          this.sut.PlayGame();
-          this.viewMock.Verify(mock => mock.PrintGameResult(It.IsAny<int>(), It.IsAny<bool>()));
-      }
-
 
       [Fact]
       public void playGameShouldCallDiceCupReset()
@@ -127,7 +121,7 @@ namespace DiceGameTests
       {
           int diceFaceValue = 4;
           this.sut.DieRolled(diceFaceValue);
-          this.viewMock.Verify(mock => mock.PrintDie(It.IsAny<int>()));
+          this.viewMock.Verify(mock => mock.PrintDie(It.IsAny<int>()), Times.Once());
       }
 
       [Fact]
