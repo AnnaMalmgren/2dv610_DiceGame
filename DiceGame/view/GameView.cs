@@ -46,14 +46,14 @@ namespace DiceGame.view
       this._console.WriteLine(this.GetGameResultMsg(isWinner));
     }
 
-    public string GetGameResultMsg(bool isWinner)
-    {
-      return isWinner ? _winMsg : _lostMsg;
-    }
-
     public void PrintTotalScore(int score)
     {
       this._console.WriteLine($"Your total score is: {score}");
+    }
+
+    public string GetGameResultMsg(bool isWinner)
+    {
+      return isWinner ? _winMsg : _lostMsg;
     }
 
     public int GetNrOfDices()
