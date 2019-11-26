@@ -25,7 +25,7 @@ namespace DiceGame.model
 
     public int GetOneRoundScore(int numDice)
     {
-      return 0;
+      return 25;
     }
 
     public virtual void SetDice(int numDice)
