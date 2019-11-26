@@ -30,14 +30,9 @@ namespace DiceGame.controller
 
       public virtual void PlayGame()
       {  
-        while(this.StartGame())
-        {
           this.PlayOneRound();
-
           this.DisplayGameResult();
-
           this._diceCup.Reset();
-        }
       }
 
       public void PlayOneRound()

@@ -22,10 +22,6 @@ namespace DiceGameTests
           this.diceCupMock = new Mock<IDiceCup>();
           this.sut = new PlayGameHandler(viewMock.Object, diceCupMock.Object);
 
-          this.viewMock.SetupSequence(mock => mock.UserWantsToPlay())
-          .Returns(true)
-          .Returns(false);
-
           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
       }
 
@@ -103,18 +99,6 @@ namespace DiceGameTests
           diceCupMock.Verify(mock => mock.Reset(), Times.Once());
       }
 
-      [Fact]
-      public void playGameShouldContinueWhileStartGameReturnsTrue()
-      {
-          this.viewMock.SetupSequence(mock => mock.UserWantsToPlay())
-          .Returns(true)
-          .Returns(true)
-          .Returns(false);
-
-          this.sut.PlayGame();
-
-          diceCupMock.Verify(mock => mock.Reset(), Times.Exactly(2));
-      }
 
       [Fact]
       public void dieRolledShouldPrintDieFaceValue()
