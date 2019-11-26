@@ -69,19 +69,6 @@ namespace DiceGameTests
           this.sut.PlayOneRound();
           diceCupMock.Verify(mock => mock.GetOneRoundScore(numDices), Times.Once());
       }
-
-       [Fact]
-      public void playOneRoundShouldReturnTotalScore()
-      {
-          int numDices = 4;
-          this.viewMock.Setup(mock => mock.GetNrOfDices()).Returns(numDices);
-          this.diceCupMock.Setup(mock => mock.GetOneRoundScore(numDices)).Returns(20);
-          int actual = this.sut.PlayOneRound();
-          
-          Assert.Equal(20, actual);
-      }
-
-
    
       [Fact]
       public void getWinnerShouldReturnTrueIfUserWins()

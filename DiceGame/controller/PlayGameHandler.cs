@@ -13,6 +13,8 @@ namespace DiceGame.controller
 
       private int _guessedScore;
 
+      private int _totalScore;
+
       public PlayGameHandler(view.IMainGameView view, model.DiceCup cup)
       {
           this._view = view;
@@ -38,11 +40,11 @@ namespace DiceGame.controller
         }
       }
 
-      public int PlayOneRound()
+      public void PlayOneRound()
       {
         int dices = this._view.GetNrOfDices();
         this._guessedScore = this._view.GetScoreGuess();
-        return this._diceCup.GetOneRoundScore(dices);
+        this._totalScore = this._diceCup.GetOneRoundScore(dices);
       }
 
       public void DieRolled(int faceValue)
