@@ -33,7 +33,7 @@ namespace DiceGame.controller
         {
           this.PlayOneRound();
 
-          this.DisplayScoreAndGameResult();
+          this._view.PrintGameResult(this._diceCupe.GetScore(), this.GetWinner());
 
           this._diceCupe.Reset();
         }
