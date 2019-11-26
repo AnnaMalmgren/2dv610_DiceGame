@@ -22,13 +22,13 @@ namespace DiceGame.controller
           this._diceCup.AddSubscriber(this);
       }
 
-      public bool StartGame()
+      public virtual bool StartGame()
       {
         this._view.DisplayWelcomeMsg();
         return this._view.UserWantsToPlay();
       }
 
-      public void PlayGame()
+      public virtual void PlayGame()
       {  
         while(this.StartGame())
         {
