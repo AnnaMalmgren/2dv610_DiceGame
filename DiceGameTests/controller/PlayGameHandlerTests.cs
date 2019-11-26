@@ -14,12 +14,12 @@ namespace DiceGameTests
 
       private Mock<IMainGameView> viewMock;
 
-      private Mock<DiceCup> diceCupMock;
+      private Mock<IDiceCup> diceCupMock;
 
       public PlayGameHandlerTests()
       {
           this.viewMock = new Mock<IMainGameView>();
-          this.diceCupMock = new Mock<DiceCup>(new Mock<DiceFactory>().Object);
+          this.diceCupMock = new Mock<IDiceCup>();
           this.sut = new PlayGameHandler(viewMock.Object, diceCupMock.Object);
 
           this.viewMock.SetupSequence(mock => mock.UserWantsToPlay())

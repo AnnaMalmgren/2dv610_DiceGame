@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace DiceGame.model
 {
-  public class DiceCup
+  public class DiceCup : IDiceCup
   {
 
     private List<IDie> _dice;
@@ -23,14 +23,14 @@ namespace DiceGame.model
       this._factory = factory;
     }
 
-    public virtual int GetOneRoundScore(int numDice)
+    public int GetOneRoundScore(int numDice)
     {
       this.SetDice(numDice);
       this.RollDice();
       return this.GetScore();
     }
 
-    public virtual void SetDice(int numDice)
+    public void SetDice(int numDice)
     {
       for (int i = 0; i < numDice; i++)
       {
@@ -38,7 +38,7 @@ namespace DiceGame.model
       }
     }
 
-    public virtual void RollDice()
+    public void RollDice()
     {
       foreach (IDie die in this._dice)
       {
@@ -47,7 +47,7 @@ namespace DiceGame.model
       }
     }
 
-    public virtual int GetScore()
+    public int GetScore()
     {
       int score = 0;
 
@@ -59,13 +59,13 @@ namespace DiceGame.model
       return score;
     }
 
-    virtual public void Reset()
+    public void Reset()
     {
       this._dice.Clear();
 
     }
 
-    public virtual void AddSubscriber(IRollDieObserver subscriber)
+    public void AddSubscriber(IRollDieObserver subscriber)
     {
       this._subscribers.Add(subscriber);
     }

@@ -9,13 +9,13 @@ namespace DiceGame.controller
       private view.IMainGameView _view;
 
 
-      private model.DiceCup _diceCup;
+      private model.IDiceCup _diceCup;
 
       private int _guessedScore;
 
       private int _totalScore;
 
-      public PlayGameHandler(view.IMainGameView view, model.DiceCup cup)
+      public PlayGameHandler(view.IMainGameView view, model.IDiceCup cup)
       {
           this._view = view;
           this._diceCup = cup;
