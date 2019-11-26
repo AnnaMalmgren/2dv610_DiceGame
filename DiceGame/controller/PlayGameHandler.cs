@@ -9,15 +9,15 @@ namespace DiceGame.controller
       private view.IMainGameView _view;
 
 
-      private model.DiceCup _diceCupe;
+      private model.DiceCup _diceCup;
 
       private int _guessedScore;
 
       public PlayGameHandler(view.IMainGameView view, model.DiceCup cup)
       {
           this._view = view;
-          this._diceCupe = cup;
-          this._diceCupe.AddSubscriber(this);
+          this._diceCup = cup;
+          this._diceCup.AddSubscriber(this);
       }
 
       public bool StartGame()
@@ -32,9 +32,9 @@ namespace DiceGame.controller
         {
           this.PlayOneRound();
 
-          this._view.PrintGameResult(this._diceCupe.GetScore(), this.GetWinner());
+          this._view.PrintGameResult(this._diceCup.GetScore(), this.GetWinner());
 
-          this._diceCupe.Reset();
+          this._diceCup.Reset();
         }
       }
 
@@ -42,8 +42,7 @@ namespace DiceGame.controller
       {
         int dices = this._view.GetNrOfDices();
         this._guessedScore = this._view.GetScoreGuess();
-        this._diceCupe.GetOneRoundScore(dices);
-        return 20;
+        return this._diceCup.GetOneRoundScore(dices);
       }
 
       public void DieRolled(int faceValue)
@@ -53,7 +52,7 @@ namespace DiceGame.controller
 
       public bool GetWinner()
       {
-        int score = this._diceCupe.GetScore();
+        int score = this._diceCup.GetScore();
         return this._guessedScore == score;
       }
 
