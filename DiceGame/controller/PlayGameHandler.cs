@@ -34,7 +34,7 @@ namespace DiceGame.controller
         {
           this.PlayOneRound();
 
-          this._view.PrintGameResult(this._diceCup.GetScore(), this.GetWinner());
+          this._view.PrintGameResult(this._totalScore, this.GetWinner());
 
           this._diceCup.Reset();
         }
@@ -54,8 +54,7 @@ namespace DiceGame.controller
 
       public bool GetWinner()
       {
-        int score = this._diceCup.GetScore();
-        return this._guessedScore == score;
+        return this._guessedScore == this._totalScore;
       }
 
   }

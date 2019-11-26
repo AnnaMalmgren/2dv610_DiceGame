@@ -91,6 +91,17 @@ namespace DiceGameTests
       }
 
       [Fact]
+      public void getWinnerShouldCallPrintGameResultTrue()
+      {
+           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
+           this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(10);
+           this.sut.PlayOneRound();
+           this.sut.GetWinner();
+
+          this.viewMock.Verify(mock => mock.PrintGameResult(10, true), Times.Once());
+      }
+
+      [Fact]
       public void playGameShouldCallPrintGameResult()
       {
           this.sut.PlayGame();
