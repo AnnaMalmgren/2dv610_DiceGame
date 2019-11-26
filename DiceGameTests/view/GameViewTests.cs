@@ -116,6 +116,15 @@ namespace DiceGameTests
         Times.Once());
       }
 
+      [Fact]
+      public void printGameResultShouldPrintYouWinWhengivenTrue()
+      {
+        sut.PrintGameResult(10, true);
+
+        this.mockConsole.Verify(mock => mock.WriteLine($"Congratualtions you win!"),
+        Times.Once());
+      }
+
 
       [Fact]
       public void getScoreGuessShouldReturnEnteredInt()
