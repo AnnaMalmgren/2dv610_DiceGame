@@ -42,7 +42,7 @@ namespace DiceGame.controller
       private void DisplayScoreAndGameResult()
       {
         this._view.PrintTotalScore(this._diceCupe.GetScore());
-        this._view.PrintGameResult(this.GetWinner());
+        this._view.GetGameResultMsg(this.GetWinner());
       }
 
       public void PlayOneRound()

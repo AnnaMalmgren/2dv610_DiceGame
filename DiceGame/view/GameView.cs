@@ -40,10 +40,11 @@ namespace DiceGame.view
       this._console.WriteLine($"Facevalue: {faceValue}");
     }
 
-    public void PrintGameResult(bool isWinner)
+    public string GetGameResultMsg(bool isWinner)
     {
       string msg = isWinner ? _winMsg : _lostMsg;
       this._console.WriteLine(msg);
+      return "";
     }
 
     public void PrintTotalScore(int score)

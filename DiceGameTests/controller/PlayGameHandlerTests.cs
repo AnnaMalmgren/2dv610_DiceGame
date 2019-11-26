@@ -119,7 +119,7 @@ namespace DiceGameTests
       {
           this.sut.PlayGame();
 
-          viewMock.Verify(mock => mock.PrintGameResult(It.IsAny<bool>()), Times.Once());
+          viewMock.Verify(mock => mock.GetGameResultMsg(It.IsAny<bool>()), Times.Once());
       }
 
       [Fact]

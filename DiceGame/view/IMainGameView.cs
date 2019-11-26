@@ -17,7 +17,7 @@ namespace DiceGame.view
 
       int GetScoreGuess();
 
-      void PrintGameResult(bool isWinner);
+      string GetGameResultMsg(bool isWinner);
 
   }
 }

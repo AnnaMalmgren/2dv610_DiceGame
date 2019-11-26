@@ -90,18 +90,18 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void printGameResultShouldPresentUserAsWinner()
+      public void getGameResultsgShouldReturnYouWinString()
       {
-        this.sut.PrintGameResult(true);
+        string actual = this.sut.GetGameResultMsg(true);
 
-        this.mockConsole.Verify(mock => mock.WriteLine("Congratualtions you win!"));
+        Assert.Equal("Congratualtions you win!", actual);
 
       }
 
       [Fact]
       public void printGameResultShouldPresentGameAsLost()
       {
-        this.sut.PrintGameResult(false);
+        this.sut.GetGameResultMsg(true);
 
         this.mockConsole.Verify(mock => mock.WriteLine("Sorry you lost!"), Times.Once());
       }
