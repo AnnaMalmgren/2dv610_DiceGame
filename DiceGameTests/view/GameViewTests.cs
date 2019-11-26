@@ -130,7 +130,7 @@ namespace DiceGameTests
       {
         sut.PrintGameResult(10, false);
 
-        this.mockConsole.Verify(mock => mock.WriteLine($"you lost!"),
+        this.mockConsole.Verify(mock => mock.WriteLine($"Sorry you lost!"),
         Times.Once());
       }
 
