@@ -22,16 +22,25 @@ namespace DiceGameTests
             this.sut = new App(this.gameMock.Object);
         }
 
-        [Fact]
-        public void runShouldCallStartGame()
+        private void SetUpForRunWhileLoopOnce()
         {
+            this.gameMock.SetupSequence(mock => mock.StartGame())
+            .Returns(true)
+            .Returns(false);
+        }
+
+        [Fact]
+        public void runShouldCallStartGameOnlyOnceIfCalledWithFalse()
+        {
+            this.gameMock.Setup(mock => mock.StartGame()).Returns(false);
             this.sut.Run();
             this.gameMock.Verify(mock => mock.StartGame(), Times.Once());
         }
 
         [Fact]
-        public void runShouldCallPlayGame()
+        public void runShouldCallPlayGameOnceForOneRound()
         {
+            SetUpForRunWhileLoopOnce();
             this.sut.Run();
             this.gameMock.Verify(mock => mock.PlayGame(), Times.Once());
         }

@@ -17,8 +17,9 @@ namespace DiceGame
             DiceFactory factory = new DiceFactory();
             DiceCup dices = new DiceCup(factory);
             PlayGameHandler game = new PlayGameHandler(gView, dices);
+            App app = new App(game);
 
-            game.PlayGame();
+            app.Run();
         }
     }
 }
