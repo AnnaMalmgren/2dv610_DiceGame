@@ -34,7 +34,7 @@ namespace DiceGame.controller
         {
           this.PlayOneRound();
 
-          this._view.PrintGameResult(this._totalScore, this.GetWinner());
+          this.DisplayGameResult();
 
           this._diceCup.Reset();
         }
@@ -52,10 +52,10 @@ namespace DiceGame.controller
         this._view.PrintDie(faceValue);
       }
 
-      public bool GetWinner()
+      public void DisplayGameResult()
       {
-        this._view.PrintGameResult(10, true);
-        return this._guessedScore == this._totalScore;
+        bool isWinner = this._guessedScore == this._totalScore;
+        this._view.PrintGameResult(this._totalScore, isWinner);
       }
 
   }

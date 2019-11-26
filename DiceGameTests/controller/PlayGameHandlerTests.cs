@@ -69,36 +69,28 @@ namespace DiceGameTests
           this.sut.PlayOneRound();
           diceCupMock.Verify(mock => mock.GetOneRoundScore(numDices), Times.Once());
       }
-   
-      [Fact]
-      public void getWinnerShouldReturnTrueIfUserWins()
-      {
-          this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
-          this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(10);
-          this.sut.PlayOneRound();
 
-          Assert.True(this.sut.GetWinner());
-      }
 
       [Fact]
-      public void getWinnerShouldReturnFalseIfUserLost()
-      {
-          this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
-           this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(12);
-          this.sut.PlayOneRound();
-
-          Assert.False(this.sut.GetWinner());
-      }
-
-      [Fact]
-      public void getWinnerShouldCallPrintGameResultTrue()
+      public void displayGameResultShouldCallPrintGameResultTrue()
       {
            this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
            this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(10);
            this.sut.PlayOneRound();
-           this.sut.GetWinner();
+           this.sut.DisplayGameResult();
 
           this.viewMock.Verify(mock => mock.PrintGameResult(10, true), Times.Once());
+      }
+
+      [Fact]
+      public void displayGameResultShouldCallPrintGameResultFalse()
+      {
+           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
+           this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(10);
+           this.sut.PlayOneRound();
+           this.sut.DisplayGameResult();
+
+          this.viewMock.Verify(mock => mock.PrintGameResult(10, false), Times.Once());
       }
 
       [Fact]
