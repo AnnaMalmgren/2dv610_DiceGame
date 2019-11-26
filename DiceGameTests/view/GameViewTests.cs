@@ -125,7 +125,6 @@ namespace DiceGameTests
         Times.Once());
       }
 
-
       [Fact]
       public void getScoreGuessShouldReturnEnteredInt()
       {
