@@ -54,6 +54,7 @@ namespace DiceGame.controller
 
       public bool GetWinner()
       {
+        this._view.PrintGameResult(10, true);
         return this._guessedScore == this._totalScore;
       }
 
