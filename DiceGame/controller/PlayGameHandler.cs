@@ -39,10 +39,9 @@ namespace DiceGame.controller
         }
       }
 
-      private void DisplayScoreAndGameResult()
+      public void GetResult()
       {
-        this._view.PrintTotalScore(this._diceCupe.GetScore());
-        this._view.GetGameResultMsg(this.GetWinner());
+        
       }
 
       public void PlayOneRound()

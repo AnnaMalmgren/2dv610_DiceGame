@@ -111,24 +111,8 @@ namespace DiceGameTests
       {
           this.sut.PlayGame();
           this.viewMock.Verify(mock => mock.PrintGameResult(It.IsAny<int>(), It.IsAny<bool>()));
-
       }
 
-      [Fact]
-      public void playGameShouldCallPrintTotalScore()
-      {
-          this.diceCupMock.Setup(mock => mock.GetScore()).Returns(12);
-          this.sut.PlayGame();
-          this.viewMock.Verify(mock => mock.PrintTotalScore(12));
-      }
-
-      [Fact]
-      public void playGameShouldCallGetGameResultMsg()
-      {
-          this.sut.PlayGame();
-
-          viewMock.Verify(mock => mock.GetGameResultMsg(It.IsAny<bool>()), Times.Once());
-      }
 
       [Fact]
       public void playGameShouldCallDiceCupReset()
