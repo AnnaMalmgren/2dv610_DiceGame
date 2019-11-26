@@ -126,6 +126,15 @@ namespace DiceGameTests
       }
 
       [Fact]
+      public void printGameResultShouldPrintYouLostWhengivenFalse()
+      {
+        sut.PrintGameResult(10, false);
+
+        this.mockConsole.Verify(mock => mock.WriteLine($"you lost!"),
+        Times.Once());
+      }
+
+      [Fact]
       public void getScoreGuessShouldReturnEnteredInt()
       {
         this.mockConsole.Setup(mock => mock.ReadLine()).Returns("10");
