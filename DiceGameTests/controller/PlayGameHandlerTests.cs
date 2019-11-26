@@ -69,16 +69,6 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void playOneRoundShouldSetNumDicesInDiceCup()
-      {
-          int numDices = 3;
-          this.viewMock.Setup(mock => mock.GetNrOfDices()).Returns(numDices);
-          this.sut.PlayOneRound();
-
-          diceCupMock.Verify(mock => mock.SetDice(numDices), Times.Once());
-      }
-
-      [Fact]
       public void playOneRoundShouldCallDiceCupGetOneRoundScore()
       {
           int numDices = 3;
@@ -87,14 +77,7 @@ namespace DiceGameTests
           diceCupMock.Verify(mock => mock.GetOneRoundScore(numDices), Times.Once());
       }
 
-    [Fact]
-      public void playOneRoundShouldRollDice()
-      {
-          this.sut.PlayOneRound();
-
-          diceCupMock.Verify(mock => mock.RollDice(), Times.Once());
-      }
-
+   
       [Fact]
       public void getWinnerShouldReturnTrueIfUserWins()
       {
