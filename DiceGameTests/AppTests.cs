@@ -42,7 +42,7 @@ namespace DiceGameTests
         {
             SetUpForRunWhileLoopOnce();
             this.sut.Run();
-            this.gameMock.Verify(mock => mock.StartGame(), Times.Once());
+            this.gameMock.Verify(mock => mock.StartGame(), Times.Exactly(2));
         }
 
         [Fact]
