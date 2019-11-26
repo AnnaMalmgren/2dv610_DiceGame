@@ -35,16 +35,19 @@ namespace DiceGame.view
     }
 
     
-    public  virtual void PrintDie(int faceValue)
+    public void PrintDie(int faceValue)
     {
       this._console.WriteLine($"Facevalue: {faceValue}");
     }
 
+    public void PrintGameResult(int score, bool isWinner)
+    {
+
+    }
+
     public string GetGameResultMsg(bool isWinner)
     {
-      string msg = isWinner ? _winMsg : _lostMsg;
-      this._console.WriteLine(msg);
-      return "Congratualtions you win!";
+      return isWinner ? _winMsg : _lostMsg;
     }
 
     public void PrintTotalScore(int score)

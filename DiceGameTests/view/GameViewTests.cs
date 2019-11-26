@@ -107,7 +107,15 @@ namespace DiceGameTests
       }
 
       [Fact]
+      public void printGameResultShouldPrintGivenScore()
+      {
+        int inputScore = 10;
+        sut.PrintGameResult(inputScore, true);
 
+        this.mockConsole.Verify(mock => mock.WriteLine($"Your total score is: {inputScore}"));
+      }
+
+      [Fact]
       public void printTotalScoreShouldPrintGivenScore()
       {
         int input = 12;

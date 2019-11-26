@@ -15,6 +15,8 @@ namespace DiceGame.view
 
       void PrintTotalScore(int score);
 
+      void PrintGameResult(int score, bool isWinner);
+
       int GetScoreGuess();
 
       string GetGameResultMsg(bool isWinner);
