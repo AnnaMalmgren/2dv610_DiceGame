@@ -7,7 +7,7 @@ namespace DiceGame.model
 
     private List<IDie> _dice;
 
-    private DiceFactory _factory;
+    private DieFactory _factory;
 
     private List<IRollDieObserver> _subscribers;
 
@@ -16,7 +16,7 @@ namespace DiceGame.model
     public IReadOnlyList<IDie> Dice => this._dice.AsReadOnly();
 
     
-    public DiceCup(DiceFactory factory)
+    public DiceCup(DieFactory factory)
     {
       this._dice = new List<IDie>();
       this._subscribers = new List<IRollDieObserver>();

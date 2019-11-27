@@ -2,7 +2,7 @@ using System;
 
 namespace DiceGame.model
 {
-    public class DiceFactory
+    public class DieFactory
     {
         public virtual IDie GetDie()
         {

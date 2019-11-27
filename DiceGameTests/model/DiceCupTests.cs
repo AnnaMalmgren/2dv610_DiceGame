@@ -7,7 +7,7 @@ namespace DiceGameTests
 {
   public class DiceCupTest
   {
-      private Mock<DiceFactory> factoryMock;
+      private Mock<DieFactory> factoryMock;
       private Mock<IDie> dieMock;
 
       private Mock<IRollDieObserver> subscriberMock;
@@ -16,7 +16,7 @@ namespace DiceGameTests
 
       public DiceCupTest()
       {
-        this.factoryMock = new Mock<DiceFactory>();
+        this.factoryMock = new Mock<DieFactory>();
         this.dieMock = new Mock<IDie>();
         this.subscriberMock = new Mock<IRollDieObserver>();
         this.sut = new DiceCup(this.factoryMock.Object);

@@ -8,9 +8,9 @@ namespace DiceGameTests
   public class DiceFactoryTests
   {
       [Fact]
-      public void getDieShouldReturnIDie()
+      public void getDieShouldReturnTypeDie()
       {
-        DiceFactory sut = new DiceFactory();
+        DieFactory sut = new DieFactory();
         Assert.IsType<Die>(sut.GetDie());
       }
      

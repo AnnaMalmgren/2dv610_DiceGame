@@ -6,7 +6,7 @@ namespace DiceGame.model
     {
         public virtual IDiceCup GetDiceCup()
         {
-            return new DiceCup(new DiceFactory());
+            return new DiceCup(new DieFactory());
         }
 
     }
