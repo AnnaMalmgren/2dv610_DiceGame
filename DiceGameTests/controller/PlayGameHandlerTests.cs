@@ -14,13 +14,16 @@ namespace DiceGameTests
 
       private Mock<IMainGameView> viewMock;
 
+      private Mock<DiceCupFactory> diceFactoryMock;
+
       private Mock<IDiceCup> diceCupMock;
 
       public PlayGameHandlerTests()
       {
           this.viewMock = new Mock<IMainGameView>();
+          this.diceFactoryMock = new Mock<DiceCupFactory>();
           this.diceCupMock = new Mock<IDiceCup>();
-          this.sut = new PlayGameHandler(viewMock.Object, diceCupMock.Object);
+          this.sut = new PlayGameHandler(viewMock.Object, diceFactoryMock.Object);
 
           this.viewMock.Setup(mock => mock.GetScoreGuess()).Returns(10);
       }
@@ -54,7 +57,7 @@ namespace DiceGameTests
       [Fact]
       public void playOneRoundShouldGetScoreGuess()
       {
-          this.sut.PlayOneRound();
+          this.sut.PlayOneRound(this.diceCupMock.Object);
 
           viewMock.Verify(mock => mock.GetScoreGuess(), Times.Once());
       }
@@ -64,9 +67,18 @@ namespace DiceGameTests
       {
           int numDices = 3;
           this.viewMock.Setup(mock => mock.GetNrOfDices()).Returns(numDices);
-          this.sut.PlayOneRound();
+          this.sut.PlayOneRound(this.diceCupMock.Object);
           diceCupMock.Verify(mock => mock.GetOneRoundScore(numDices), Times.Once());
       }
+
+      [Fact]
+      public void playOneRoundShouldCallDiceCupReset()
+      {
+          this.sut.PlayOneRound(this.diceCupMock.Object);
+
+          diceCupMock.Verify(mock => mock.Reset(), Times.Once());
+      }
+
 
 
       [Fact]
@@ -74,7 +86,7 @@ namespace DiceGameTests
       {
            int totalScore = 10;
            this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(totalScore);
-           this.sut.PlayOneRound();
+           this.sut.PlayOneRound(this.diceCupMock.Object);
            this.sut.DisplayGameResult();
 
           this.viewMock.Verify(mock => mock.PrintGameResult(totalScore, true), Times.Once());
@@ -85,20 +97,11 @@ namespace DiceGameTests
       {
            int totalScore = 12;
            this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(totalScore);
-           this.sut.PlayOneRound();
+           this.sut.PlayOneRound(this.diceCupMock.Object);
            this.sut.DisplayGameResult();
 
           this.viewMock.Verify(mock => mock.PrintGameResult(totalScore, false), Times.Once());
       }
-
-      [Fact]
-      public void playGameShouldCallDiceCupReset()
-      {
-          this.sut.PlayGame();
-
-          diceCupMock.Verify(mock => mock.Reset(), Times.Once());
-      }
-
 
       [Fact]
       public void dieRolledShouldPrintDieFaceValue()
@@ -111,6 +114,7 @@ namespace DiceGameTests
       [Fact]
       public void diceCupShouldAddPlayGameHandlerAsSubscriber()
       {
+          this.sut.PlayOneRound(this.diceCupMock.Object);
           diceCupMock.Verify(mock => mock.AddSubscriber(It.IsAny<IRollDieObserver>()), Times.Once());
       }
    

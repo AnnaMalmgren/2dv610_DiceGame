@@ -17,8 +17,8 @@ namespace DiceGameTests
         public AppTests()
         {
             Mock<IMainGameView> view = new Mock<IMainGameView>();
-            Mock<IDiceCup> diceCup = new Mock<IDiceCup>();
-            this.gameMock = new Mock<PlayGameHandler>(view.Object, diceCup.Object);
+            Mock<DiceCupFactory> diceFactory = new Mock<DiceCupFactory>();
+            this.gameMock = new Mock<PlayGameHandler>(view.Object, diceFactory.Object);
             this.sut = new App(this.gameMock.Object);
         }
 

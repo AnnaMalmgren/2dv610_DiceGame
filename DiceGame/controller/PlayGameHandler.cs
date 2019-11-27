@@ -9,17 +9,16 @@ namespace DiceGame.controller
       private view.IMainGameView _view;
 
 
-      private model.IDiceCup _diceCup;
+      private model.DiceCupFactory _diceFactory;
 
       private int _guessedScore;
 
       private int _totalScore;
 
-      public PlayGameHandler(view.IMainGameView view, model.IDiceCup cup)
+      public PlayGameHandler(view.IMainGameView view, model.DiceCupFactory diceFactory)
       {
           this._view = view;
-          this._diceCup = cup;
-          this._diceCup.AddSubscriber(this);
+          this._diceFactory = diceFactory;
       }
 
       public virtual bool StartGame()
@@ -29,17 +28,19 @@ namespace DiceGame.controller
       }
 
       public virtual void PlayGame()
-      {  
-          this.PlayOneRound();
+      {
+          model.IDiceCup diceCup = this._diceFactory.GetDiceCup();
+          this.PlayOneRound(diceCup);
           this.DisplayGameResult();
-          this._diceCup.Reset();
       }
 
-      public void PlayOneRound()
+      public void PlayOneRound(model.IDiceCup diceCup)
       {
+        diceCup.AddSubscriber(this);
         int dices = this._view.GetNrOfDices();
         this._guessedScore = this._view.GetScoreGuess();
-        this._totalScore = this._diceCup.GetOneRoundScore(dices);
+        this._totalScore = diceCup.GetOneRoundScore(dices);
+        diceCup.Reset();
       }
 
       public void DieRolled(int faceValue)

@@ -14,8 +14,7 @@ namespace DiceGame
         {
             IUserConsole console = new UserConsole();
             GameView gView = new GameView(console);
-            DieFactory factory = new DieFactory();
-            DiceCup dices = new DiceCup(factory);
+            DiceCupFactory dices = new DiceCupFactory();
             PlayGameHandler game = new PlayGameHandler(gView, dices);
             App app = new App(game);
 
