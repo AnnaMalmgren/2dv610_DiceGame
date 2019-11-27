@@ -6,7 +6,7 @@ namespace DiceGame.model
     {
         public virtual IDiceCup GetDiceCup()
         {
-            throw new NotFiniteNumberException();
+            return new DiceCup(new DiceFactory());
         }
 
     }
