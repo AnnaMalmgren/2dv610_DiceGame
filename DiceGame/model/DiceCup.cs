@@ -4,7 +4,6 @@ namespace DiceGame.model
 {
   public class DiceCup : IDiceCup
   {
-
     private List<IDie> _dice;
 
     private DieFactory _factory;
@@ -62,7 +61,6 @@ namespace DiceGame.model
     public void Reset()
     {
       this._dice.Clear();
-
     }
 
     public void AddSubscriber(IRollDieObserver subscriber)

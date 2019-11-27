@@ -14,6 +14,8 @@ namespace DiceGameTests
 
       private DiceCup sut;
 
+      private int faceValue = 5;
+
       public DiceCupTest()
       {
         this.factoryMock = new Mock<DieFactory>();
@@ -22,7 +24,7 @@ namespace DiceGameTests
         this.sut = new DiceCup(this.factoryMock.Object);
 
         this.factoryMock.Setup(mock => mock.GetDie()).Returns(this.dieMock.Object);
-        this.dieMock.Setup(mock => mock.GetFaceValue()).Returns(5);
+        this.dieMock.Setup(mock => mock.GetFaceValue()).Returns(this.faceValue);
       }
 
       [Fact]
@@ -46,7 +48,6 @@ namespace DiceGameTests
         this.sut.SetDice(0);
         this.sut.RollDice();
         this.dieMock.Verify(mock => mock.RollDie(), Times.Exactly(0));
-
       }
 
       [Fact]
@@ -74,7 +75,7 @@ namespace DiceGameTests
         this.sut.SetDice(1);
         int actual = this.sut.GetScore();
 
-        Assert.Equal(5, actual);
+        Assert.Equal(this.faceValue, actual);
       }
 
       [Fact]
@@ -82,8 +83,9 @@ namespace DiceGameTests
       {
         this.sut.SetDice(5);
         int actual = this.sut.GetScore();
+        int expected = this.faceValue * 5;
 
-        Assert.Equal(25, actual);
+        Assert.Equal(expected, actual);
       }
 
       [Fact]
@@ -98,9 +100,11 @@ namespace DiceGameTests
       [Fact]
       public void getOneRoundScoreShouldReturnScore()
       {
-        int actual = this.sut.GetOneRoundScore(5);
+        int numDices = 5;
+        int actual = this.sut.GetOneRoundScore(numDices);
+        int expected = this.faceValue * numDices;
         
-        Assert.Equal(25, actual);
+        Assert.Equal(expected, actual);
       }
 
       [Fact]
@@ -127,12 +131,9 @@ namespace DiceGameTests
       {
          this.sut.AddSubscriber(this.subscriberMock.Object);
          this.sut.AddSubscriber(this.subscriberMock.Object);
-         int input = 5;
-         this.sut.NotifySubscribers(input);
+         this.sut.NotifySubscribers(this.faceValue);
          
          subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(2));
       }
-
-
   }
 }

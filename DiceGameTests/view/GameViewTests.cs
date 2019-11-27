@@ -126,7 +126,6 @@ namespace DiceGameTests
 
         this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Once());
         this.mockConsole.Verify(mock => mock.ReadLine(), Times.Once());
-
       }
   
   }

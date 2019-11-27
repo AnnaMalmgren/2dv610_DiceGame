@@ -26,7 +26,7 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void sidesDieShouldBeTwelve()
+      public void sidesDieShouldBeTwelveWhenInputIs12()
       {
         Die sut = new Die(this.randMock.Object, 12);
         int actual = sut.Sides;
@@ -34,19 +34,19 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void sidesOfDieExceptionIfLessThanFour()
+      public void dieThrowsArgumentExceptionIfSidesAreLessThanFour()
       {
-        Assert.Throws<ArgumentException>(() => new Die(this.randMock.Object, 0));
+        Assert.Throws<ArgumentException>(() => new Die(this.randMock.Object, 3));
       }
 
       [Fact]
-      public void sidesOfDieExceptionIfMoreThanTwelve()
+      public void dieThrowsArgumentExceptionIfSidesAreMoreThanTwelve()
       {
         Assert.Throws<ArgumentException>(() => new Die(this.randMock.Object, 13));
       }
 
       [Fact]
-      public void sidesOfDieMustBeEvenValue()
+      public void dieThrowsArgumentExceptionIfSidesAreUnevenNum()
       {
         Assert.Throws<ArgumentException>(() => new Die(this.randMock.Object, 5));
       }

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Xunit;
 using Moq;
 using DiceGame.view;
@@ -78,8 +77,6 @@ namespace DiceGameTests
 
           diceCupMock.Verify(mock => mock.Reset(), Times.Once());
       }
-
-
 
       [Fact]
       public void displayGameResultShouldCallPrintGameResultTrue()
