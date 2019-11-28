@@ -59,7 +59,7 @@ namespace DiceGameTests
       sut.RollDie();
       int actual = sut.GetFaceValue();
 
-      Assert.InRange<int>(actual, 1, 6);
+      Assert.InRange<int>(actual, 1, 7);
     }
 
     [Fact]

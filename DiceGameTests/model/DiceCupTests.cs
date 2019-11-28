@@ -58,7 +58,7 @@ namespace DiceGameTests
       }
       
       [Fact]
-      public void RollDieShouldNotifySubscribersEveryForEveryRollDie()
+      public void RollDieShouldNotifySubscribersForEveryRollDie()
       {
          this.sut.AddSubscriber(this.subscriberMock.Object);
          this.sut.GetOneRoundScore(this.inputNumDices);
