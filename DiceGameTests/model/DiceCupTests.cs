@@ -32,11 +32,10 @@ namespace DiceGameTests
       {
         this.sut.SetDice(0);
         this.factoryMock.Verify(mock => mock.GetDie(), Times.Exactly(0));
-
       }
 
       [Fact]
-      public void factoryGetDieShoulbBeCalledForAllDice()
+      public void factoryGetDieShoulbBeCalledForAllDiceSetBySetDice()
       {
         this.sut.SetDice(5);
         this.factoryMock.Verify(mock => mock.GetDie(), Times.Exactly(5));
@@ -86,15 +85,6 @@ namespace DiceGameTests
         int expected = this.faceValue * 5;
 
         Assert.Equal(expected, actual);
-      }
-
-      [Fact]
-      public void setDiceShouldAddChosenNumOfDiceToDiceList()
-      {
-        this.sut.SetDice(5);
-        int actual = this.sut.Dice.Count;
-        
-        Assert.Equal(5, actual);
       }
 
       [Fact]
