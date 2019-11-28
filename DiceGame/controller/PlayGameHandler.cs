@@ -3,8 +3,11 @@ namespace DiceGame.controller
   public class PlayGameHandler : model.IRollDieObserver
   {
     private view.IMainGameView _view;
+
     private model.DiceCupFactory _diceFactory;
+
     private int _guessedScore;
+
     private int _totalScore;
 
     public PlayGameHandler(view.IMainGameView view, model.DiceCupFactory diceFactory)

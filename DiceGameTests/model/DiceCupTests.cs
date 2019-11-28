@@ -7,10 +7,15 @@ namespace DiceGameTests
   public class DiceCupTest
   {
       private Mock<DieFactory> factoryMock;
+
       private Mock<IDie> dieMock;
+
       private Mock<IRollDieObserver> subscriberMock;
+
       private DiceCup sut;
+
       private int faceValue = 5;
+      
       private int inputNumDices = 4;
 
       public DiceCupTest()

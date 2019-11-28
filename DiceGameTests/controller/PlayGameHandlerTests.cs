@@ -9,8 +9,11 @@ namespace DiceGameTests
   public class PlayGameHandlerTests
   {
     private PlayGameHandler sut;
+
     private Mock<IMainGameView> viewMock;
+
     private Mock<DiceCupFactory> diceFactoryMock;
+    
     private Mock<IDiceCup> diceCupMock;
 
     public PlayGameHandlerTests()

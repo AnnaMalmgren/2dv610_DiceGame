@@ -4,6 +4,7 @@ namespace DiceGame.model
 {
   public class DiceCup : IDiceCup
   {
+    
     private List<IDie> _dice;
 
     private DieFactory _factory;

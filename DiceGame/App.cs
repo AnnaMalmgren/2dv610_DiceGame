@@ -3,7 +3,9 @@ namespace DiceGame
 {
   public class App
   {
+    
     private controller.PlayGameHandler _game;
+
     public App(model.GameHandlerFactory gameFactory)
     {
       this._game = gameFactory.GetPlayGameHandler();

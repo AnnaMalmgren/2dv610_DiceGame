@@ -8,6 +8,7 @@ namespace DiceGameTests
   public class DieTest
   {
     private Die sut;
+    
     private Mock<Random> randMock;
 
     public DieTest()

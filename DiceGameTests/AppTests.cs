@@ -10,6 +10,7 @@ namespace DiceGameTests
   public class AppTests
   {
     private App sut;
+    
     private Mock<PlayGameHandler> gameMock;
 
     private Mock<GameHandlerFactory> gameFactory;

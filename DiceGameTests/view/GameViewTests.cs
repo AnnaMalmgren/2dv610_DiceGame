@@ -7,6 +7,7 @@ namespace DiceGameTests
   public class GameViewTests
   {
     private Mock<IUserConsole> mockConsole;
+    
     private GameView sut;
 
     public GameViewTests()

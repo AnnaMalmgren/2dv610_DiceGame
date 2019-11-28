@@ -8,7 +8,9 @@ namespace DiceGameTests
   public class UserConsoleTests
   {
     private UserConsole sut;
+
     private string stringInput = "Test input string";
+    
     private char charInput = 'a';
 
     public UserConsoleTests()
