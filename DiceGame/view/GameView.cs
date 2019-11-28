@@ -67,7 +67,7 @@ namespace DiceGame.view
     {
       do
       {
-        if (int.TryParse(this._console.ReadLine(), out int numOfDices))
+        if (int.TryParse(this._console.ReadLine(), out int numOfDices) & numOfDices > 0)
         {
           return numOfDices;
         }
