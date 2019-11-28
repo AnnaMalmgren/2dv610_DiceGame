@@ -1,5 +1,4 @@
-﻿using DiceGame.model;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace DiceGame
 {
@@ -9,7 +8,7 @@ namespace DiceGame
         [ExcludeFromCodeCoverage]
         static void Main(string[] args)
         {
-            GameHandlerFactory gameFactory = new GameHandlerFactory();
+            model.GameHandlerFactory gameFactory = new model.GameHandlerFactory();
             App app = new App(gameFactory);
 
             app.Run();

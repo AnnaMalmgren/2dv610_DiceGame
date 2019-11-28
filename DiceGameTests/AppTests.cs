@@ -27,17 +27,10 @@ namespace DiceGameTests
       this.sut = new App(gameFactory.Object);
     }
 
-    private void SetUpForRunWhileLoopOnce()
-    {
-      this.gameMock.SetupSequence(mock => mock.StartGame())
-      .Returns(true)
-      .Returns(false);
-    }
-
     [Fact]
     public void SutShouldCallGetPlayGameHandler()
     {
-        this.gameFactory.Verify(mock => mock.GetPlayGameHandler(), Times.Once());
+      this.gameFactory.Verify(mock => mock.GetPlayGameHandler(), Times.Once());
     }
 
     [Fact]
@@ -79,6 +72,13 @@ namespace DiceGameTests
       this.sut.Run();
 
       this.gameMock.Verify(mock => mock.PlayGame(), Times.Exactly(3));
+    }
+
+    private void SetUpForRunWhileLoopOnce()
+    {
+      this.gameMock.SetupSequence(mock => mock.StartGame())
+      .Returns(true)
+      .Returns(false);
     }
   } 
 }
