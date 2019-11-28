@@ -74,7 +74,7 @@ namespace DiceGameTests
     }
 
     [Fact]
-    public void GetFaceValueShouldBeDiffrenetWhenDieRolled()
+    public void GetFaceValueShouldBeDifferentWhenDieRolled()
     {
       this.randMock.SetupSequence(m => m.Next(1, 7))
       .Returns(5)

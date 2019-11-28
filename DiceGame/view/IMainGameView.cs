@@ -5,7 +5,7 @@ namespace DiceGame.view
   {
       void DisplayWelcomeMsg();
       bool UserWantsToPlay();
-      char GetUserInput();
+      char GetUserInputChar();
       int GetNrOfDices();
       void PrintDie(int dieFaceValue);
       void PrintGameResult(int score, bool isWinner);

@@ -4,7 +4,6 @@ using DiceGame.view;
 using DiceGame.model;
 using DiceGame.controller;
 
-
 namespace DiceGameTests
 {
   public class PlayGameHandlerTests
@@ -81,6 +80,7 @@ namespace DiceGameTests
     {
       int totalScore = 10;
       this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(totalScore);
+      
       this.sut.PlayOneRound(this.diceCupMock.Object);
       this.sut.DisplayGameResult();
 
@@ -92,6 +92,7 @@ namespace DiceGameTests
     {
       int totalScore = 12;
       this.diceCupMock.Setup(mock => mock.GetOneRoundScore(It.IsAny<int>())).Returns(totalScore);
+      
       this.sut.PlayOneRound(this.diceCupMock.Object);
       this.sut.DisplayGameResult();
 
@@ -99,12 +100,12 @@ namespace DiceGameTests
     }
 
     [Fact]
-    public void DieRolledShouldPrintDieFaceValueWithFaceValueInt()
+    public void DieRolledShouldPrintDieWithFaceValueInt()
     {
-      int diceFaceValue = 4;
-      this.sut.DieRolled(diceFaceValue);
+      int dieFaceValue = 4;
+      this.sut.DieRolled(dieFaceValue);
     
-      this.viewMock.Verify(mock => mock.PrintDie(diceFaceValue), Times.Once());
+      this.viewMock.Verify(mock => mock.PrintDie(dieFaceValue), Times.Once());
     }
 
     [Fact]

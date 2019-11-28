@@ -25,9 +25,9 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void GetUserInputShouldReturnInputChar()
+      public void GetUserInputCharShouldReturnInputChar()
       {
-        this.sut.GetUserInput();
+        this.sut.GetUserInputChar();
 
         this.mockConsole.Verify(mock => mock.ReadKey(), Times.Once());
       }

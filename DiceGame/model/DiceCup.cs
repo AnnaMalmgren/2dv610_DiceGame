@@ -41,7 +41,7 @@ namespace DiceGame.model
       }
     }
 
-    public int GetScore()
+    private int GetScore()
     {
       int score = 0;
 

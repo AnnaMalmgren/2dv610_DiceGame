@@ -29,10 +29,15 @@ namespace DiceGame.controller
     public void PlayOneRound(model.IDiceCup diceCup)
     {
       diceCup.AddSubscriber(this);
+      this.SetGuessedAndTotalScore(diceCup);
+      diceCup.Reset();
+    }
+
+    private void SetGuessedAndTotalScore(model.IDiceCup diceCup)
+    {
       int dices = this._view.GetNrOfDices();
       this._guessedScore = this._view.GetScoreGuess();
       this._totalScore = diceCup.GetOneRoundScore(dices);
-      diceCup.Reset();
     }
     
     public void DisplayGameResult()

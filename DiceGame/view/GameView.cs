@@ -21,10 +21,10 @@ namespace DiceGame.view
 
     public bool UserWantsToPlay()
     {
-      return this.GetUserInput() != _exitKey;
+      return this.GetUserInputChar() != _exitKey;
     }
 
-    public char GetUserInput()
+    public char GetUserInputChar()
     {
       return Char.ToLower(this._console.ReadKey());
     }
