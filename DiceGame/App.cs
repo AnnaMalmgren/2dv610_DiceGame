@@ -6,7 +6,7 @@ namespace DiceGame
         private controller.PlayGameHandler _game;
         public App(model.GameHandlerFactory gameFactory)
         {
-            this._game = gameFactory.GetPlayGameHandler();
+           this._game = gameFactory.GetPlayGameHandler();
         }
 
         public void Run()

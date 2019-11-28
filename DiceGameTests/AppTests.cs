@@ -12,9 +12,11 @@ namespace DiceGameTests
     private App sut;
     private Mock<PlayGameHandler> gameMock;
 
+    private Mock<GameHandlerFactory> gameFactory;
+
     public AppTests()
     {
-      Mock<GameHandlerFactory> gameFactory = new Mock<GameHandlerFactory>();
+      this.gameFactory = new Mock<GameHandlerFactory>();
       Mock<IMainGameView> view = new Mock<IMainGameView>();
       Mock<DiceCupFactory> dices = new Mock<DiceCupFactory>();
       this.gameMock = new Mock<PlayGameHandler>(view.Object, dices.Object);
@@ -30,6 +32,12 @@ namespace DiceGameTests
       this.gameMock.SetupSequence(mock => mock.StartGame())
       .Returns(true)
       .Returns(false);
+    }
+
+    [Fact]
+    public void SutShouldCallGetPlayGameHandler()
+    {
+        this.gameFactory.Verify(mock => mock.GetPlayGameHandler(), Times.Once());
     }
 
     [Fact]
