@@ -1,5 +1,4 @@
-﻿using System;
-using DiceGame.model;
+﻿using DiceGame.model;
 using DiceGame.controller;
 using DiceGame.view;
 using System.Diagnostics.CodeAnalysis;

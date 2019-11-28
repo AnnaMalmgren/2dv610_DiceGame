@@ -127,6 +127,14 @@ namespace DiceGameTests
       }
 
       [Fact]
+      public void notifySubscribersShouldNotCallDieRolledIfZeroSubscribers()
+      {
+         this.sut.NotifySubscribers(this.faceValue);
+        
+         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(2));
+      }
+
+      [Fact]
       public void notifySubscribersShouldCallDieRolledOnSubscribers()
       {
          this.sut.AddSubscriber(this.subscriberMock.Object);
