@@ -64,6 +64,20 @@ namespace DiceGameTests
       }
 
       [Fact]
+      public void GetNrOfDiceShouldBeCalledAgainIfInputIsZeroOrNegative()
+      {
+        this.mockConsole.SetupSequence(mock => mock.ReadLine())
+        .Returns("-1")
+        .Returns("0")
+        .Returns("4");
+
+        this.sut.GetNrOfDices();
+
+        this.mockConsole.Verify(mock => mock.ReadLine(), Times.Exactly(3));
+      }
+
+
+      [Fact]
       public void UserWantsToPlayShouldReturnFalseWithInputCapitalQ()
       {
         this.mockConsole.Setup(mock => mock.ReadKey()).Returns('Q');
