@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 using Moq;
 using DiceGame.model;
@@ -9,12 +8,11 @@ namespace DiceGameTests
   {
       private Mock<DieFactory> factoryMock;
       private Mock<IDie> dieMock;
-
       private Mock<IRollDieObserver> subscriberMock;
-
       private DiceCup sut;
-
       private int faceValue = 5;
+
+      private int inputNumDices = 4;
 
       public DiceCupTest()
       {
@@ -28,48 +26,51 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void factoryGetDieShouldNotBeCalledWhenSetDiceIsCalledWith0()
+      public void FactoryGetDieShouldNotBeCalledWhenSetDiceIsCalledWith0()
       {
         this.sut.SetDice(0);
+
         this.factoryMock.Verify(mock => mock.GetDie(), Times.Exactly(0));
       }
 
       [Fact]
-      public void factoryGetDieShoulbBeCalledForAllDiceSetBySetDice()
+      public void FactoryGetDieShoulbBeCalledForAllDiceSetBySetDice()
       {
-        this.sut.SetDice(5);
-        this.factoryMock.Verify(mock => mock.GetDie(), Times.Exactly(5));
+        this.sut.SetDice(this.inputNumDices);
+
+        this.factoryMock.Verify(mock => mock.GetDie(), Times.Exactly(this.inputNumDices));
       }
       
       [Fact]
-      public void rolledDieShouldNotBeCalledWhenSetDiceIsCalledWith0()
+      public void RollDiceShouldNotBeCalledWhenSetDiceIsCalledWith0()
       {
         this.sut.SetDice(0);
         this.sut.RollDice();
+
         this.dieMock.Verify(mock => mock.RollDie(), Times.Exactly(0));
       }
 
       [Fact]
-      public void rollDieShoulbBeCalledForAllDice()
+      public void RollDiceShoulbBeCalledForAllDiceSetBySetDice()
       {
-        this.sut.SetDice(5);
+        this.sut.SetDice(this.inputNumDices);
         this.sut.RollDice();
-        this.dieMock.Verify(mock => mock.RollDie(), Times.Exactly(5));
+
+        this.dieMock.Verify(mock => mock.RollDie(), Times.Exactly(this.inputNumDices));
       }
       
       [Fact]
-      public void rollDieShouldNotifySubscribers()
+      public void RollDiceShouldNotifySubscribersEveryForEveryRollDie()
       {
-         Mock<IRollDieObserver> subscriberMock = new Mock<IRollDieObserver>();
-         this.sut.AddSubscriber(subscriberMock.Object);
-         this.sut.SetDice(3);
+         this.sut.AddSubscriber(this.subscriberMock.Object);
+         this.sut.SetDice(this.inputNumDices);
          this.sut.RollDice();
 
-         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(3));
+         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(this.inputNumDices));
       }
       
       [Fact]
-      public void getScoreShouldReturnFaceValueOfDieWhenOnlyOneDie()
+      public void GetScoreShouldReturnFaceValueOfDieWhenOnlyOneDie()
       {
         this.sut.SetDice(1);
         int actual = this.sut.GetScore();
@@ -78,29 +79,28 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void getScoreShouldReturnSumOfFaceValuesOfAllDice()
+      public void GetScoreShouldReturnSumOfFaceValuesOfAllDice()
       {
-        this.sut.SetDice(5);
+        this.sut.SetDice(this.inputNumDices);
         int actual = this.sut.GetScore();
-        int expected = this.faceValue * 5;
+        int expected = this.faceValue * this.inputNumDices;
 
         Assert.Equal(expected, actual);
       }
 
       [Fact]
-      public void getOneRoundScoreShouldReturnScore()
+      public void GetOneRoundScoreShouldReturnTotalScore()
       {
-        int numDices = 5;
-        int actual = this.sut.GetOneRoundScore(numDices);
-        int expected = this.faceValue * numDices;
+        int actual = this.sut.GetOneRoundScore(this.inputNumDices);
+        int expected = this.faceValue * this.inputNumDices;
         
         Assert.Equal(expected, actual);
       }
 
       [Fact]
-      public void resetShouldEmptyDiceListAndRollDiceShouldNotBeCalled()
+      public void ResetShouldEmptyDiceListAndRollDiceShouldNotBeCalled()
       {
-        this.sut.SetDice(5);
+        this.sut.SetDice(this.inputNumDices);
         this.sut.Reset();
         this.sut.RollDice();
 
@@ -108,7 +108,7 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void notifySubscribersShouldNotCallDieRolledIfZeroSubscribers()
+      public void NotifySubscribersShouldNotCallDieRolledIfZeroSubscribers()
       {
          this.sut.NotifySubscribers(this.faceValue);
         
@@ -116,14 +116,23 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void notifySubscribersShouldCallDieRolledOnSubscribers()
+      public void NotifySubscribersShouldCallDieRolledOnEverySubscriber()
       {
-         this.sut.AddSubscriber(this.subscriberMock.Object);
-         this.sut.AddSubscriber(this.subscriberMock.Object);
-         this.sut.AddSubscriber(this.subscriberMock.Object);
-         this.sut.NotifySubscribers(this.faceValue);
+        int numOfSubscrubers = 3;
+        AddSubscribersToList(numOfSubscrubers);
+       
+        this.sut.NotifySubscribers(this.faceValue);
          
-         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(3));
+        subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), 
+        Times.Exactly(numOfSubscrubers));
+      }
+
+      private void AddSubscribersToList(int numOfSubscrubers)
+      {
+         for(int i = 0; i < numOfSubscrubers; i++)
+        {
+          this.sut.AddSubscriber(this.subscriberMock.Object);
+        }
       }
   }
 }

@@ -10,7 +10,6 @@ namespace DiceGame.model
 
     private List<IRollDieObserver> _subscribers;
 
-    
     public DiceCup(DieFactory factory)
     {
       this._dice = new List<IDie>();
