@@ -124,11 +124,9 @@ namespace DiceGameTests
       public void GetScoreGuessShouldReturnEnteredInt()
       {
         this.mockConsole.Setup(mock => mock.ReadLine()).Returns("10");
+        int actual = this.sut.GetScoreGuess();
 
-        this.sut.GetScoreGuess();
-
-        this.mockConsole.Verify(mock => mock.WriteLine(It.IsAny<string>()), Times.Once());
-        this.mockConsole.Verify(mock => mock.ReadLine(), Times.Once());
+        Assert.Equal(20, actual);
       }
   
   }
