@@ -52,10 +52,10 @@ namespace DiceGameTests
     [Fact]
     public void PlayGameShouldCallGetDiceCup()
     {
-      Mock<DiceCupFactory> mockFactory = new Mock<DiceCupFactory>();
+      this.diceFactoryMock.Setup(mock => mock.GetDiceCup()).Returns(new Mock<IDiceCup>().Object);
       this.sut.PlayGame();
 
-      mockFactory.Verify(mock => mock.GetDiceCup(), Times.Once());
+      this.diceFactoryMock.Verify(mock => mock.GetDiceCup(), Times.Once());
     }
 
     [Fact]
