@@ -50,6 +50,15 @@ namespace DiceGameTests
     }
 
     [Fact]
+    public void PlayGameShouldCallGetDiceCup()
+    {
+      Mock<DiceCupFactory> mockFactory = new Mock<DiceCupFactory>();
+      this.sut.PlayGame();
+
+      mockFactory.Verify(mock => mock.GetDiceCup(), Times.Once());
+    }
+
+    [Fact]
     public void PlayOneRoundShouldCallGetScoreGuess()
     {
       this.sut.PlayOneRound(this.diceCupMock.Object);
