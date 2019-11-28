@@ -74,6 +74,21 @@ namespace DiceGameTests
     }
 
     [Fact]
+    public void GetFaceValueShouldBeDiffrenetWhenDieRolled()
+    {
+      this.randMock.SetupSequence(m => m.Next(1, 7))
+      .Returns(5)
+      .Returns(4);
+
+      this.sut.RollDie();
+      int value1 = this.sut.GetFaceValue();
+      this.sut.RollDie();
+      int value2 = this.sut.GetFaceValue();
+
+      Assert.Equal(value1, value2);
+    }
+
+    [Fact]
     public void GetFaceValueShouldBeTheSameWhenDieNotRolled()
     {
       this.randMock.Setup(m => m.Next(1, 7)).Returns(5);
