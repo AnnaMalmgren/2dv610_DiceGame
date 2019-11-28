@@ -14,10 +14,15 @@ namespace DiceGameTests
 
     public AppTests()
     {
+      Mock<GameHandlerFactory> gameFactory = new Mock<GameHandlerFactory>();
       Mock<IMainGameView> view = new Mock<IMainGameView>();
-      Mock<DiceCupFactory> diceFactory = new Mock<DiceCupFactory>();
-      this.gameMock = new Mock<PlayGameHandler>(view.Object, diceFactory.Object);
-      this.sut = new App(this.gameMock.Object);
+      Mock<DiceCupFactory> dices = new Mock<DiceCupFactory>();
+      this.gameMock = new Mock<PlayGameHandler>(view.Object, dices.Object);
+      
+      gameFactory.Setup(mock => mock.GetPlayGameHandler())
+      .Returns(this.gameMock.Object);
+
+      this.sut = new App(gameFactory.Object);
     }
 
     private void SetUpForRunWhileLoopOnce()

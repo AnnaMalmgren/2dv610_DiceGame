@@ -4,9 +4,9 @@ namespace DiceGame
     public class App
     {
         private controller.PlayGameHandler _game;
-        public App(controller.PlayGameHandler game)
+        public App(model.GameHandlerFactory gameFactory)
         {
-            this._game = game;
+            this._game = gameFactory.GetPlayGameHandler();
         }
 
         public void Run()
