@@ -70,7 +70,7 @@ namespace DiceGameTests
     public void PlayOneRoundShouldCallGetOneRoundScoreWithNumDices()
     {
       int numDices = 3;
-      this.viewMock.Setup(mock => mock.GetNrOfDices()).Returns(numDices);
+      this.viewMock.Setup(mock => mock.GetNrOfDice()).Returns(numDices);
       this.sut.PlayOneRound(this.diceCupMock.Object);
     
       diceCupMock.Verify(mock => mock.GetOneRoundScore(numDices), Times.Once());

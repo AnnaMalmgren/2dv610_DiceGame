@@ -35,7 +35,7 @@ namespace DiceGame.controller
 
     private void SetGuessedAndTotalScore(model.IDiceCup diceCup)
     {
-      int dices = this._view.GetNrOfDices();
+      int dices = this._view.GetNrOfDice();
       this._guessedScore = this._view.GetScoreGuess();
       this._totalScore = diceCup.GetOneRoundScore(dices);
     }

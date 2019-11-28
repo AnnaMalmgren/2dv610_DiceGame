@@ -42,10 +42,10 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void GetNrOfDicesShouldReturnInputEnteredByUser()
+      public void GetNrOfDiceShouldReturnInputEnteredByUser()
       {
         this.mockConsole.Setup(mock => mock.ReadLine()).Returns("2");
-        int actual = this.sut.GetNrOfDices();
+        int actual = this.sut.GetNrOfDice();
 
         Assert.Equal(2, actual);
       }
@@ -58,7 +58,7 @@ namespace DiceGameTests
         .Returns("Test")
         .Returns("4");
 
-        this.sut.GetNrOfDices();
+        this.sut.GetNrOfDice();
 
         this.mockConsole.Verify(mock => mock.ReadLine(), Times.Exactly(3));
       }
@@ -71,7 +71,7 @@ namespace DiceGameTests
         .Returns("0")
         .Returns("4");
 
-        this.sut.GetNrOfDices();
+        this.sut.GetNrOfDice();
 
         this.mockConsole.Verify(mock => mock.ReadLine(), Times.Exactly(3));
       }

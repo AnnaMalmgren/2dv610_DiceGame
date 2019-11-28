@@ -117,7 +117,7 @@
             }
           ]
         },
-        "System.Int32 DiceGame.view.GameView::GetNrOfDices()": {
+        "System.Int32 DiceGame.view.GameView::GetNrOfDice()": {
           "Lines": {
             "54": 3,
             "55": 3,

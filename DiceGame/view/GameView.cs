@@ -50,7 +50,7 @@ namespace DiceGame.view
       return isWinner ? _winMsg : _lostMsg;
     }
 
-    public int GetNrOfDices()
+    public int GetNrOfDice()
     {
       this._console.WriteLine(">Enter number of dices you want in the game: ");
 
