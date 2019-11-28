@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 using Moq;
 using DiceGame.view;
@@ -11,7 +10,6 @@ namespace DiceGameTests
     private Mock<IUserConsole> mockConsole;
     private GameView sut;
 
-
     public GameViewTests()
     {
       this.mockConsole = new Mock<IUserConsole>();
@@ -19,7 +17,7 @@ namespace DiceGameTests
     }
 
       [Fact]
-      public void displayWelcomeMsgShouldWriteToConsole()
+      public void DisplayWelcomeMsgShouldWriteMsgToConsole()
       {
         this.sut.DisplayWelcomeMsg();
         string input = "Welcome to DiceGame. Press any Key to play, or q to Quit";
@@ -28,26 +26,24 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void getUserInputShouldReturnInputChar()
+      public void GetUserInputShouldReturnInputChar()
       {
         this.sut.GetUserInput();
 
         this.mockConsole.Verify(mock => mock.ReadKey(), Times.Once());
-
       }
 
       [Fact]
-      public void printDieShouldPrintFaceValueOfDie()
+      public void PrintDieShouldPrintFaceValueOfDie()
       {
-        Mock<IDie> dieMock = new Mock<IDie>();
-        dieMock.Setup(mock => mock.GetFaceValue()).Returns(5);
-        this.sut.PrintDie(dieMock.Object.GetFaceValue());
+        int faceValue = 5;
+        this.sut.PrintDie(faceValue);
 
         this.mockConsole.Verify(mock => mock.WriteLine($"Facevalue: 5"));
       }
 
       [Fact]
-      public void getNrOfDicesShouldReturnNrOfDicesEntered()
+      public void GetNrOfDicesShouldReturnInputEnteredByUser()
       {
         this.mockConsole.Setup(mock => mock.ReadLine()).Returns("2");
         int actual = this.sut.GetNrOfDices();
@@ -56,7 +52,7 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void getNrOfDicesShouldBeCalledAgainIfNotAnInt()
+      public void GetNrOfDiceShouldBeCalledAgainIfInputIsNotAnInt()
       {
         this.mockConsole.SetupSequence(mock => mock.ReadLine())
         .Returns("Hello")
@@ -68,29 +64,36 @@ namespace DiceGameTests
         this.mockConsole.Verify(mock => mock.ReadLine(), Times.Exactly(3));
       }
 
-      [Theory]
-      [InlineData('q')]
-      [InlineData('Q')]
-      public void userWantsToPlayShouldReturnFalseWithInputQ(char input)
+      [Fact]
+      public void UserWantsToPlayShouldReturnFalseWithInputCapitalQ()
       {
-        this.mockConsole.Setup(mock => mock.ReadKey()).Returns(input);
+        this.mockConsole.Setup(mock => mock.ReadKey()).Returns('Q');
         bool actual = this.sut.UserWantsToPlay();
 
         Assert.False(actual);
       }
 
       [Fact]
-      public void userWantsToPlayShouldReturnTrueWhitNonQInput()
+      public void UserWantsToPlayShouldReturnFalseWithInputLowerCaseQ()
+      {
+        this.mockConsole.Setup(mock => mock.ReadKey()).Returns('q');
+        bool actual = this.sut.UserWantsToPlay();
+
+        Assert.False(actual);
+
+      }
+
+      [Fact]
+      public void UserWantsToPlayShouldReturnTrueWhitNonQInput()
       {
         this.mockConsole.Setup(mock => mock.ReadKey()).Returns('f');
         bool actual = this.sut.UserWantsToPlay();
 
         Assert.True(actual);
-
       }
 
       [Fact]
-      public void printGameResultShouldPrintGivenScore()
+      public void PrintGameResultShouldPrintGivenScore()
       {
         int inputScore = 10;
         sut.PrintGameResult(inputScore, true);
@@ -100,7 +103,7 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void printGameResultShouldPrintYouWinWhengivenTrue()
+      public void PrintGameResultShouldPrintYouWinMsgWhengivenTrue()
       {
         sut.PrintGameResult(10, true);
 
@@ -109,7 +112,7 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void printGameResultShouldPrintYouLostWhengivenFalse()
+      public void PrintGameResultShouldPrintYouLostMsgWhengivenFalse()
       {
         sut.PrintGameResult(10, false);
 
@@ -118,7 +121,7 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void getScoreGuessShouldReturnEnteredInt()
+      public void GetScoreGuessShouldReturnEnteredInt()
       {
         this.mockConsole.Setup(mock => mock.ReadLine()).Returns("10");
 

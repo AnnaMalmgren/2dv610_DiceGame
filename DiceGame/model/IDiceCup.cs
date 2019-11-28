@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace DiceGame.model
 {
   public interface IDiceCup
@@ -11,6 +9,5 @@ namespace DiceGame.model
       void Reset();
       void AddSubscriber(IRollDieObserver subscriber);
       void NotifySubscribers(int faceValue);
-
   }
 }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-
 namespace DiceGame.model
 {
   public class Die : IDie
@@ -45,14 +44,14 @@ namespace DiceGame.model
       return this._faceValue;
     }
 
-    public bool ValidateNrOfSides(int value)
+    private bool ValidateNrOfSides(int value)
     {
       if (!_allowedNrOfSides.Contains(value))
         {
           throw new ArgumentException();
         }
 
-        return true;
+      return true;
     }
 
   }

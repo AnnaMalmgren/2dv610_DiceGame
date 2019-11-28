@@ -1,13 +1,10 @@
-using System;
-
 namespace DiceGame.model
 {
-    public class DiceCupFactory
+  public class DiceCupFactory
+  {
+    public virtual IDiceCup GetDiceCup()
     {
-        public virtual IDiceCup GetDiceCup()
-        {
-            return new DiceCup(new DieFactory());
-        }
-
+      return new DiceCup(new DieFactory());
     }
+  }
 }

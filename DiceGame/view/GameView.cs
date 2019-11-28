@@ -1,18 +1,13 @@
 using System;
 
-
 namespace DiceGame.view
 {
   public class GameView : IMainGameView
   {
     private IUserConsole _console;
-
     private const char _exitKey = 'q';
-
     private const string _winMsg = "Congratualtions you win!";
     private const string _lostMsg = "Sorry you lost!";
-
-    
 
     public GameView(IUserConsole console)
     {
@@ -34,7 +29,6 @@ namespace DiceGame.view
       return Char.ToLower(this._console.ReadKey());
     }
 
-    
     public void PrintDie(int faceValue)
     {
       this._console.WriteLine($"Facevalue: {faceValue}");
@@ -77,9 +71,7 @@ namespace DiceGame.view
         {
           return numOfDices;
         }
-
       } while(true);
-
     }
 
   }
