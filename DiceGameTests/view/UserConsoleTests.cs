@@ -1,57 +1,50 @@
 using System;
 using System.IO;
 using Xunit;
-using Moq;
 using DiceGame.view;
-using System.Collections.Generic;
 
 namespace DiceGameTests
 {
   public class UserConsoleTests
   {
     private UserConsole sut;
-
+    private string stringInput = "Test input string";
+    private char charInput = 'a';
 
     public UserConsoleTests()
     {
-        this.sut = new UserConsole();
+      this.sut = new UserConsole();
     }
 
     [Fact]
-    public void writeLineShouldWriteToConsole()
+    public void WriteLineShouldWriteToConsole()
     {
-        StringWriter sw = new StringWriter();
-        Console.SetOut(sw);
-        this.sut.WriteLine("Test input string");
-        string expected = $"Test input string{Environment.NewLine}";
+      StringWriter sw = new StringWriter();
+      Console.SetOut(sw);
+      this.sut.WriteLine(this.stringInput);
+      string expected = $"{this.stringInput}{Environment.NewLine}";
             
-        Assert.Equal(expected, sw.ToString());       
-        
+      Assert.Equal(expected, sw.ToString());       
     }
 
     [Fact]
-    public void readKeyShouldReturnEnteredChar()
+    public void ReadKeyShouldReturnEnteredChar()
     {
-        char expected = 'a';
-        StringReader input = new StringReader(Char.ToString('a'));
-        Console.SetIn(input);
+      StringReader input = new StringReader(Char.ToString(this.charInput));
+      Console.SetIn(input);
+      char actual = this.sut.ReadKey();
 
-        char actual = this.sut.ReadKey();
-
-        Assert.Equal(expected, actual);
-
+      Assert.Equal(this.charInput, actual);
     }
 
     [Fact]
-    public void readLineShouldReturnEnteredString()
+    public void ReadLineShouldReturnEnteredString()
     {
-        string expected = "Test";
-        StringReader input = new StringReader(expected);
-        Console.SetIn(input);
+      StringReader input = new StringReader(this.stringInput);
+      Console.SetIn(input);
+      string actual = this.sut.ReadLine();
 
-        string actual = this.sut.ReadLine();
-
-        Assert.Equal(expected, actual);
+      Assert.Equal(this.stringInput, actual);
     }
 
   }

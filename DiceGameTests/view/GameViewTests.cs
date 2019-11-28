@@ -1,7 +1,6 @@
 using Xunit;
 using Moq;
 using DiceGame.view;
-using DiceGame.model;
 
 namespace DiceGameTests
 {
@@ -80,7 +79,6 @@ namespace DiceGameTests
         bool actual = this.sut.UserWantsToPlay();
 
         Assert.False(actual);
-
       }
 
       [Fact]
@@ -128,6 +126,5 @@ namespace DiceGameTests
 
         Assert.Equal(10, actual);
       }
-  
   }
 }
