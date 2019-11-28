@@ -98,14 +98,13 @@ namespace DiceGameTests
       }
 
       [Fact]
-      public void resetShouldEmptyDiceList()
+      public void resetShouldEmptyDiceListAndRollDiceShouldNotBeCalled()
       {
         this.sut.SetDice(5);
         this.sut.Reset();
+        this.sut.RollDice();
 
-        int actual = this.sut.Dice.Count;
-
-        Assert.Equal(0, actual);
+        this.dieMock.Verify(mock => mock.RollDie(), Times.Exactly(0));
       }
 
       [Fact]

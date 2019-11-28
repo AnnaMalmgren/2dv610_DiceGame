@@ -10,8 +10,6 @@ namespace DiceGame.model
 
     private List<IRollDieObserver> _subscribers;
 
-    public IReadOnlyList<IDie> Dice => this._dice.AsReadOnly();
-
     
     public DiceCup(DieFactory factory)
     {
