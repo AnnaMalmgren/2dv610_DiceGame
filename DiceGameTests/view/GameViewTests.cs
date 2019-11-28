@@ -126,7 +126,7 @@ namespace DiceGameTests
         this.mockConsole.Setup(mock => mock.ReadLine()).Returns("10");
         int actual = this.sut.GetScoreGuess();
 
-        Assert.Equal(20, actual);
+        Assert.Equal(10, actual);
       }
   
   }
