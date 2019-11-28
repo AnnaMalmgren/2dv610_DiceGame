@@ -118,14 +118,6 @@ namespace DiceGameTests
         Assert.Equal(0, actual);
       }
 
-       [Fact]
-      public void addSubscribersShouldAddOneSubscriberToList()
-      {
-        this.sut.AddSubscriber(this.subscriberMock.Object);
-
-        Assert.Equal(1, this.sut.Subscribers.Count);
-      }
-
       [Fact]
       public void notifySubscribersShouldNotCallDieRolledIfZeroSubscribers()
       {
@@ -139,9 +131,10 @@ namespace DiceGameTests
       {
          this.sut.AddSubscriber(this.subscriberMock.Object);
          this.sut.AddSubscriber(this.subscriberMock.Object);
+         this.sut.AddSubscriber(this.subscriberMock.Object);
          this.sut.NotifySubscribers(this.faceValue);
          
-         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(2));
+         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(3));
       }
   }
 }

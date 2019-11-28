@@ -10,8 +10,6 @@ namespace DiceGame.model
 
     private List<IRollDieObserver> _subscribers;
 
-    public IReadOnlyList<IRollDieObserver> Subscribers => this._subscribers.AsReadOnly();
-
     public IReadOnlyList<IDie> Dice => this._dice.AsReadOnly();
 
     
