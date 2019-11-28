@@ -85,7 +85,7 @@ namespace DiceGameTests
       this.sut.RollDie();
       int value2 = this.sut.GetFaceValue();
 
-      Assert.Equal(value1, value2);
+      Assert.NotEqual(value1, value2);
     }
 
     [Fact]
