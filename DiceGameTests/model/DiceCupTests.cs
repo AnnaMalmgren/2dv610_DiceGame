@@ -131,7 +131,7 @@ namespace DiceGameTests
       {
          this.sut.NotifySubscribers(this.faceValue);
         
-         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(2));
+         subscriberMock.Verify(mock => mock.DieRolled(It.IsAny<int>()), Times.Exactly(0));
       }
 
       [Fact]
